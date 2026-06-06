@@ -5,7 +5,7 @@ export default function NotFound() {
       <p className="text-xs uppercase tracking-[0.4em] text-gold">404</p>
       <h1 className="mt-4 font-serif text-5xl">Sayfa Bulunamadı</h1>
       <p className="mt-3 text-ivory/60">Page not found</p>
-      <a href="/tr" className="btn-gold mt-8">
+      <a href="/" className="btn-gold mt-8">
         Atelier Cake
       </a>
     </main>
