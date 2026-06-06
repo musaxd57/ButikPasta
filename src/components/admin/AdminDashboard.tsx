@@ -13,9 +13,10 @@ import {
   TrendingUp,
   Clock,
   CheckCircle,
+  BarChart3,
+  Inbox,
 } from 'lucide-react';
 import { formatPrice } from '@/lib/pricing';
-import { GALLERY } from '@/lib/data';
 import {
   BASE_PRICE,
   DECORATION_PRICE,
@@ -24,6 +25,9 @@ import {
 } from '@/lib/pricing';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/components/ui/Toast';
+import AdminGallery from './AdminGallery';
+import AdminMessages from './AdminMessages';
+import AdminAnalytics from './AdminAnalytics';
 
 interface Order {
   id: string;
@@ -46,7 +50,13 @@ const STATUS_COLOR: Record<string, string> = {
   CANCELLED: 'bg-rose-500/15 text-rose-400',
 };
 
-type Tab = 'dashboard' | 'orders' | 'gallery' | 'menu';
+type Tab =
+  | 'dashboard'
+  | 'orders'
+  | 'analytics'
+  | 'gallery'
+  | 'messages'
+  | 'menu';
 
 export default function AdminDashboard() {
   const t = useTranslations('admin');
@@ -90,7 +100,9 @@ export default function AdminDashboard() {
   const nav = [
     { id: 'dashboard' as Tab, icon: LayoutDashboard, label: t('dashboard') },
     { id: 'orders' as Tab, icon: ShoppingBag, label: t('orders') },
+    { id: 'analytics' as Tab, icon: BarChart3, label: t('analytics') },
     { id: 'gallery' as Tab, icon: ImageIcon, label: t('galleryMgmt') },
+    { id: 'messages' as Tab, icon: Inbox, label: t('inbox') },
     { id: 'menu' as Tab, icon: Settings, label: t('menuMgmt') },
   ];
 
@@ -161,7 +173,9 @@ export default function AdminDashboard() {
                 onUpdate={updateStatus}
               />
             )}
-            {tab === 'gallery' && <GalleryMgmt t={t} />}
+            {tab === 'analytics' && <AdminAnalytics orders={orders} t={t} />}
+            {tab === 'gallery' && <AdminGallery t={t} />}
+            {tab === 'messages' && <AdminMessages t={t} />}
             {tab === 'menu' && <MenuMgmt t={t} />}
           </>
         )}
@@ -310,32 +324,6 @@ function OrdersTable({
             ))}
           </tbody>
         </table>
-      </div>
-    </div>
-  );
-}
-
-function GalleryMgmt({ t }: { t: (k: string) => string }) {
-  return (
-    <div>
-      <h2 className="mb-6 font-serif text-3xl">{t('galleryMgmt')}</h2>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-        {GALLERY.map((g) => (
-          <div
-            key={g.id}
-            className="group relative overflow-hidden rounded-xl border border-ivory/10"
-          >
-            <img
-              src={g.imageUrl}
-              alt={g.titleEn}
-              className="aspect-square w-full object-cover"
-            />
-            <div className="p-2 text-xs">
-              <p className="truncate text-ivory/80">{g.titleEn}</p>
-              <p className="text-ivory/40">{g.category}</p>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );

@@ -240,7 +240,16 @@
     "statusIN_PROGRESS": "In Progress",
     "statusREADY": "Ready",
     "statusDELIVERED": "Delivered",
-    "statusCANCELLED": "Cancelled"
+    "statusCANCELLED": "Cancelled",
+    "analytics": "Analytics",
+    "inbox": "Inbox",
+    "messages": "Messages",
+    "subscribers": "Subscribers",
+    "noMessages": "No messages yet.",
+    "handled": "Handled",
+    "markHandled": "Mark handled",
+    "revenue6m": "Revenue (6 months)",
+    "statusDist": "Status Distribution"
   },
   "footer": {
     "tagline": "Istanbul · Bespoke Cake Atelier",

@@ -240,7 +240,16 @@
     "statusIN_PROGRESS": "Hazırlanıyor",
     "statusREADY": "Hazır",
     "statusDELIVERED": "Teslim Edildi",
-    "statusCANCELLED": "İptal"
+    "statusCANCELLED": "İptal",
+    "analytics": "Analiz",
+    "inbox": "Gelen Kutusu",
+    "messages": "Mesajlar",
+    "subscribers": "Aboneler",
+    "noMessages": "Henüz mesaj yok.",
+    "handled": "Yanıtlandı",
+    "markHandled": "Yanıtlandı işaretle",
+    "revenue6m": "Son 6 Ay Ciro",
+    "statusDist": "Durum Dağılımı"
   },
   "footer": {
     "tagline": "İstanbul · Bespoke Pasta Atölyesi",

@@ -1,16 +1,44 @@
 import type { MetadataRoute } from 'next';
+import { JOURNAL } from '@/lib/content/journal';
+import { GALLERY } from '@/lib/data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
-  const routes = ['', '/configure', '/gallery', '/about', '/order'];
   const locales = ['tr', 'en'];
 
+  const staticRoutes = [
+    '',
+    '/configure',
+    '/gallery',
+    '/weddings',
+    '/corporate',
+    '/flavors',
+    '/pricing',
+    '/journal',
+    '/faq',
+    '/contact',
+    '/track',
+    '/about',
+    '/order',
+    '/privacy',
+    '/terms',
+    '/kvkk',
+    '/delivery',
+  ];
+
+  const dynamicRoutes = [
+    ...JOURNAL.map((p) => `/journal/${p.slug}`),
+    ...GALLERY.map((g) => `/gallery/${g.id}`),
+  ];
+
+  const all = [...staticRoutes, ...dynamicRoutes];
+
   return locales.flatMap((locale) =>
-    routes.map((route) => ({
+    all.map((route) => ({
       url: `${base}/${locale}${route}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
-      priority: route === '' ? 1 : 0.8,
+      priority: route === '' ? 1 : route.includes('/journal/') ? 0.6 : 0.8,
     })),
   );
 }
