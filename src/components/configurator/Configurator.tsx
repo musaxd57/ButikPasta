@@ -3,10 +3,10 @@
 import dynamic from 'next/dynamic';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
-import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2, RotateCcw, Users } from 'lucide-react';
 import { useRouter } from '@/i18n/routing';
 import { useConfigurator } from '@/store/configurator';
-import { calculatePrice, formatPrice } from '@/lib/pricing';
+import { calculatePrice, estimateServings, formatPrice } from '@/lib/pricing';
 import Steps from './Steps';
 
 const CakeViewer = dynamic(() => import('./CakeViewer'), {
@@ -35,8 +35,9 @@ export default function Configurator() {
   const tCommon = useTranslations('common');
   const locale = useLocale();
   const router = useRouter();
-  const { config, step, setStep } = useConfigurator();
+  const { config, step, setStep, reset } = useConfigurator();
   const price = calculatePrice(config);
+  const servings = estimateServings(config);
   const total = STEP_KEYS.length;
 
   const goNext = () => {
@@ -44,6 +45,11 @@ export default function Configurator() {
     else router.push('/order');
   };
   const goBack = () => step > 0 && setStep(step - 1);
+
+  const handleReset = () => {
+    if (typeof window !== 'undefined' && !window.confirm(t('resetConfirm'))) return;
+    reset();
+  };
 
   return (
     <div className="mx-auto max-w-7xl px-6 pb-24 pt-28">
@@ -104,7 +110,19 @@ export default function Configurator() {
             <p className="mt-1 text-right text-[0.65rem] text-charcoal/40">
               {tCommon('currencyNote')}
             </p>
+            <div className="mt-3 flex items-center gap-2 border-t border-charcoal/10 pt-3 text-sm text-charcoal/70">
+              <Users size={15} className="text-gold" />
+              <span>{t('servings', { count: servings })}</span>
+            </div>
           </div>
+
+          <button
+            onClick={handleReset}
+            className="mt-3 inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-charcoal/40 transition hover:text-gold"
+          >
+            <RotateCcw size={13} />
+            {t('startOver')}
+          </button>
         </div>
 
         {/* Steps panel */}
