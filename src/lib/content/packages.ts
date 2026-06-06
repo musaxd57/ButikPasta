@@ -56,3 +56,19 @@ export const PACKAGES: CakePackage[] = [
     ],
   },
 ];
+
+export interface AddOn {
+  name: Bilingual;
+  price: number;
+}
+
+export const ADD_ONS: AddOn[] = [
+  { name: { tr: 'Taze çiçek aranjmanı', en: 'Fresh flower arrangement' }, price: 320 },
+  { name: { tr: 'Altın yaprak detay', en: 'Gold-leaf detailing' }, price: 220 },
+  { name: { tr: 'Yenilebilir logo baskı', en: 'Edible logo print' }, price: 180 },
+  { name: { tr: 'Ekstra kat', en: 'Extra tier' }, price: 600 },
+  { name: { tr: 'Tadım seansı', en: 'Tasting session' }, price: 400 },
+  { name: { tr: 'Etkinlik günü kurulum', en: 'Event-day setup' }, price: 500 },
+  { name: { tr: 'Özel pasta altlığı', en: 'Custom cake board' }, price: 120 },
+  { name: { tr: 'Mini pasta seti (6 adet)', en: 'Mini cake set (6 pcs)' }, price: 450 },
+];

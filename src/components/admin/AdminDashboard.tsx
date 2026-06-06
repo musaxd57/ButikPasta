@@ -32,15 +32,21 @@ import AdminMessages from './AdminMessages';
 import AdminAnalytics from './AdminAnalytics';
 import AdminReviews from './AdminReviews';
 import AdminAppointments from './AdminAppointments';
+import OrderDrawer from './OrderDrawer';
 
 interface Order {
   id: string;
   orderNumber: string;
   customerName: string;
   customerEmail: string;
+  customerPhone?: string;
+  address?: string;
+  cakeConfig?: string;
   totalPrice: number;
   status: string;
   paymentStatus: string;
+  deliverySlot?: string;
+  notes?: string | null;
   deliveryDate: string;
   createdAt: string;
 }
@@ -70,6 +76,7 @@ export default function AdminDashboard() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<Tab>('dashboard');
+  const [selected, setSelected] = useState<Order | null>(null);
 
   useEffect(() => {
     fetch('/api/orders')
@@ -179,6 +186,7 @@ export default function AdminDashboard() {
                 orders={orders}
                 t={t}
                 onUpdate={updateStatus}
+                onSelect={setSelected}
               />
             )}
             {tab === 'analytics' && <AdminAnalytics orders={orders} t={t} />}
@@ -190,6 +198,8 @@ export default function AdminDashboard() {
           </>
         )}
       </main>
+
+      <OrderDrawer order={selected} onClose={() => setSelected(null)} />
     </div>
   );
 }
@@ -275,10 +285,12 @@ function OrdersTable({
   orders,
   t,
   onUpdate,
+  onSelect,
 }: {
   orders: Order[];
   t: (k: string) => string;
   onUpdate: (id: string, status: string) => void;
+  onSelect: (o: Order) => void;
 }) {
   if (orders.length === 0) {
     return <p className="text-sm text-ivory/40">{t('noOrders')}</p>;
@@ -304,7 +316,12 @@ function OrdersTable({
                 className="border-t border-ivory/5 hover:bg-ivory/5"
               >
                 <td className="px-4 py-3 font-mono text-gold">
-                  {o.orderNumber}
+                  <button
+                    onClick={() => onSelect(o)}
+                    className="underline-offset-2 hover:underline"
+                  >
+                    {o.orderNumber}
+                  </button>
                 </td>
                 <td className="px-4 py-3">
                   <p>{o.customerName}</p>

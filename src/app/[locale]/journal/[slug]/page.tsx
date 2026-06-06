@@ -9,6 +9,7 @@ import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import CtaBand from '@/components/marketing/CtaBand';
+import JsonLd from '@/components/seo/JsonLd';
 import { JOURNAL, getPost, relatedPosts } from '@/lib/content/journal';
 import { pick } from '@/lib/i18nContent';
 import { routing } from '@/i18n/routing';
@@ -51,6 +52,18 @@ function Article({ slug }: { slug: string }) {
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: pick(post.title, locale),
+          description: pick(post.excerpt, locale),
+          image: post.cover,
+          datePublished: post.date,
+          author: { '@type': 'Person', name: post.author },
+          publisher: { '@type': 'Organization', name: 'Atelier Cake' },
+        }}
+      />
       <section className="relative flex min-h-[60vh] items-end overflow-hidden pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center"

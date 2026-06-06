@@ -4,10 +4,11 @@ import { useLocale, useTranslations } from 'next-intl';
 import { Check } from 'lucide-react';
 import PageHero from '@/components/layout/PageHero';
 import Section from '@/components/ui/Section';
+import SectionHeading from '@/components/ui/SectionHeading';
 import Button from '@/components/ui/Button';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/marketing/CtaBand';
-import { PACKAGES } from '@/lib/content/packages';
+import { PACKAGES, ADD_ONS } from '@/lib/content/packages';
 import { pick } from '@/lib/i18nContent';
 import { formatPrice } from '@/lib/pricing';
 import { cn } from '@/lib/utils';
@@ -112,6 +113,24 @@ function PricingBody() {
         <p className="mt-10 text-center text-xs text-charcoal/45">
           {t('note')}
         </p>
+      </Section>
+
+      <Section tone="ivoryDark">
+        <SectionHeading title={t('addonsTitle')} eyebrow={t('addonsEyebrow')} />
+        <div className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-2">
+          {ADD_ONS.map((addon, i) => (
+            <Reveal key={i} delay={(i % 2) * 0.06}>
+              <div className="flex items-center justify-between rounded-xl border border-charcoal/10 bg-white px-5 py-3.5">
+                <span className="text-sm text-charcoal/75">
+                  {pick(addon.name, locale)}
+                </span>
+                <span className="text-sm font-medium text-gold-dark">
+                  +{formatPrice(addon.price, locale)}
+                </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </Section>
 
       <Section tone="ivoryDark" spacing="md">

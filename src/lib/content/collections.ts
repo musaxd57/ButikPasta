@@ -89,4 +89,42 @@ export const COLLECTIONS: Collection[] = [
       c('photo-1488477181946-6428a0291777'),
     ],
   },
+  {
+    slug: 'pastel-dreams',
+    cover: c('photo-1464349095431-e9a21285b5f3'),
+    name: { tr: 'Pastel Düşler', en: 'Pastel Dreams' },
+    tagline: {
+      tr: 'Baby shower ve narin kutlamalar',
+      en: 'Baby showers and delicate celebrations',
+    },
+    description: {
+      tr: 'Yumuşacık pastel tonlar, bulut dokular ve sevimli detaylarla narin anlara özel tasarımlar.',
+      en: 'Designs for delicate moments with soft pastel tones, cloud textures and adorable details.',
+    },
+    images: [
+      c('photo-1464349095431-e9a21285b5f3'),
+      c('photo-1558636508-e0db3814bd1d'),
+      c('photo-1535254973040-607b474cb50d'),
+      c('photo-1599785209707-a456fc1337bb'),
+    ],
+  },
+  {
+    slug: 'heritage-classics',
+    cover: c('photo-1542826438-bd32f43d626f'),
+    name: { tr: 'Miras Klasikleri', en: 'Heritage Classics' },
+    tagline: {
+      tr: 'Zamansız ve geleneksel',
+      en: 'Timeless and traditional',
+    },
+    description: {
+      tr: 'Naked cake, klasik krema bordürler ve sade zarafetle, hiç eskimeyen tasarımlar.',
+      en: 'Never-dated designs with naked cakes, classic piped borders and understated elegance.',
+    },
+    images: [
+      c('photo-1542826438-bd32f43d626f'),
+      c('photo-1464195244916-405fa0a82545'),
+      c('photo-1606313564200-e75d5e30476c'),
+      c('photo-1607478900766-efe13248b125'),
+    ],
+  },
 ];

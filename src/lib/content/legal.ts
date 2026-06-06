@@ -50,6 +50,28 @@ export const PRIVACY: LegalDoc = {
         ),
       ],
     },
+    {
+      heading: p('Çerezler', 'Cookies'),
+      paragraphs: [
+        p(
+          'Web sitemiz, deneyiminizi iyileştirmek için zorunlu ve isteğe bağlı çerezler kullanır. Çerez tercihlerinizi tarayıcınızdan yönetebilirsiniz.',
+          'Our website uses essential and optional cookies to improve your experience. You can manage your cookie preferences from your browser.',
+        ),
+        p(
+          'Pazarlama çerezleri yalnızca açık onayınızla etkinleştirilir.',
+          'Marketing cookies are only enabled with your explicit consent.',
+        ),
+      ],
+    },
+    {
+      heading: p('Veri Saklama Süresi', 'Data Retention'),
+      paragraphs: [
+        p(
+          'Sipariş verilerinizi yasal yükümlülükler gereği gerekli süre boyunca, pazarlama verilerinizi ise onayınızı geri çekene kadar saklarız.',
+          'We retain your order data for as long as legal obligations require, and your marketing data until you withdraw consent.',
+        ),
+      ],
+    },
   ],
 };
 
@@ -87,6 +109,24 @@ export const TERMS: LegalDoc = {
         ),
       ],
     },
+    {
+      heading: p('Fikri Mülkiyet', 'Intellectual Property'),
+      paragraphs: [
+        p(
+          'Sitedeki tüm görseller, tasarımlar ve içerikler Atelier Cake’e aittir ve izinsiz kullanılamaz.',
+          'All images, designs and content on the site belong to Atelier Cake and may not be used without permission.',
+        ),
+      ],
+    },
+    {
+      heading: p('Mücbir Sebepler', 'Force Majeure'),
+      paragraphs: [
+        p(
+          'Doğal afet, salgın veya öngörülemeyen olaylar nedeniyle yaşanabilecek gecikmelerden sorumlu tutulamayız; bu durumlarda sizinle iletişime geçer ve çözüm sunarız.',
+          'We cannot be held responsible for delays due to natural disasters, epidemics or unforeseen events; in such cases we will contact you and offer a solution.',
+        ),
+      ],
+    },
   ],
 };
 
@@ -120,6 +160,24 @@ export const KVKK: LegalDoc = {
         ),
       ],
     },
+    {
+      heading: p('Veri Aktarımı', 'Data Transfer'),
+      paragraphs: [
+        p(
+          'Verileriniz; ödeme işlemleri için ödeme sağlayıcımıza ve teslimat için kargo/teslimat ekibimize, yalnızca hizmetin gerektirdiği ölçüde aktarılır.',
+          'Your data is transferred to our payment provider for payments and to our delivery team for delivery, only to the extent required by the service.',
+        ),
+      ],
+    },
+    {
+      heading: p('Başvuru Yöntemi', 'How to Apply'),
+      paragraphs: [
+        p(
+          'KVKK kapsamındaki taleplerinizi siparis@ateliercake.com adresine iletebilirsiniz. Başvurularınız en geç 30 gün içinde yanıtlanır.',
+          'You can send your KVKK requests to siparis@ateliercake.com. Your applications will be answered within 30 days at the latest.',
+        ),
+      ],
+    },
   ],
 };
 
@@ -145,6 +203,24 @@ export const DELIVERY: LegalDoc = {
         p(
           'Teslimattan 7 gün öncesine kadar yapılan iptallerde kapora iade edilir. Üretim başladıktan sonra, ürünün kişiye özel niteliği gereği iade yapılamaz.',
           'The deposit is refundable for cancellations made up to 7 days before delivery. Once production begins, the bespoke nature of the product means it cannot be returned.',
+        ),
+      ],
+    },
+    {
+      heading: p('Teslimat Saatleri', 'Delivery Hours'),
+      paragraphs: [
+        p(
+          'Teslimatlar seçtiğiniz saat aralığında gerçekleştirilir. Trafik gibi öngörülemeyen durumlarda ekibimiz sizi telefonla bilgilendirir.',
+          'Deliveries are made within your selected time slot. In unforeseen situations such as traffic, our team will notify you by phone.',
+        ),
+      ],
+    },
+    {
+      heading: p('Teslim Alındığında', 'Upon Receipt'),
+      paragraphs: [
+        p(
+          'Pastanızı teslim aldığınızda lütfen kontrol edin. Herhangi bir sorun olması durumunda, fotoğraflarla birlikte 2 saat içinde bize ulaşın.',
+          'Please inspect your cake upon receipt. In case of any issue, contact us within 2 hours along with photographs.',
         ),
       ],
     },

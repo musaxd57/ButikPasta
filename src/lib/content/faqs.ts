@@ -111,6 +111,42 @@ export const FAQ_GROUPS: FaqGroup[] = [
     ],
   },
   {
+    key: 'customization',
+    title: { tr: 'Tasarım & Özelleştirme', en: 'Design & Customisation' },
+    entries: [
+      {
+        q: {
+          tr: '3D tasarlayıcı tam olarak nasıl çalışıyor?',
+          en: 'How exactly does the 3D configurator work?',
+        },
+        a: {
+          tr: 'Adım adım kat, boyut, lezzet, kaplama ve süslemeleri seçersiniz; pasta 3D olarak canlı güncellenir ve fiyatı anında görürsünüz.',
+          en: 'You select tiers, size, flavour, frosting and decorations step by step; the cake updates live in 3D and you see the price instantly.',
+        },
+      },
+      {
+        q: {
+          tr: 'Kendi referans görselimi paylaşabilir miyim?',
+          en: 'Can I share my own reference image?',
+        },
+        a: {
+          tr: 'Elbette. İletişim formundan veya WhatsApp üzerinden ilham görsellerinizi gönderebilirsiniz; tasarımı birlikte şekillendiririz.',
+          en: 'Of course. Send your inspiration images via the contact form or WhatsApp, and we’ll shape the design together.',
+        },
+      },
+      {
+        q: {
+          tr: 'Logolu kurumsal pasta yapıyor musunuz?',
+          en: 'Do you make corporate cakes with a logo?',
+        },
+        a: {
+          tr: 'Evet, yenilebilir baskı teknolojisiyle logonuzu kusursuz netlikte uyguluyoruz.',
+          en: 'Yes, we apply your logo with flawless clarity using edible printing technology.',
+        },
+      },
+    ],
+  },
+  {
     key: 'payment',
     title: { tr: 'Ödeme', en: 'Payment' },
     entries: [
@@ -132,6 +168,58 @@ export const FAQ_GROUPS: FaqGroup[] = [
         a: {
           tr: 'Teslimattan 7 gün öncesine kadar yapılan iptallerde kapora iade edilir. Sonrasında üretime başlandığı için iade yapılamaz.',
           en: 'The deposit is refundable for cancellations made up to 7 days before delivery. After that, production has begun and it is non-refundable.',
+        },
+      },
+    ],
+  },
+  {
+    key: 'storage',
+    title: { tr: 'Saklama & Tazelik', en: 'Storage & Freshness' },
+    entries: [
+      {
+        q: {
+          tr: 'Pastayı ne kadar süre saklayabilirim?',
+          en: 'How long can I keep the cake?',
+        },
+        a: {
+          tr: 'Tereyağlı krema pastalar 2-3 gün, taze meyveli pastalar ise aynı gün tüketilmelidir. Detaylar için bakım rehberimize bakın.',
+          en: 'Buttercream cakes keep for 2-3 days, while fresh-fruit cakes should be eaten the same day. See our care guide for details.',
+        },
+      },
+      {
+        q: {
+          tr: 'Pastayı dondurabilir miyim?',
+          en: 'Can I freeze the cake?',
+        },
+        a: {
+          tr: 'Sade pandispanya katları dondurulabilir; ancak kremalı ve süslemeli pastaları dondurmanızı önermiyoruz.',
+          en: 'Plain sponge layers can be frozen; however we do not recommend freezing creamed and decorated cakes.',
+        },
+      },
+    ],
+  },
+  {
+    key: 'weddingsFaq',
+    title: { tr: 'Düğün Pastaları', en: 'Wedding Cakes' },
+    entries: [
+      {
+        q: {
+          tr: 'Tadım seansı sunuyor musunuz?',
+          en: 'Do you offer a tasting session?',
+        },
+        a: {
+          tr: 'Evet, Couture paketlerimizde tadım ücretsizdir. Randevu sayfamızdan kolayca yer ayırtabilirsiniz.',
+          en: 'Yes, tastings are complimentary with our Couture packages. You can easily book via our appointment page.',
+        },
+      },
+      {
+        q: {
+          tr: 'Etkinlik günü kurulum yapıyor musunuz?',
+          en: 'Do you set up on the event day?',
+        },
+        a: {
+          tr: 'Çok katlı düğün pastaları için etkinlik günü profesyonel kurulum hizmeti sunuyoruz.',
+          en: 'For multi-tier wedding cakes we offer professional setup service on the event day.',
         },
       },
     ],

@@ -88,6 +88,38 @@ export const INGREDIENTS: IngredientItem[] = [
       en: 'Natural, high-quality dairy and free-range eggs.',
     },
   },
+  {
+    image: ing('photo-1509440159596-0249088772ff'),
+    title: { tr: 'Madagaskar Vanilyası', en: 'Madagascar Vanilla' },
+    desc: {
+      tr: 'Gerçek vanilya çubuğundan elde edilen, derin ve zengin aroma.',
+      en: 'A deep, rich aroma extracted from genuine vanilla pods.',
+    },
+  },
+  {
+    image: ing('photo-1481391319762-47dff72954d9'),
+    title: { tr: 'Taze Mevsim Çiçekleri', en: 'Fresh Seasonal Flowers' },
+    desc: {
+      tr: 'Gıdayla temasa uygun, mevsiminde temin edilen doğal çiçekler.',
+      en: 'Food-safe, naturally sourced flowers in season.',
+    },
+  },
+  {
+    image: ing('photo-1550583724-b2692b85b150'),
+    title: { tr: 'Sicilya Fındığı', en: 'Sicilian Hazelnut' },
+    desc: {
+      tr: 'Pralin ve kremalarımıza derinlik katan, kavrulmuş Sicilya fındığı.',
+      en: 'Roasted Sicilian hazelnut that adds depth to our pralines and creams.',
+    },
+  },
+  {
+    image: ing('photo-1511381939415-e44015466834'),
+    title: { tr: 'Saf Kakao Yağı', en: 'Pure Cocoa Butter' },
+    desc: {
+      tr: 'İpeksi doku ve parlaklık için kullandığımız saf kakao yağı.',
+      en: 'Pure cocoa butter we use for a silky texture and shine.',
+    },
+  },
 ];
 
 export interface StatItem {
@@ -135,6 +167,21 @@ export const DELIVERY_ZONES: DeliveryZone[] = [
     districts: ['Tuzla', 'Pendik', 'Çatalca', 'Silivri', 'Şile'],
     fee: { tr: '₺300', en: '₺300' },
   },
+  {
+    name: { tr: 'Anadolu Merkez', en: 'Anatolian Central' },
+    districts: ['Kadıköy', 'Üsküdar', 'Ataşehir', 'Kartal'],
+    fee: { tr: 'Ücretsiz', en: 'Free' },
+  },
+  {
+    name: { tr: 'Boğaz Hattı', en: 'Bosphorus Line' },
+    districts: ['Bebek', 'Etiler', 'Tarabya', 'Kanlıca', 'Çengelköy'],
+    fee: { tr: '₺120', en: '₺120' },
+  },
+  {
+    name: { tr: 'Adalar', en: 'Princes Islands' },
+    districts: ['Büyükada', 'Heybeliada', 'Burgazada'],
+    fee: { tr: '₺450', en: '₺450' },
+  },
 ];
 
 export interface TeamMember {
@@ -174,6 +221,42 @@ export const TEAM: TeamMember[] = [
       en: 'The mind behind our flavour balance and signature recipes.',
     },
     image: team('photo-1595152452543-e5fc28ebc2b8'),
+  },
+  {
+    name: 'Eda Demir',
+    role: { tr: 'Şeker Sanatı Uzmanı', en: 'Sugar Art Specialist' },
+    bio: {
+      tr: 'Yenilebilir çiçekler ve incelikli şeker detaylarında ustalaşmış bir sanatçı.',
+      en: 'An artist who has mastered edible flowers and delicate sugar details.',
+    },
+    image: team('photo-1551836022-deb4988cc6c0'),
+  },
+  {
+    name: 'Kerem Aslan',
+    role: { tr: 'Müşteri Deneyimi', en: 'Client Experience' },
+    bio: {
+      tr: 'Sipariş sürecinizin her adımında yanınızda olan güler yüzlü isim.',
+      en: 'The friendly face beside you at every step of your order journey.',
+    },
+    image: team('photo-1500648767791-00dcc994a43e'),
+  },
+  {
+    name: 'Burcu Şen',
+    role: { tr: 'Çikolata Uzmanı', en: 'Chocolatier' },
+    bio: {
+      tr: 'Çikolata temperleme ve bonbon sanatında uzmanlaşmış tutkulu bir usta.',
+      en: 'A passionate master specialised in chocolate tempering and bonbon art.',
+    },
+    image: team('photo-1607990281513-2c110a25bd8c'),
+  },
+  {
+    name: 'Deniz Kaya',
+    role: { tr: 'Teslimat & Lojistik', en: 'Delivery & Logistics' },
+    bio: {
+      tr: 'Her pastanın kusursuz şekilde, zamanında ulaşmasını sağlayan titiz isim.',
+      en: 'The meticulous person ensuring every cake arrives flawless and on time.',
+    },
+    image: team('photo-1506794778202-cad84cf45f1d'),
   },
 ];
 

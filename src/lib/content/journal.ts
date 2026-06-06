@@ -367,6 +367,737 @@ export const JOURNAL: JournalPost[] = [
       ],
     },
   },
+  {
+    slug: 'altin-yaprak-nasil-uygulanir',
+    category: 'behindscenes',
+    cover: img('photo-1535141192574-5d4897c12636'),
+    date: '2025-09-02',
+    readingMinutes: 4,
+    author: 'Mert Korkmaz',
+    title: { tr: 'Altın Yaprak Nasıl Uygulanır?', en: 'How Gold Leaf Is Applied' },
+    excerpt: {
+      tr: 'Pastalarımıza imza parıltısını veren 24 ayar altın yaprağın uygulanış sürecine yakından bakıyoruz.',
+      en: 'A close look at applying the 24-carat gold leaf that gives our cakes their signature shimmer.',
+    },
+    body: {
+      tr: [
+        'Altın yaprak son derece incedir; hafif bir hava akımı bile onu uçurabilir. Bu yüzden kapalı ve sakin bir ortamda çalışırız.',
+        'Özel bir fırça ve hassas el hareketleriyle yaprak, pastanın yüzeyine nazikçe yerleştirilir.',
+        'Az kullanıldığında lüks bir vurgu, çok kullanıldığında ihtişamlı bir ifade yaratır. Denge her şeydir.',
+      ],
+      en: [
+        'Gold leaf is extremely thin; even a slight draught can send it flying. So we work in an enclosed, calm space.',
+        'With a special brush and precise hand movements, the leaf is gently placed on the cake surface.',
+        'Used sparingly it creates a luxurious accent; used generously, a grand statement. Balance is everything.',
+      ],
+    },
+  },
+  {
+    slug: 'mevsiminde-malzeme-neden-onemli',
+    category: 'guides',
+    cover: img('photo-1488477181946-6428a0291777'),
+    date: '2025-08-15',
+    readingMinutes: 4,
+    author: 'Selin Yıldız',
+    title: { tr: 'Mevsiminde Malzeme Neden Önemli?', en: 'Why Seasonal Ingredients Matter' },
+    excerpt: {
+      tr: 'Mevsiminde toplanan malzemeler hem daha lezzetli hem daha aromalıdır. Nedenini açıklıyoruz.',
+      en: 'Ingredients harvested in season are tastier and more aromatic. We explain why.',
+    },
+    body: {
+      tr: [
+        'Mevsiminde olgunlaşan meyveler doğal şekerlerini tam olarak geliştirir; bu da daha yoğun bir tat demektir.',
+        'Taze tedarik, aromaların kaybolmadan pastaya geçmesini sağlar.',
+        'Bu yüzden menümüzü mevsime göre günceller, en iyi malzemeyi en doğru zamanda kullanırız.',
+      ],
+      en: [
+        'Fruit that ripens in season fully develops its natural sugars, which means a deeper flavour.',
+        'Fresh sourcing ensures aromas reach the cake without fading.',
+        'That is why we update our menu by season, using the best ingredient at the right time.',
+      ],
+    },
+  },
+  {
+    slug: 'cocuk-dogum-gunu-tema-fikirleri',
+    category: 'trends',
+    cover: img('photo-1535920527002-b35e96722eb9'),
+    date: '2025-07-28',
+    readingMinutes: 3,
+    author: 'Atelier Cake',
+    title: { tr: 'Çocuk Doğum Günü Tema Fikirleri', en: 'Kids Birthday Theme Ideas' },
+    excerpt: {
+      tr: 'Küçükler için unutulmaz bir kutlama yaratacak, yaratıcı ve şık pasta temaları.',
+      en: 'Creative and stylish cake themes to create an unforgettable celebration for the little ones.',
+    },
+    body: {
+      tr: [
+        'Masalsı orman, uzay macerası veya pastel gökkuşağı; çocuğunuzun hayal dünyasını pastaya taşıyoruz.',
+        'Yenilebilir figürler ve canlı renklerle hem güvenli hem etkileyici tasarımlar hazırlıyoruz.',
+        'Tema, davetin tüm detaylarıyla uyumlu olduğunda büyü tamamlanır.',
+      ],
+      en: [
+        'A fairytale forest, a space adventure or a pastel rainbow; we bring your child’s imagination onto the cake.',
+        'With edible figures and vivid colours we create designs that are both safe and striking.',
+        'The magic is complete when the theme harmonises with every detail of the party.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-ve-sarap-eslestirmesi',
+    category: 'recipes',
+    cover: img('photo-1464349095431-e9a21285b5f3'),
+    date: '2025-07-10',
+    readingMinutes: 5,
+    author: 'Selin Yıldız',
+    title: { tr: 'Pasta ve İçecek Eşleştirmesi', en: 'Pairing Cake with Drinks' },
+    excerpt: {
+      tr: 'Doğru içecekle eşleştirildiğinde pastanın lezzeti bambaşka bir boyuta taşınır.',
+      en: 'Paired with the right drink, a cake’s flavour reaches a whole new dimension.',
+    },
+    body: {
+      tr: [
+        'Çikolatalı pastalar, yoğun bir espresso veya tatlı şarapla mükemmel uyum sağlar.',
+        'Limonlu ve meyveli pastalar köpüklü içecekler ya da hafif beyaz şaraplarla ferahlatıcı bir denge kurar.',
+        'Antep fıstıklı pastamız ise Türk kahvesiyle yan yana, geleneksel bir zarafet sunar.',
+      ],
+      en: [
+        'Chocolate cakes pair perfectly with an intense espresso or a sweet wine.',
+        'Lemon and fruity cakes strike a refreshing balance with sparkling drinks or light white wines.',
+        'Our pistachio cake, alongside Turkish coffee, offers a traditional elegance.',
+      ],
+    },
+  },
+  {
+    slug: 'kis-dugunleri-icin-pasta',
+    category: 'trends',
+    cover: img('photo-1542826438-bd32f43d626f'),
+    date: '2025-06-20',
+    readingMinutes: 4,
+    author: 'Defne Aydın',
+    title: { tr: 'Kış Düğünleri İçin Pasta', en: 'Cakes for Winter Weddings' },
+    excerpt: {
+      tr: 'Soğuk ama büyülü kış düğünlerine yakışan, sıcak tonlar ve zengin lezzetler.',
+      en: 'Warm tones and rich flavours for the cold yet magical winter weddings.',
+    },
+    body: {
+      tr: [
+        'Kış düğünlerinde beyaz, gümüş ve buz mavisi tonları masalsı bir atmosfer yaratır.',
+        'Tarçın, çikolata ve kestane gibi sıcak lezzetler mevsime mükemmel uyum sağlar.',
+        'Şeker kar taneleri ve metalik detaylar, pastaya zarif bir kış dokunuşu katar.',
+      ],
+      en: [
+        'White, silver and ice-blue tones create a fairytale atmosphere at winter weddings.',
+        'Warm flavours like cinnamon, chocolate and chestnut suit the season perfectly.',
+        'Sugar snowflakes and metallic details add an elegant winter touch to the cake.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-trendleri-renkli-katmanlar',
+    category: 'trends',
+    cover: img('photo-1535254973040-607b474cb50d'),
+    date: '2025-06-05',
+    readingMinutes: 3,
+    author: 'Mert Korkmaz',
+    title: { tr: 'Renkli Katmanlar Geri Döndü', en: 'Colourful Layers Are Back' },
+    excerpt: {
+      tr: 'Kesildiğinde sürpriz renkler ortaya çıkaran katmanlı pastalar yeniden moda.',
+      en: 'Layered cakes that reveal surprise colours when cut are back in fashion.',
+    },
+    body: {
+      tr: [
+        'Dışı sade, içi renkli pastalar kesim anında büyük bir sürpriz yaratıyor.',
+        'Özellikle doğum günleri ve cinsiyet belli etme partilerinde çok seviliyor.',
+        'Doğal gıda boyalarıyla canlı ama güvenli renkler elde ediyoruz.',
+      ],
+      en: [
+        'Cakes that are plain outside but colourful inside create a big surprise at the cutting.',
+        'They are especially loved at birthdays and gender-reveal parties.',
+        'With natural food colourings we achieve vivid yet safe colours.',
+      ],
+    },
+  },
+  {
+    slug: 'ozel-gun-pastasi-nasil-planlanir',
+    category: 'guides',
+    cover: img('photo-1557925923-cd4648e211a0'),
+    date: '2025-05-20',
+    readingMinutes: 5,
+    author: 'Atelier Cake',
+    title: { tr: 'Özel Gün Pastası Nasıl Planlanır?', en: 'How to Plan a Special-Day Cake' },
+    excerpt: {
+      tr: 'Mükemmel pastaya giden yolda zamanlama, bütçe ve tasarım için pratik bir kontrol listesi.',
+      en: 'A practical checklist for timing, budget and design on the way to the perfect cake.',
+    },
+    body: {
+      tr: [
+        'En az 3-4 hafta önceden planlamaya başlayın; popüler tarihler hızlı dolar.',
+        'Misafir sayınıza göre boyut ve bütçenizi belirleyin.',
+        'İlham görsellerinizi toplayın ve renk paletinizi netleştirin.',
+        'Tadım seansı için randevu alın ve lezzetlerinizi seçin.',
+      ],
+      en: [
+        'Start planning at least 3-4 weeks ahead; popular dates fill quickly.',
+        'Determine your size and budget based on your guest count.',
+        'Gather your inspiration images and clarify your colour palette.',
+        'Book a tasting session and choose your flavours.',
+      ],
+    },
+  },
+  {
+    slug: 'vegan-pastalar-hakkinda',
+    category: 'recipes',
+    cover: img('photo-1488477181946-6428a0291777'),
+    date: '2025-05-08',
+    readingMinutes: 4,
+    author: 'Selin Yıldız',
+    title: { tr: 'Vegan Pastalar Hakkında Her Şey', en: 'Everything About Vegan Cakes' },
+    excerpt: {
+      tr: 'Hayvansal ürün içermeyen ama lezzetten ödün vermeyen vegan pasta dünyamız.',
+      en: 'Our world of vegan cakes — free of animal products but never of flavour.',
+    },
+    body: {
+      tr: [
+        'Yumurta yerine elma püresi ve keten tohumu, süt yerine bitkisel sütler kullanıyoruz.',
+        'Bitkisel tereyağı ve kaliteli çikolatayla zengin bir doku elde ediyoruz.',
+        'Sonuç, vegan olsun olmasın herkesin seveceği bir lezzet.',
+      ],
+      en: [
+        'We use apple purée and flaxseed instead of eggs, and plant milks instead of dairy.',
+        'With plant butter and quality chocolate we achieve a rich texture.',
+        'The result is a flavour everyone will love, vegan or not.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-uzerine-yazi-yazma-sanati',
+    category: 'behindscenes',
+    cover: img('photo-1578985545062-69928b1d9587'),
+    date: '2025-04-22',
+    readingMinutes: 3,
+    author: 'Mert Korkmaz',
+    title: { tr: 'Pasta Üzerine Yazı Yazma Sanatı', en: 'The Art of Writing on Cakes' },
+    excerpt: {
+      tr: 'Tek bir cümle, bir pastayı kişisel bir armağana dönüştürür. İşte o yazının ardındaki ustalık.',
+      en: 'A single sentence turns a cake into a personal gift. Here is the craft behind that writing.',
+    },
+    body: {
+      tr: [
+        'Doğru kıvamda krema, akıcı ve net bir yazı için olmazsa olmazdır.',
+        'El yazısı, klasik ve modern font seçenekleriyle mesajınıza karakter katıyoruz.',
+        'Her harf, sabırla ve sabit bir elle tek seferde yazılır.',
+      ],
+      en: [
+        'Cream of the right consistency is essential for fluid, clear writing.',
+        'With script, classic and modern font options we add character to your message.',
+        'Each letter is written in one go, with patience and a steady hand.',
+      ],
+    },
+  },
+  {
+    slug: 'dogru-pasta-altligi-secimi',
+    category: 'guides',
+    cover: img('photo-1606313564200-e75d5e30476c'),
+    date: '2025-04-08',
+    readingMinutes: 3,
+    author: 'Selin Yıldız',
+    title: { tr: 'Doğru Pasta Altlığı Seçimi', en: 'Choosing the Right Cake Board' },
+    excerpt: {
+      tr: 'Görünmez kahraman: pasta altlığı. Doğru seçim, hem güvenlik hem estetik sağlar.',
+      en: 'The invisible hero: the cake board. The right choice ensures both safety and aesthetics.',
+    },
+    body: {
+      tr: [
+        'Altlık, pastanın ağırlığını taşıyacak kadar sağlam olmalıdır; özellikle çok katlı tasarımlarda.',
+        'Rengi, pastanın temasıyla uyumlu seçilerek bütünlük sağlanır.',
+        'Tasarlayıcımızda altlık rengini canlı olarak deneyebilirsiniz.',
+      ],
+      en: [
+        'The board must be sturdy enough to bear the cake’s weight, especially in multi-tier designs.',
+        'Choosing its colour in harmony with the cake theme creates cohesion.',
+        'You can try the board colour live in our configurator.',
+      ],
+    },
+  },
+  {
+    slug: 'butik-pasta-neden-farkli',
+    category: 'behindscenes',
+    cover: img('photo-1486427944299-d1955d23e34d'),
+    date: '2025-03-25',
+    readingMinutes: 4,
+    author: 'Defne Aydın',
+    title: { tr: 'Butik Pasta Neden Farklıdır?', en: 'Why a Boutique Cake Is Different' },
+    excerpt: {
+      tr: 'Seri üretimle el yapımı bespoke bir pasta arasındaki farkı anlatıyoruz.',
+      en: 'We explain the difference between mass production and a handmade bespoke cake.',
+    },
+    body: {
+      tr: [
+        'Butik pasta, sizin hikâyeniz için sıfırdan tasarlanır; hiçbir kopyası yoktur.',
+        'Premium malzemeler ve el işçiliği, fark edilir bir kalite sunar.',
+        'Bir butik pasta, sadece bir tatlı değil; unutulmaz bir deneyimdir.',
+      ],
+      en: [
+        'A boutique cake is designed from scratch for your story; there is no copy of it.',
+        'Premium ingredients and craftsmanship deliver a noticeable quality.',
+        'A boutique cake is not just a dessert; it is an unforgettable experience.',
+      ],
+    },
+  },
+  {
+    slug: 'sezonun-meyveleri-ve-pastalar',
+    category: 'recipes',
+    cover: img('photo-1488477181946-6428a0291777'),
+    date: '2025-03-10',
+    readingMinutes: 4,
+    author: 'Selin Yıldız',
+    title: { tr: 'Sezonun Meyveleri ve Pastalar', en: "The Season's Fruit and Cakes" },
+    excerpt: {
+      tr: 'İlkbahardan kışa, her mevsimin meyvesiyle hazırlanan özel pasta önerileri.',
+      en: 'From spring to winter, special cake suggestions made with each season’s fruit.',
+    },
+    body: {
+      tr: [
+        'İlkbaharda çilek ve kayısı; yazın incir ve şeftali pastalarımızın yıldızı olur.',
+        'Sonbaharda armut ve elma, sıcak baharatlarla buluşur.',
+        'Kışta narenciye, ferahlatıcı bir alternatif sunar.',
+      ],
+      en: [
+        'In spring strawberries and apricots; in summer figs and peaches star in our cakes.',
+        'In autumn pears and apples meet warm spices.',
+        'In winter citrus offers a refreshing alternative.',
+      ],
+    },
+  },
+  {
+    slug: 'nisan-pastasi-fikirleri',
+    category: 'trends',
+    cover: img('photo-1586985289688-ca3cf47d3e6e'),
+    date: '2025-02-20',
+    readingMinutes: 3,
+    author: 'Defne Aydın',
+    title: { tr: 'Nişan Pastası Fikirleri', en: 'Engagement Cake Ideas' },
+    excerpt: {
+      tr: 'Düğüne giden yolun ilk tatlı adımı: zarif ve anlamlı nişan pastaları.',
+      en: 'The first sweet step on the road to the wedding: elegant, meaningful engagement cakes.',
+    },
+    body: {
+      tr: [
+        'Nişan pastaları genellikle düğünden daha samimi ve oyuncu olabilir.',
+        'Çiftin baş harfleri, tanışma tarihi gibi kişisel detaylar çok seviliyor.',
+        'Pudra pembesi ve altın, bu özel an için zamansız bir kombinasyon.',
+      ],
+      en: [
+        'Engagement cakes can often be more intimate and playful than wedding ones.',
+        'Personal details like the couple’s initials or the date they met are much loved.',
+        'Dusty rose and gold are a timeless combination for this special moment.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-katmanlari-nasil-dengelenir',
+    category: 'guides',
+    cover: img('photo-1535141192574-5d4897c12636'),
+    date: '2025-02-05',
+    readingMinutes: 4,
+    author: 'Selin Yıldız',
+    title: { tr: 'Pasta Katmanları Nasıl Dengelenir?', en: 'How Cake Layers Are Balanced' },
+    excerpt: {
+      tr: 'Lezzet ve dokunun kusursuz dengesi: katman ve dolgu uyumunun sırrı.',
+      en: 'The perfect balance of flavour and texture: the secret of layer and filling harmony.',
+    },
+    body: {
+      tr: [
+        'Yoğun bir pandispanya, hafif bir kremayla dengelenmelidir.',
+        'Asitli meyve dolguları, tatlı katmanlara canlılık katar.',
+        'Her lokmada dengeli bir tat almak için oranlar dikkatle ayarlanır.',
+      ],
+      en: [
+        'A dense sponge should be balanced with a light cream.',
+        'Acidic fruit fillings bring vibrancy to sweet layers.',
+        'Proportions are carefully tuned so every bite tastes balanced.',
+      ],
+    },
+  },
+  {
+    slug: 'minimalizm-pastacilikta',
+    category: 'trends',
+    cover: img('photo-1602351447937-745cb720612f'),
+    date: '2025-01-22',
+    readingMinutes: 3,
+    author: 'Mert Korkmaz',
+    title: { tr: 'Pastacılıkta Minimalizm', en: 'Minimalism in Patisserie' },
+    excerpt: {
+      tr: '“Az çoktur” felsefesinin pasta tasarımındaki zarif yansımaları.',
+      en: 'The elegant reflections of the “less is more” philosophy in cake design.',
+    },
+    body: {
+      tr: [
+        'Minimalist pastalar, sade formlar ve nötr tonlarla güçlü bir ifade yaratır.',
+        'Tek bir altın detay veya zarif bir çiçek, tüm dikkati üzerine çeker.',
+        'Sadelik, ustalığın en sofistike göstergesidir.',
+      ],
+      en: [
+        'Minimalist cakes create a strong statement with clean forms and neutral tones.',
+        'A single gold detail or an elegant flower draws all the attention.',
+        'Simplicity is the most sophisticated mark of craftsmanship.',
+      ],
+    },
+  },
+  {
+    slug: 'cikolata-cesitleri-rehberi',
+    category: 'recipes',
+    cover: img('photo-1511381939415-e44015466834'),
+    date: '2025-01-08',
+    readingMinutes: 5,
+    author: 'Selin Yıldız',
+    title: { tr: 'Çikolata Çeşitleri Rehberi', en: 'A Guide to Chocolate Types' },
+    excerpt: {
+      tr: 'Bitter, sütlü, beyaz ve daha fazlası: pastalarımızda kullandığımız çikolataların dünyası.',
+      en: 'Dark, milk, white and more: the world of chocolates we use in our cakes.',
+    },
+    body: {
+      tr: [
+        'Bitter çikolata yoğun ve hafif acı; yetişkin damak tatları için ideal.',
+        'Sütlü çikolata kremamsı ve tatlı; herkesin sevdiği klasik.',
+        'Beyaz çikolata ise vanilya notalarıyla zarif tatlandırmalar sunar.',
+        'Tek köken çikolatalar, yetiştiği bölgenin kendine has aromasını taşır.',
+      ],
+      en: [
+        'Dark chocolate is intense and slightly bitter; ideal for adult palates.',
+        'Milk chocolate is creamy and sweet; the classic everyone loves.',
+        'White chocolate offers elegant sweetening with vanilla notes.',
+        'Single-origin chocolates carry the distinctive aroma of their growing region.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-siparis-ederken-dikkat',
+    category: 'guides',
+    cover: img('photo-1464195244916-405fa0a82545'),
+    date: '2024-12-20',
+    readingMinutes: 4,
+    author: 'Atelier Cake',
+    title: { tr: 'Pasta Sipariş Ederken Nelere Dikkat?', en: 'What to Consider When Ordering' },
+    excerpt: {
+      tr: 'İlk kez bespoke pasta sipariş edecekler için kısa ve net bir rehber.',
+      en: 'A short, clear guide for those ordering a bespoke cake for the first time.',
+    },
+    body: {
+      tr: [
+        'Etkinlik tarihinizi ve misafir sayınızı net belirleyin.',
+        'Alerji ve diyet ihtiyaçlarını sipariş notuna eklemeyi unutmayın.',
+        'İlham görsellerinizi paylaşın; ne kadar çok detay, o kadar isabetli tasarım.',
+        'Teslimat adresi ve saat aralığını önceden planlayın.',
+      ],
+      en: [
+        'Clearly determine your event date and guest count.',
+        'Remember to add allergy and dietary needs to your order notes.',
+        'Share your inspiration images; the more detail, the more accurate the design.',
+        'Plan your delivery address and time slot in advance.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-suslemede-renk-uyumu',
+    category: 'guides',
+    cover: img('photo-1535254973040-607b474cb50d'),
+    date: '2024-12-05',
+    readingMinutes: 3,
+    author: 'Mert Korkmaz',
+    title: { tr: 'Süslemede Renk Uyumu', en: 'Colour Harmony in Decoration' },
+    excerpt: {
+      tr: 'Birbirini tamamlayan renklerle pastanıza profesyonel bir görünüm kazandırın.',
+      en: 'Give your cake a professional look with complementary colours.',
+    },
+    body: {
+      tr: [
+        'Komşu renkler huzurlu, zıt renkler ise dikkat çekici bir etki yaratır.',
+        'Altın ve fildişi neredeyse her paleti zenginleştirir.',
+        'Tek bir vurgu rengi, tasarımı dağıtmadan canlandırır.',
+      ],
+      en: [
+        'Adjacent colours create a calm effect, while contrasting ones make a statement.',
+        'Gold and ivory enrich almost any palette.',
+        'A single accent colour enlivens the design without scattering it.',
+      ],
+    },
+  },
+  {
+    slug: 'dogum-gunu-pastasi-klasikleri',
+    category: 'trends',
+    cover: img('photo-1535920527002-b35e96722eb9'),
+    date: '2024-11-20',
+    readingMinutes: 3,
+    author: 'Atelier Cake',
+    title: { tr: 'Doğum Günü Pastası Klasikleri', en: 'Birthday Cake Classics' },
+    excerpt: {
+      tr: 'Hiç eskimeyen, her yaşa hitap eden doğum günü pastası fikirleri.',
+      en: 'Never-dated birthday cake ideas for every age.',
+    },
+    body: {
+      tr: [
+        'Çikolatalı drip, klasik ama her zaman etkileyici bir seçim.',
+        'Renkli sprinkle’lar neşeli bir kutlama havası katar.',
+        'Kişiye özel topper, pastayı benzersiz kılar.',
+      ],
+      en: [
+        'A chocolate drip is a classic yet always striking choice.',
+        'Colourful sprinkles add a joyful celebratory mood.',
+        'A personalised topper makes the cake unique.',
+      ],
+    },
+  },
+  {
+    slug: 'kurumsal-hediye-pastalari',
+    category: 'guides',
+    cover: img('photo-1606890737304-57a1ca8a5b62'),
+    date: '2024-11-05',
+    readingMinutes: 3,
+    author: 'Defne Aydın',
+    title: { tr: 'Kurumsal Hediye Pastaları', en: 'Corporate Gift Cakes' },
+    excerpt: {
+      tr: 'Müşteri ve çalışanlarınıza unutulmaz bir teşekkür: kurumsal hediye pastaları.',
+      en: 'An unforgettable thank-you for your clients and team: corporate gift cakes.',
+    },
+    body: {
+      tr: [
+        'Logolu mini pastalar, kurumsal hediyeler için pratik ve şık bir seçenek.',
+        'Kurumsal renklerinizle hazırlanan tasarımlar marka bilinirliğini artırır.',
+        'Toplu siparişlerde özel fiyatlandırma sunuyoruz.',
+      ],
+      en: [
+        'Logo mini cakes are a practical, stylish option for corporate gifts.',
+        'Designs in your corporate colours boost brand awareness.',
+        'We offer special pricing for bulk orders.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-katmani-icin-dolgu-secimi',
+    category: 'recipes',
+    cover: img('photo-1488477181946-6428a0291777'),
+    date: '2024-10-20',
+    readingMinutes: 4,
+    author: 'Selin Yıldız',
+    title: { tr: 'Katmanlar İçin Dolgu Seçimi', en: 'Choosing Fillings for Layers' },
+    excerpt: {
+      tr: 'Doğru dolgu, pastanın karakterini belirler. Popüler dolgu seçeneklerimiz.',
+      en: 'The right filling defines a cake’s character. Our popular filling options.',
+    },
+    body: {
+      tr: [
+        'Meyve curd’ları ferah ve canlı bir denge sağlar.',
+        'Pralin ve ganaj, yoğun ve lüks bir his verir.',
+        'Hafif krema dolguları, sıcak havalarda ideal bir seçimdir.',
+      ],
+      en: [
+        'Fruit curds provide a fresh, vibrant balance.',
+        'Praline and ganache give an intense, luxurious feel.',
+        'Light cream fillings are an ideal choice in warm weather.',
+      ],
+    },
+  },
+  {
+    slug: 'pastacilikta-mevsimsel-ilham',
+    category: 'behindscenes',
+    cover: img('photo-1464349095431-e9a21285b5f3'),
+    date: '2024-10-05',
+    readingMinutes: 3,
+    author: 'Mert Korkmaz',
+    title: { tr: 'Pastacılıkta Mevsimsel İlham', en: 'Seasonal Inspiration in Patisserie' },
+    excerpt: {
+      tr: 'Her mevsim, atölyemize yeni renkler, dokular ve fikirler getirir.',
+      en: 'Each season brings new colours, textures and ideas to our atelier.',
+    },
+    body: {
+      tr: [
+        'İlkbahar pastel tonlar ve çiçeklerle gelir.',
+        'Sonbahar sıcak baharatlar ve toprak renkleriyle ilham verir.',
+        'Doğanın ritmini takip etmek, tasarımlarımızı taze tutar.',
+      ],
+      en: [
+        'Spring arrives with pastel tones and flowers.',
+        'Autumn inspires with warm spices and earthy colours.',
+        'Following nature’s rhythm keeps our designs fresh.',
+      ],
+    },
+  },
+  {
+    slug: 'mukemmel-krema-kivami',
+    category: 'recipes',
+    cover: img('photo-1486427944299-d1955d23e34d'),
+    date: '2024-09-20',
+    readingMinutes: 4,
+    author: 'Selin Yıldız',
+    title: { tr: 'Mükemmel Krema Kıvamı', en: 'The Perfect Cream Consistency' },
+    excerpt: {
+      tr: 'Pürüzsüz bir kaplama ve net süslemeler için kremanın kıvamı kritiktir.',
+      en: 'For a smooth finish and crisp decorations, cream consistency is critical.',
+    },
+    body: {
+      tr: [
+        'Çok yumuşak krema akar; çok sert krema ise pürüzlü görünür.',
+        'Oda sıcaklığındaki tereyağı, ipeksi bir doku için şarttır.',
+        'Doğru kıvam, hem estetik hem de dayanıklılık sağlar.',
+      ],
+      en: [
+        'Cream that is too soft runs; too firm and it looks rough.',
+        'Room-temperature butter is essential for a silky texture.',
+        'The right consistency ensures both aesthetics and durability.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-tasariminda-denge',
+    category: 'guides',
+    cover: img('photo-1602351447937-745cb720612f'),
+    date: '2024-09-05',
+    readingMinutes: 3,
+    author: 'Defne Aydın',
+    title: { tr: 'Pasta Tasarımında Denge', en: 'Balance in Cake Design' },
+    excerpt: {
+      tr: 'Görsel denge, bir pastayı sıradanlıktan çıkarıp sanata dönüştürür.',
+      en: 'Visual balance turns a cake from ordinary into art.',
+    },
+    body: {
+      tr: [
+        'Boşluk, en az süsleme kadar önemlidir; göze nefes aldırır.',
+        'Simetri huzur, asimetri ise dinamizm verir.',
+        'Odak noktası belirlemek, tasarıma yön kazandırır.',
+      ],
+      en: [
+        'Negative space matters as much as decoration; it lets the eye breathe.',
+        'Symmetry gives calm, asymmetry gives dynamism.',
+        'Setting a focal point gives the design direction.',
+      ],
+    },
+  },
+  {
+    slug: 'ozel-gunlerde-pasta-gelenegi',
+    category: 'behindscenes',
+    cover: img('photo-1535141192574-5d4897c12636'),
+    date: '2024-08-20',
+    readingMinutes: 4,
+    author: 'Atelier Cake',
+    title: { tr: 'Özel Günlerde Pasta Geleneği', en: 'The Tradition of Cake on Special Days' },
+    excerpt: {
+      tr: 'Pastanın kutlamalardaki yeri ve bu zarif geleneğin köklerine bir yolculuk.',
+      en: 'A journey into the place of cake in celebrations and the roots of this elegant tradition.',
+    },
+    body: {
+      tr: [
+        'Pasta kesmek, paylaşmanın ve bir araya gelmenin sembolüdür.',
+        'Yüzyıllar boyunca her kültür bu geleneğe kendi dokunuşunu kattı.',
+        'Bizim için her pasta, bu güzel geleneğin çağdaş bir yorumudur.',
+      ],
+      en: [
+        'Cutting a cake is a symbol of sharing and coming together.',
+        'Over centuries, every culture added its own touch to this tradition.',
+        'For us, every cake is a contemporary interpretation of this beautiful tradition.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-fotograflarini-paylasmak',
+    category: 'guides',
+    cover: img('photo-1606313564200-e75d5e30476c'),
+    date: '2024-08-05',
+    readingMinutes: 3,
+    author: 'Mert Korkmaz',
+    title: { tr: 'Pasta Anılarını Paylaşmak', en: 'Sharing Your Cake Memories' },
+    excerpt: {
+      tr: 'Pastanızın fotoğraflarını bizimle ve dünyayla paylaşmanın güzel yolları.',
+      en: 'Lovely ways to share photos of your cake with us and the world.',
+    },
+    body: {
+      tr: [
+        'Bizi etiketleyin; en sevdiğimiz anları sayfamızda paylaşmayı seviyoruz.',
+        'Doğal ışıkta çekilen kareler her zaman en iyisidir.',
+        'Hikâyenizi anlatın; her pasta bir anının parçasıdır.',
+      ],
+      en: [
+        'Tag us; we love sharing our favourite moments on our page.',
+        'Shots taken in natural light are always the best.',
+        'Tell your story; every cake is part of a memory.',
+      ],
+    },
+  },
+  {
+    slug: 'butik-pastacilik-felsefemiz',
+    category: 'behindscenes',
+    cover: img('photo-1486427944299-d1955d23e34d'),
+    date: '2024-07-20',
+    readingMinutes: 4,
+    author: 'Defne Aydın',
+    title: { tr: 'Butik Pastacılık Felsefemiz', en: 'Our Boutique Patisserie Philosophy' },
+    excerpt: {
+      tr: 'Atelier Cake’i yönlendiren değerler ve tutkunun arkasındaki hikâye.',
+      en: 'The values that guide Atelier Cake and the story behind the passion.',
+    },
+    body: {
+      tr: [
+        'Bizim için pastacılık, sabır ve sevgiyle yapılan bir sanattır.',
+        'Hiçbir detayı tesadüfe bırakmaz, her siparişe bir başyapıt gibi yaklaşırız.',
+        'Amacımız sadece bir tatlı değil, unutulmaz bir an yaratmaktır.',
+      ],
+      en: [
+        'For us, patisserie is an art made with patience and love.',
+        'We leave no detail to chance and treat every order like a masterpiece.',
+        'Our goal is to create not just a dessert, but an unforgettable moment.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-ile-suprizler',
+    category: 'trends',
+    cover: img('photo-1535920527002-b35e96722eb9'),
+    date: '2024-07-05',
+    readingMinutes: 3,
+    author: 'Atelier Cake',
+    title: { tr: 'Pasta ile Sürprizler', en: 'Surprises with Cake' },
+    excerpt: {
+      tr: 'Sevdiklerinizi şaşırtmak için pastayı bir sürpriz aracına dönüştürün.',
+      en: 'Turn a cake into a vehicle for surprise to amaze your loved ones.',
+    },
+    body: {
+      tr: [
+        'Gizli mesajlı katmanlar veya sürpriz renkler büyük etki yaratır.',
+        'İçine yerleştirilen küçük armağanlar unutulmaz anlar sunar.',
+        'Hayal gücünüzü bizimle paylaşın; gerçeğe dönüştürelim.',
+      ],
+      en: [
+        'Layers with hidden messages or surprise colours create a big impact.',
+        'Small gifts placed inside offer unforgettable moments.',
+        'Share your imagination with us; let’s make it real.',
+      ],
+    },
+  },
+  {
+    slug: 'sonbahar-dugun-pastalari',
+    category: 'trends',
+    cover: img('photo-1542826438-bd32f43d626f'),
+    date: '2024-06-20',
+    readingMinutes: 3,
+    author: 'Defne Aydın',
+    title: { tr: 'Sonbahar Düğün Pastaları', en: 'Autumn Wedding Cakes' },
+    excerpt: {
+      tr: 'Sıcak tonlar ve mevsim meyveleriyle sonbahar düğünlerine özel tasarımlar.',
+      en: 'Designs for autumn weddings with warm tones and seasonal fruit.',
+    },
+    body: {
+      tr: [
+        'Bordo, hardal ve bakır tonları sonbaharın ruhunu yansıtır.',
+        'İncir, armut ve tarçın gibi lezzetler mevsime mükemmel uyar.',
+        'Kuru yapraklar ve dallarla doğal bir estetik yaratıyoruz.',
+      ],
+      en: [
+        'Burgundy, mustard and copper tones reflect the spirit of autumn.',
+        'Flavours like fig, pear and cinnamon suit the season perfectly.',
+        'We create a natural aesthetic with dried leaves and branches.',
+      ],
+    },
+  },
 ];
 
 export function getPost(slug: string) {

@@ -77,11 +77,11 @@ function Body() {
                   </div>
 
                   <div className="mt-8 flex flex-wrap gap-3">
-                    <Button href="/configure" variant="gold" size="sm">
-                      {t('designCta')}
+                    <Button href={`/collections/${col.slug}`} variant="gold" size="sm">
+                      {t('explore')} <ArrowRight size={14} />
                     </Button>
-                    <Button href="/gallery" variant="ghost" size="sm">
-                      {tNav('gallery')} <ArrowRight size={14} />
+                    <Button href="/configure" variant="ghost" size="sm">
+                      {t('designCta')}
                     </Button>
                   </div>
                 </div>

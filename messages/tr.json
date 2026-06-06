@@ -24,7 +24,75 @@
     "glossary": "Sözlük",
     "care": "Bakım Rehberi",
     "giftCard": "Hediye Kartı",
+    "atelier": "Atölye",
+    "occasions": "Özel Günler",
+    "sustainability": "Sürdürülebilirlik",
+    "press": "Basın",
+    "menu": "İmza Menü",
     "more": "Keşfet"
+  },
+  "menu": {
+    "title": "İmza Menü",
+    "subtitle": "Hazır sipariş edebileceğiniz, ev favorisi imza pastalarımız.",
+    "all": "Tümü",
+    "signature": "İmza",
+    "seasonal": "Mevsimlik",
+    "classic": "Klasik",
+    "order": "Sipariş Ver",
+    "customNote": "Tamamen kişiye özel bir tasarım mı istiyorsunuz?",
+    "customCta": "3D Tasarlayıcıyı Aç"
+  },
+  "sustainability": {
+    "title": "Sürdürülebilirlik",
+    "subtitle": "Lezzet kadar gezegene de özen gösteriyoruz.",
+    "introTitle": "Sorumlu Lüks",
+    "introBody": "Lüksün, doğaya saygıyla bir arada var olabileceğine inanıyoruz. Tedarikten ambalaja kadar her adımda izimizi azaltmaya çalışıyoruz.",
+    "p1Title": "Yerel Tedarik",
+    "p1Body": "Malzemelerimizi mümkün olduğunca yerel üreticilerden, mevsiminde temin ediyoruz.",
+    "p2Title": "Geri Dönüştürülebilir Ambalaj",
+    "p2Body": "Pasta kutularımız geri dönüştürülebilir ve plastiksiz malzemelerden üretilir.",
+    "p3Title": "Sıfır İsraf Mutfağı",
+    "p3Body": "Üretim fazlalıklarını minimuma indiriyor, artıkları değerlendiriyoruz.",
+    "p4Title": "Enerji Verimliliği",
+    "p4Body": "Atölyemizde enerji tasarruflu ekipman ve aydınlatma kullanıyoruz."
+  },
+  "press": {
+    "title": "Basın & Ödüller",
+    "subtitle": "Hakkımızda söylenenler ve kazandığımız ödüller.",
+    "awardsTitle": "Ödüller",
+    "featuredTitle": "Basında Biz",
+    "quote1": "İstanbul'un en yaratıcı pasta atölyelerinden biri.",
+    "quote2": "Her detayda kusursuzluk arayan bir marka.",
+    "quote3": "Lüks pastacılığın yeni adresi.",
+    "award1": "Altın Pasta Ödülü 2025",
+    "award2": "En İyi Düğün Pastası 2024",
+    "award3": "Gastronomi Mükemmellik Sertifikası",
+    "award4": "Müşteri Memnuniyeti Birincisi 2025"
+  },
+  "occasions": {
+    "title": "Özel Günler",
+    "subtitle": "Her an, kutlanmaya değer. Size en uygun pasta deneyimini seçin.",
+    "wedding": "Düğün & Nişan",
+    "weddingDesc": "Hayatınızın en özel gününe yakışır görkemli tasarımlar.",
+    "birthday": "Doğum Günü",
+    "birthdayDesc": "Küçük büyük herkes için neşeli ve renkli pastalar.",
+    "corporate": "Kurumsal",
+    "corporateDesc": "Markanıza prestij katan profesyonel çözümler.",
+    "baby": "Baby Shower",
+    "babyDesc": "Yeni bir hayata zarif bir merhaba.",
+    "custom": "Tamamen Özel",
+    "customDesc": "Hayalinizdeki tasarımı sıfırdan birlikte yaratalım.",
+    "explore": "Keşfet"
+  },
+  "atelier": {
+    "title": "Atölyemiz",
+    "subtitle": "Nişantaşı'nın kalbinde, her pastanın doğduğu yer.",
+    "spaceTitle": "Sanatın Mutfağı",
+    "spaceBody": "Atölyemiz; modern ekipman, el yapımı gelenek ve sınırsız yaratıcılığın buluştuğu bir alandır. Her köşesi, kusursuzluk arayışıyla tasarlandı.",
+    "teamTitle": "Ekibimiz",
+    "teamSubtitle": "Tutkuyla çalışan zanaatkârlar",
+    "valuesTitle": "Değerlerimiz",
+    "pressTitle": "Basında Biz"
   },
   "collections": {
     "title": "Koleksiyonlar",
@@ -404,7 +472,9 @@
     "customTitle": "Aklınızdaki tasarım farklı mı?",
     "customLead": "3D tasarlayıcımızla tamamen size özel bir pasta yaratın; fiyatı anında görün.",
     "customCta": "Kendi Pastanı Tasarla",
-    "note": "Tüm fiyatlara KDV dahildir. Nihai fiyat tasarım detaylarına göre belirlenir."
+    "note": "Tüm fiyatlara KDV dahildir. Nihai fiyat tasarım detaylarına göre belirlenir.",
+    "addonsTitle": "Ek Hizmetler",
+    "addonsEyebrow": "Pastanı Tamamla"
   },
   "weddings": {
     "title": "Düğün Pastaları",

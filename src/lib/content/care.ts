@@ -51,4 +51,35 @@ export const CARE_GUIDE: LegalSection[] = [
       ),
     ],
   },
+  {
+    heading: p('Taze Çiçekli Pastalar', 'Cakes with Fresh Flowers'),
+    paragraphs: [
+      p(
+        'Taze çiçekli pastalarda çiçekler servisten hemen önce yerleştirilir. Çiçekleri yemeden önce çıkarın.',
+        'On cakes with fresh flowers, the flowers are placed just before serving. Remove the flowers before eating.',
+      ),
+    ],
+  },
+  {
+    heading: p('Sıcak Hava Uyarısı', 'Hot Weather Notice'),
+    paragraphs: [
+      p(
+        'Sıcak havalarda pastayı doğrudan güneş ışığından ve sıcaktan uzak, serin bir yerde tutun.',
+        'In hot weather, keep the cake in a cool place away from direct sunlight and heat.',
+      ),
+      p(
+        'Açık hava etkinlikleri için gölgeli bir sunum alanı planlamanızı öneririz.',
+        'For outdoor events we recommend planning a shaded presentation area.',
+      ),
+    ],
+  },
+  {
+    heading: p('Artan Pasta', 'Leftover Cake'),
+    paragraphs: [
+      p(
+        'Kalan dilimleri hava almayacak şekilde kapatıp buzdolabında saklayın; 2-3 gün içinde tüketin.',
+        'Cover leftover slices airtight and refrigerate; consume within 2-3 days.',
+      ),
+    ],
+  },
 ];

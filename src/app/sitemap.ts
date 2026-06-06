@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { JOURNAL } from '@/lib/content/journal';
 import { GALLERY } from '@/lib/data';
+import { MENU } from '@/lib/content/menu';
+import { COLLECTIONS } from '@/lib/content/collections';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
@@ -9,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '',
     '/configure',
+    '/menu',
     '/gallery',
     '/weddings',
     '/corporate',
@@ -16,6 +19,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pricing',
     '/journal',
     '/collections',
+    '/atelier',
+    '/occasions',
+    '/sustainability',
+    '/press',
     '/reviews',
     '/appointment',
     '/gift-card',
@@ -35,6 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const dynamicRoutes = [
     ...JOURNAL.map((p) => `/journal/${p.slug}`),
     ...GALLERY.map((g) => `/gallery/${g.id}`),
+    ...MENU.map((m) => `/menu/${m.id}`),
+    ...COLLECTIONS.map((c) => `/collections/${c.slug}`),
   ];
 
   const all = [...staticRoutes, ...dynamicRoutes];
