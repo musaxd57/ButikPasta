@@ -9,7 +9,8 @@ import Button from '@/components/ui/Button';
 import Reveal from '@/components/ui/Reveal';
 import { Link } from '@/i18n/routing';
 import CtaBand from '@/components/marketing/CtaBand';
-import { GALLERY } from '@/lib/data';
+import { GALLERY, galleryImages } from '@/lib/data';
+import GalleryImages from '@/components/gallery/GalleryImages';
 import { routing } from '@/i18n/routing';
 
 export function generateStaticParams() {
@@ -54,12 +55,7 @@ function Detail({ id }: { id: string }) {
           />
           <div className="mt-8 grid gap-10 md:grid-cols-2 md:gap-16">
             <Reveal>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={item.imageUrl}
-                alt={title}
-                className="w-full rounded-3xl object-cover shadow-xl"
-              />
+              <GalleryImages images={galleryImages(item)} alt={title} />
             </Reveal>
             <Reveal delay={0.1} className="flex flex-col justify-center">
               <span className="text-xs uppercase tracking-[0.2em] text-gold">

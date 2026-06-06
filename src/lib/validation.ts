@@ -23,6 +23,7 @@ export const orderSchema = z.object({
   locale: z.enum(['tr', 'en']).default('tr'),
   cakeConfig: z.string().min(2),
   totalPrice: z.number().positive(),
+  couponCode: z.string().max(40).optional().or(z.literal('')),
 });
 
 export type OrderInput = z.infer<typeof orderSchema>;

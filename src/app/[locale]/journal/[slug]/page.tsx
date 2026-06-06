@@ -9,6 +9,7 @@ import Section from '@/components/ui/Section';
 import Reveal from '@/components/ui/Reveal';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import CtaBand from '@/components/marketing/CtaBand';
+import Comments from '@/components/journal/Comments';
 import JsonLd from '@/components/seo/JsonLd';
 import { JOURNAL, getPost, relatedPosts } from '@/lib/content/journal';
 import { pick } from '@/lib/i18nContent';
@@ -120,6 +121,8 @@ function Article({ slug }: { slug: string }) {
             </Link>
           </div>
         </article>
+
+        <Comments slug={slug} />
       </Section>
 
       <Section tone="ivoryDark">

@@ -10,6 +10,13 @@ export interface GalleryItemData {
   category: 'wedding' | 'birthday' | 'corporate' | 'baby' | 'custom';
   priceRange: string;
   featured?: boolean;
+  /** Extra angle/detail photos shown in the detail-page gallery. */
+  images?: string[];
+}
+
+// Returns all photos for an item (cover first), de-duplicated.
+export function galleryImages(item: GalleryItemData): string[] {
+  return Array.from(new Set([item.imageUrl, ...(item.images ?? [])]));
 }
 
 const img = (id: string) =>
@@ -24,6 +31,11 @@ export const GALLERY: GalleryItemData[] = [
     category: 'wedding',
     priceRange: '₺4.500 - ₺7.000',
     featured: true,
+    images: [
+      img('photo-1557925923-cd4648e211a0'),
+      img('photo-1621303837174-89787a7d4729'),
+      img('photo-1542826438-bd32f43d626f'),
+    ],
   },
   {
     id: 'g2',
@@ -75,6 +87,10 @@ export const GALLERY: GalleryItemData[] = [
     category: 'custom',
     priceRange: '₺2.200 - ₺3.800',
     featured: true,
+    images: [
+      img('photo-1569864358642-9d1684040f43'),
+      img('photo-1558326567-98ae2405596b'),
+    ],
   },
   {
     id: 'g8',

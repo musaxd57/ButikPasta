@@ -20,6 +20,7 @@ const MORE_LINKS = [
   { href: '/menu', key: 'menu' },
   { href: '/cupcakes', key: 'cupcakes' },
   { href: '/favorites', key: 'favorites' },
+  { href: '/account', key: 'account' },
   { href: '/occasions', key: 'occasions' },
   { href: '/collections', key: 'collections' },
   { href: '/atelier', key: 'atelier' },
