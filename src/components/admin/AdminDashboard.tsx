@@ -17,6 +17,7 @@ import {
   Inbox,
   Star,
   CalendarDays,
+  Download,
 } from 'lucide-react';
 import { formatPrice } from '@/lib/pricing';
 import {
@@ -25,7 +26,7 @@ import {
   FLAVOR_PRICE,
   FROSTING_PRICE,
 } from '@/lib/pricing';
-import { cn } from '@/lib/utils';
+import { cn, downloadCsv } from '@/lib/utils';
 import { useToast } from '@/components/ui/Toast';
 import AdminGallery from './AdminGallery';
 import AdminMessages from './AdminMessages';
@@ -297,7 +298,29 @@ function OrdersTable({
   }
   return (
     <div>
-      <h2 className="mb-6 font-serif text-3xl">{t('orders')}</h2>
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="font-serif text-3xl">{t('orders')}</h2>
+        <button
+          onClick={() =>
+            downloadCsv(
+              `orders-${new Date().toISOString().slice(0, 10)}.csv`,
+              orders.map((o) => ({
+                orderNumber: o.orderNumber,
+                customer: o.customerName,
+                email: o.customerEmail,
+                phone: o.customerPhone ?? '',
+                total: o.totalPrice,
+                status: o.status,
+                payment: o.paymentStatus,
+                deliveryDate: new Date(o.deliveryDate).toLocaleDateString('tr-TR'),
+              })),
+            )
+          }
+          className="flex items-center gap-2 rounded-full border border-ivory/15 px-4 py-2 text-xs text-ivory/70 transition hover:border-gold hover:text-gold"
+        >
+          <Download size={14} /> CSV
+        </button>
+      </div>
       <div className="overflow-x-auto rounded-2xl border border-ivory/10">
         <table className="w-full min-w-[700px] text-sm">
           <thead className="bg-charcoal text-left text-xs uppercase tracking-wider text-ivory/40">

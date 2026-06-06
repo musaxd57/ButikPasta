@@ -71,4 +71,10 @@ export const ADD_ONS: AddOn[] = [
   { name: { tr: 'Etkinlik günü kurulum', en: 'Event-day setup' }, price: 500 },
   { name: { tr: 'Özel pasta altlığı', en: 'Custom cake board' }, price: 120 },
   { name: { tr: 'Mini pasta seti (6 adet)', en: 'Mini cake set (6 pcs)' }, price: 450 },
+  { name: { tr: 'Makaron kulesi', en: 'Macaron tower' }, price: 680 },
+  { name: { tr: 'Işıklı pasta standı', en: 'Illuminated cake stand' }, price: 350 },
+  { name: { tr: 'Kişiye özel topper', en: 'Personalised topper' }, price: 240 },
+  { name: { tr: 'Şeker çiçeği buketi', en: 'Sugar flower bouquet' }, price: 520 },
+  { name: { tr: 'Acil teslimat', en: 'Express delivery' }, price: 400 },
+  { name: { tr: 'Ekstra porsiyon katı (dummy)', en: 'Extra dummy tier' }, price: 300 },
 ];

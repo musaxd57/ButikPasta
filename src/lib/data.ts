@@ -334,6 +334,26 @@ export const GALLERY: GalleryItemData[] = [
     category: 'baby',
     priceRange: '₺1.800 - ₺3.100',
   },
+  { id: 'g40', imageUrl: img('photo-1535141192574-5d4897c12636'), titleTr: 'Altın Çizgili Düğün', titleEn: 'Gold-Striped Wedding', category: 'wedding', priceRange: '₺6.500 - ₺10.500' },
+  { id: 'g41', imageUrl: img('photo-1578985545062-69928b1d9587'), titleTr: 'Çikolata Damlalı Parti', titleEn: 'Chocolate Drip Party', category: 'birthday', priceRange: '₺1.500 - ₺2.800' },
+  { id: 'g42', imageUrl: img('photo-1562440499-64c9a111f713'), titleTr: 'Kurumsal Yıldönümü', titleEn: 'Corporate Anniversary', category: 'corporate', priceRange: '₺2.800 - ₺4.600' },
+  { id: 'g43', imageUrl: img('photo-1558636508-e0db3814bd1d'), titleTr: 'Minik Ayaklar Baby Shower', titleEn: 'Tiny Feet Baby Shower', category: 'baby', priceRange: '₺1.700 - ₺3.000' },
+  { id: 'g44', imageUrl: img('photo-1602351447937-745cb720612f'), titleTr: 'Sanat Galerisi Özel', titleEn: 'Art Gallery Custom', category: 'custom', priceRange: '₺2.800 - ₺5.000' },
+  { id: 'g45', imageUrl: img('photo-1557925923-cd4648e211a0'), titleTr: 'Beyaz Şakayık Düğün', titleEn: 'White Peony Wedding', category: 'wedding', priceRange: '₺6.000 - ₺9.500' },
+  { id: 'g46', imageUrl: img('photo-1535920527002-b35e96722eb9'), titleTr: 'Rengarenk Çocuk Partisi', titleEn: 'Rainbow Kids Party', category: 'birthday', priceRange: '₺1.400 - ₺2.700' },
+  { id: 'g47', imageUrl: img('photo-1606313564200-e75d5e30476c'), titleTr: 'İnce Dantel Sanatı', titleEn: 'Fine Lace Artistry', category: 'custom', priceRange: '₺2.600 - ₺4.400' },
+  { id: 'g48', imageUrl: img('photo-1571115177098-24ec42ed204d'), titleTr: 'Çikolata Tutkunu', titleEn: 'For the Chocolate Lover', category: 'birthday', priceRange: '₺1.600 - ₺2.900' },
+  { id: 'g49', imageUrl: img('photo-1488477181946-6428a0291777'), titleTr: 'Meyve Bahçesi Özel', titleEn: 'Orchard Custom', category: 'custom', priceRange: '₺1.900 - ₺3.300' },
+  { id: 'g50', imageUrl: img('photo-1535141192574-5d4897c12636'), titleTr: 'Zarif Beyaz & Altın', titleEn: 'Elegant White & Gold', category: 'wedding', priceRange: '₺6.000 - ₺9.000' },
+  { id: 'g51', imageUrl: img('photo-1578985545062-69928b1d9587'), titleTr: 'Doğum Günü Klasiği', titleEn: 'Birthday Classic', category: 'birthday', priceRange: '₺1.400 - ₺2.600' },
+  { id: 'g52', imageUrl: img('photo-1606890737304-57a1ca8a5b62'), titleTr: 'Kurumsal Zarafet', titleEn: 'Corporate Elegance', category: 'corporate', priceRange: '₺2.500 - ₺4.000' },
+  { id: 'g53', imageUrl: img('photo-1464349095431-e9a21285b5f3'), titleTr: 'Pastel Rüya', titleEn: 'Pastel Dream', category: 'baby', priceRange: '₺1.600 - ₺2.800' },
+  { id: 'g54', imageUrl: img('photo-1602351447937-745cb720612f'), titleTr: 'Modern Sanat', titleEn: 'Modern Art', category: 'custom', priceRange: '₺2.700 - ₺4.700' },
+  { id: 'g55', imageUrl: img('photo-1557925923-cd4648e211a0'), titleTr: 'Çiçekli İhtişam', titleEn: 'Floral Grandeur', category: 'wedding', priceRange: '₺6.500 - ₺10.000' },
+  { id: 'g56', imageUrl: img('photo-1535920527002-b35e96722eb9'), titleTr: 'Eğlenceli Çocuk', titleEn: 'Playful Kids', category: 'birthday', priceRange: '₺1.500 - ₺2.700' },
+  { id: 'g57', imageUrl: img('photo-1606313564200-e75d5e30476c'), titleTr: 'İnce İşçilik', titleEn: 'Fine Craft', category: 'custom', priceRange: '₺2.600 - ₺4.500' },
+  { id: 'g58', imageUrl: img('photo-1562440499-64c9a111f713'), titleTr: 'Lansman Özel', titleEn: 'Launch Special', category: 'corporate', priceRange: '₺2.900 - ₺4.800' },
+  { id: 'g59', imageUrl: img('photo-1558636508-e0db3814bd1d'), titleTr: 'Hoş Geldin Bebek', titleEn: 'Welcome Baby', category: 'baby', priceRange: '₺1.700 - ₺3.000' },
 ];
 
 export const FEATURED = GALLERY.filter((g) => g.featured);
@@ -428,6 +448,12 @@ export const TESTIMONIALS: TestimonialData[] = [
       'Our logo cake for the corporate anniversary arrived right on time and flawless. Top-tier professionalism.',
     rating: 5,
   },
+  { id: 't10', author: 'Merve Ş.', textTr: 'Cupcake kutuları ofisimizde büyük beğeni topladı. Hem şık hem lezzetli.', textEn: 'The cupcake boxes were a big hit at our office. Stylish and delicious.', rating: 5 },
+  { id: 't11', author: 'Cenk & Pelin', textTr: 'Düğün tadımı çok keyifliydi, tüm lezzetleri denedik ve favorimizi seçtik.', textEn: 'The wedding tasting was delightful; we tried all the flavours and picked our favourite.', rating: 5 },
+  { id: 't12', author: 'Hakan T.', textTr: 'Son dakika siparişimi bile büyük bir özenle hazırladılar. Minnettarım.', textEn: 'They prepared even my last-minute order with great care. I am grateful.', rating: 5 },
+  { id: 't13', author: 'Nilüfer A.', textTr: 'Makaron kulesi nişanımızın yıldızıydı. Herkes fotoğraf çektirdi.', textEn: 'The macaron tower was the star of our engagement. Everyone took photos.', rating: 5 },
+  { id: 't14', author: 'Sinem K.', textTr: 'Glutensiz seçenekleri sayesinde herkes aynı pastadan yiyebildi. Teşekkürler.', textEn: 'Thanks to their gluten-free options, everyone could enjoy the same cake. Thank you.', rating: 5 },
+  { id: 't15', author: 'Berk D.', textTr: '3D tasarlayıcı gerçekten eğlenceli; pastamı tam istediğim gibi tasarladım.', textEn: 'The 3D configurator is genuinely fun; I designed my cake exactly how I wanted.', rating: 5 },
 ];
 
 export interface PresetData {

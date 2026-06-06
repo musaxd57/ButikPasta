@@ -199,6 +199,46 @@ export const FAQ_GROUPS: FaqGroup[] = [
     ],
   },
   {
+    key: 'gifts',
+    title: { tr: 'Hediye Kartları', en: 'Gift Cards' },
+    entries: [
+      {
+        q: { tr: 'Hediye kartı nasıl çalışır?', en: 'How do gift cards work?' },
+        a: {
+          tr: 'Hediye kartını dijital olarak alır, sevdiğiniz kişiye e-posta ile iletiriz. Alıcı dilediği pastayı seçebilir.',
+          en: 'You purchase the gift card digitally and we deliver it by email to your loved one, who can choose any cake.',
+        },
+      },
+      {
+        q: { tr: 'Hediye kartının geçerlilik süresi nedir?', en: 'How long is a gift card valid?' },
+        a: {
+          tr: 'Hediye kartları satın alma tarihinden itibaren 12 ay geçerlidir.',
+          en: 'Gift cards are valid for 12 months from the purchase date.',
+        },
+      },
+    ],
+  },
+  {
+    key: 'sustainabilityFaq',
+    title: { tr: 'Sürdürülebilirlik', en: 'Sustainability' },
+    entries: [
+      {
+        q: { tr: 'Ambalajlarınız geri dönüştürülebilir mi?', en: 'Is your packaging recyclable?' },
+        a: {
+          tr: 'Evet, pasta kutularımız geri dönüştürülebilir ve plastiksiz malzemelerden üretilir.',
+          en: 'Yes, our cake boxes are made from recyclable, plastic-free materials.',
+        },
+      },
+      {
+        q: { tr: 'Malzemeleri nereden tedarik ediyorsunuz?', en: 'Where do you source ingredients?' },
+        a: {
+          tr: 'Mümkün olduğunca yerel üreticilerden, mevsiminde tedarik ediyoruz.',
+          en: 'We source from local producers, in season, wherever possible.',
+        },
+      },
+    ],
+  },
+  {
     key: 'weddingsFaq',
     title: { tr: 'Düğün Pastaları', en: 'Wedding Cakes' },
     entries: [
@@ -225,6 +265,69 @@ export const FAQ_GROUPS: FaqGroup[] = [
     ],
   },
 ];
+
+FAQ_GROUPS.push(
+  {
+    key: 'cupcakesFaq',
+    title: { tr: 'Cupcake & Lokma', en: 'Cupcakes & Bites' },
+    entries: [
+      {
+        q: { tr: 'Minimum kutu adedi var mı?', en: 'Is there a minimum number of boxes?' },
+        a: {
+          tr: 'Cupcake ve lokmalıklarda minimum 2 kutu sipariş alıyoruz; etkinlikler için ise miktar sınırı yoktur.',
+          en: 'We take a minimum of 2 boxes for cupcakes and bites; there is no upper limit for events.',
+        },
+      },
+      {
+        q: { tr: 'Tatlı masası kurulumu yapıyor musunuz?', en: 'Do you set up dessert tables?' },
+        a: {
+          tr: 'Evet, büyük etkinlikler için tatlı masası tasarımı ve kurulumu sunuyoruz.',
+          en: 'Yes, we offer dessert-table design and setup for large events.',
+        },
+      },
+    ],
+  },
+  {
+    key: 'tasting',
+    title: { tr: 'Tadım', en: 'Tasting' },
+    entries: [
+      {
+        q: { tr: 'Tadım randevusu nasıl alınır?', en: 'How do I book a tasting?' },
+        a: {
+          tr: 'Tadım Randevusu sayfamızdan tarih ve kişi sayısı seçerek kolayca talep oluşturabilirsiniz.',
+          en: 'You can easily request one on our Tasting page by choosing a date and number of guests.',
+        },
+      },
+      {
+        q: { tr: 'Tadım ücretli mi?', en: 'Is the tasting paid?' },
+        a: {
+          tr: 'Couture paketlerinde tadım ücretsizdir; diğer durumlarda sembolik bir ücret alınır ve siparişe mahsup edilir.',
+          en: 'Tastings are complimentary with Couture packages; otherwise a small fee applies and is deducted from your order.',
+        },
+      },
+    ],
+  },
+  {
+    key: 'general',
+    title: { tr: 'Genel', en: 'General' },
+    entries: [
+      {
+        q: { tr: 'Mağazanız var mı?', en: 'Do you have a store?' },
+        a: {
+          tr: 'Nişantaşı’ndaki atölyemizden randevulu ziyaret ve teslim alma mümkündür.',
+          en: 'Visits and pickups are possible by appointment at our Nişantaşı atelier.',
+        },
+      },
+      {
+        q: { tr: 'Sosyal medyada var mısınız?', en: 'Are you on social media?' },
+        a: {
+          tr: 'Evet, Instagram’da @ateliercake hesabımızdan son çalışmalarımızı paylaşıyoruz.',
+          en: 'Yes, we share our latest work on Instagram at @ateliercake.',
+        },
+      },
+    ],
+  },
+);
 
 export function allFaqs(): FaqEntry[] {
   return FAQ_GROUPS.flatMap((g) => g.entries);

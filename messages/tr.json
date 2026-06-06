@@ -29,7 +29,40 @@
     "sustainability": "Sürdürülebilirlik",
     "press": "Basın",
     "menu": "İmza Menü",
+    "cupcakes": "Cupcake & Lokma",
+    "favorites": "Favorilerim",
     "more": "Keşfet"
+  },
+  "cupcakes": {
+    "title": "Cupcake & Lokma",
+    "subtitle": "Etkinlikler ve hediyeler için kutu kutu küçük lezzetler.",
+    "all": "Tümü",
+    "cupcake": "Cupcake",
+    "macaron": "Makaron",
+    "cookie": "Kurabiye",
+    "bite": "Lokmalık",
+    "perBox": "kutu",
+    "pieces": "adet",
+    "order": "Sipariş Ver",
+    "ctaTitle": "Büyük etkinlik mi planlıyorsunuz?",
+    "ctaLead": "Tatlı masası ve toplu sipariş için bizimle iletişime geçin.",
+    "ctaButton": "İletişime Geç"
+  },
+  "notFound": {
+    "title": "Sayfa Bulunamadı",
+    "lead": "Aradığınız sayfa taşınmış veya hiç var olmamış olabilir. Sizi tekrar lezzete götürelim.",
+    "home": "Ana Sayfa",
+    "gallery": "Galeri"
+  },
+  "favorites": {
+    "title": "Favorilerim",
+    "subtitle": "Beğenip kaydettiğiniz tasarımlar ve lezzetler.",
+    "empty": "Henüz favori eklemediniz. Galeri ve menüdeki kalp simgesine dokunarak beğendiklerinizi kaydedin.",
+    "browseGallery": "Galeriyi Keşfet",
+    "browseMenu": "Menüyü Gör",
+    "clear": "Tümünü Temizle",
+    "designs": "Tasarımlar",
+    "flavors": "Lezzetler"
   },
   "menu": {
     "title": "İmza Menü",
