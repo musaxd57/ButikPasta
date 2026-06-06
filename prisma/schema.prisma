@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime @default(now())
+}
+
+model Order {
+  id            String   @id @default(cuid())
+  orderNumber   String   @unique
+  customerName  String
+  customerEmail String
+  customerPhone String
+  address       String
+  // Full cake configuration captured from the 3D configurator (JSON string).
+  cakeConfig    String
+  totalPrice    Float
+  depositPaid   Boolean  @default(false)
+  // Status: PENDING | IN_PROGRESS | READY | DELIVERED | CANCELLED
+  status        String   @default("PENDING")
+  // PaymentStatus: UNPAID | DEPOSIT_PAID | PAID | REFUNDED
+  paymentStatus String   @default("UNPAID")
+  deliveryDate  DateTime
+  deliverySlot  String
+  locale        String   @default("tr")
+  notes         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model CakeOption {
+  id            String   @id @default(cuid())
+  category      String   // base | tier | size | flavor | frosting | decoration | font
+  key           String   // machine key e.g. "chocolate"
+  nameTr        String
+  nameEn        String
+  priceModifier Float    @default(0)
+  available     Boolean  @default(true)
+  sortOrder     Int      @default(0)
+
+  @@unique([category, key])
+}
+
+model GalleryItem {
+  id         String   @id @default(cuid())
+  imageUrl   String
+  titleTr    String
+  titleEn    String
+  category   String   // wedding | birthday | corporate | baby | custom
+  priceRange String?
+  featured   Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  author    String
+  textTr    String
+  textEn    String
+  rating    Int      @default(5)
+  featured  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}

@@ -1,0 +1,257 @@
+{
+  "brand": {
+    "name": "Atelier Cake",
+    "tagline": "Her Pasta, Bir Hikaye"
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "configure": "Tasarla",
+    "gallery": "Galeri",
+    "order": "Sipariş",
+    "about": "Hakkımızda",
+    "admin": "Yönetim"
+  },
+  "common": {
+    "next": "İleri",
+    "back": "Geri",
+    "continue": "Devam Et",
+    "loading": "Yükleniyor...",
+    "from": "başlangıç",
+    "total": "Toplam",
+    "viewAll": "Tümünü Gör",
+    "send": "Gönder",
+    "close": "Kapat",
+    "currencyNote": "KDV dahil"
+  },
+  "home": {
+    "heroTagline": "Her Pasta, Bir Hikaye",
+    "heroSub": "İstanbul'un en zarif butik pasta atölyesi. Hayalinizdeki pastayı birlikte tasarlayalım.",
+    "ctaConfigure": "Pastanı Tasarla",
+    "ctaGallery": "Galeriyi Keşfet",
+    "ctaOrder": "Sipariş Ver",
+    "storyTitle": "Zanaatkârlık ve Tutku",
+    "storyLead": "El yapımı zarafet",
+    "storyBody": "Atelier Cake, her detayın özenle işlendiği bespoke pastalar yaratır. Premium malzemeler, Fransız patisserie teknikleri ve sınırsız hayal gücüyle özel günlerinizi ölümsüzleştiriyoruz.",
+    "featuredTitle": "Öne Çıkan Tasarımlar",
+    "featuredSub": "En çok tercih edilen imza pastalarımız",
+    "instaTitle": "Atölyeden Kareler",
+    "instaSub": "Son çalışmalarımızdan ilham alın",
+    "testimonialsTitle": "Müşterilerimiz Anlatıyor",
+    "orderSimilar": "Benzerini Sipariş Et"
+  },
+  "configurator": {
+    "title": "Pasta Atölyesi",
+    "subtitle": "Adım adım kendi pastanızı tasarlayın",
+    "snapshot": "Anlık Görüntü Al",
+    "snapshotSaved": "Tasarım görüntüsü kaydedildi",
+    "orderThis": "Bu Pastayı Sipariş Et",
+    "yourPrice": "Tahmini Fiyat",
+    "rotateHint": "Sürükleyerek döndürün · Kaydırarak yakınlaştırın",
+    "stepLabel": "Adım",
+    "steps": {
+      "base": "Taban",
+      "tiers": "Kat",
+      "size": "Boyut",
+      "flavor": "Lezzet",
+      "frosting": "Kaplama",
+      "decoration": "Süsleme",
+      "message": "Mesaj",
+      "delivery": "Teslimat"
+    },
+    "base": {
+      "title": "Bir başlangıç seçin",
+      "scratch": "Sıfırdan Başla",
+      "scratchDesc": "Tamamen özgün bir tasarım oluşturun",
+      "presetDesc": "Hazır tasarımdan ilham alın"
+    },
+    "tiers": {
+      "title": "Kaç katlı olsun?",
+      "one": "Tek Kat",
+      "two": "İki Kat",
+      "three": "Üç Kat"
+    },
+    "size": {
+      "title": "Her kat için boyut seçin",
+      "tier": "Kat",
+      "small": "Küçük",
+      "medium": "Orta",
+      "large": "Büyük"
+    },
+    "flavor": {
+      "title": "Lezzeti seçin",
+      "tier": "Kat"
+    },
+    "frosting": {
+      "title": "Kaplama ve renk",
+      "colorLabel": "Kaplama Rengi"
+    },
+    "decoration": {
+      "title": "Süslemeleri ekleyin",
+      "hint": "Birden fazla seçebilirsiniz",
+      "dripColor": "Akıtma Rengi"
+    },
+    "message": {
+      "title": "Pasta üzerine yazı",
+      "placeholder": "Örn: Mutlu Yıllar Elif",
+      "fontLabel": "Yazı Stili"
+    },
+    "delivery": {
+      "title": "Teslimat tarihi ve saati",
+      "dateLabel": "Teslimat Tarihi",
+      "slotLabel": "Saat Aralığı",
+      "note": "İstanbul içi teslimat · En az 5 gün önceden sipariş",
+      "selectSlot": "Saat aralığı seçin"
+    }
+  },
+  "flavor": {
+    "chocolate": "Çikolata",
+    "vanilla": "Vanilya",
+    "redvelvet": "Red Velvet",
+    "pistachio": "Antep Fıstığı",
+    "lemon": "Limon"
+  },
+  "frosting": {
+    "buttercream": "Tereyağlı Krema",
+    "fondant": "Fondan",
+    "whipped": "Çırpılmış Krema",
+    "ganache": "Ganaj"
+  },
+  "decoration": {
+    "flowers": "Çiçekler",
+    "macarons": "Makaron",
+    "berries": "Kırmızı Meyveler",
+    "drip": "Akıtma Efekti",
+    "topper": "Özel Topper"
+  },
+  "font": {
+    "script": "El Yazısı",
+    "serif": "Klasik",
+    "modern": "Modern"
+  },
+  "size": {
+    "small": "Küçük (10cm)",
+    "medium": "Orta (15cm)",
+    "large": "Büyük (20cm)"
+  },
+  "price": {
+    "base": "Temel Pasta",
+    "tier": "Kat Ekstra",
+    "extraTier": "İlave Kat",
+    "frosting": "Özel Kaplama",
+    "message": "Yazı",
+    "breakdown": "Fiyat Detayı"
+  },
+  "gallery": {
+    "title": "Galeri",
+    "subtitle": "İmza tasarımlarımızdan seçkiler",
+    "all": "Tümü",
+    "wedding": "Düğün",
+    "birthday": "Doğum Günü",
+    "corporate": "Kurumsal",
+    "baby": "Baby Shower",
+    "custom": "Özel",
+    "details": "Detaylar",
+    "orderSimilar": "Benzerini Sipariş Et",
+    "empty": "Bu kategoride henüz çalışma yok."
+  },
+  "order": {
+    "title": "Siparişi Tamamla",
+    "summary": "Pasta Özeti",
+    "noConfig": "Henüz bir pasta tasarlamadınız.",
+    "designNow": "Şimdi Tasarla",
+    "details": "İletişim Bilgileri",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "address": "Teslimat Adresi",
+    "deliveryDate": "Teslimat Tarihi",
+    "deliverySlot": "Saat Aralığı",
+    "notes": "Eklemek istedikleriniz (opsiyonel)",
+    "paymentTitle": "Ödeme",
+    "payFull": "Tam Ödeme",
+    "payDeposit": "%50 Kapora",
+    "place": "Siparişi Onayla",
+    "placing": "İşleniyor...",
+    "whatsapp": "Sipariş için WhatsApp",
+    "success": "Siparişiniz alındı!",
+    "successBody": "Sipariş numaranız: {orderNumber}. Onay e-postası gönderildi.",
+    "advanceNote": "Siparişler en az 5 gün önceden alınır.",
+    "redirecting": "Güvenli ödemeye yönlendiriliyorsunuz...",
+    "canceled": "Ödeme iptal edildi. Tekrar deneyebilirsiniz.",
+    "errorGeneric": "Bir hata oluştu. Lütfen tekrar deneyin."
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "lead": "İstanbul'da el yapımı lüks pastanın adresi",
+    "story": "Atelier Cake, pastacılığı bir sanat olarak gören bir tutkudan doğdu. Her pasta, müşterimizin hikayesini anlatan benzersiz bir eserdir.",
+    "founderName": "Şef Defne Aydın",
+    "founderRole": "Kurucu & Baş Pasta Şefi",
+    "founderBio": "Paris'te Le Cordon Bleu eğitimi almış olan Defne, 15 yılı aşkın deneyimiyle Atelier Cake'i İstanbul'un en seçkin pasta atölyesi haline getirdi.",
+    "valuesTitle": "Değerlerimiz",
+    "value1": "El Yapımı",
+    "value1Desc": "Her pasta tek tek elde, özenle hazırlanır.",
+    "value2": "Premium Malzeme",
+    "value2Desc": "Yalnızca en kaliteli, taze malzemeler.",
+    "value3": "Bespoke Tasarım",
+    "value3Desc": "Tamamen size özel, eşsiz tasarımlar.",
+    "pressTitle": "Basında Biz"
+  },
+  "admin": {
+    "loginTitle": "Yönetim Girişi",
+    "email": "E-posta",
+    "password": "Şifre",
+    "login": "Giriş Yap",
+    "loginError": "E-posta veya şifre hatalı",
+    "logout": "Çıkış",
+    "dashboard": "Panel",
+    "orders": "Siparişler",
+    "galleryMgmt": "Galeri",
+    "menuMgmt": "Menü & Fiyat",
+    "totalOrders": "Toplam Sipariş",
+    "pending": "Bekleyen",
+    "completed": "Tamamlanan",
+    "revenue": "Ciro",
+    "orderNumber": "Sipariş No",
+    "customer": "Müşteri",
+    "date": "Tarih",
+    "status": "Durum",
+    "amount": "Tutar",
+    "updateStatus": "Durumu Güncelle",
+    "noOrders": "Henüz sipariş yok.",
+    "statusPENDING": "Beklemede",
+    "statusIN_PROGRESS": "Hazırlanıyor",
+    "statusREADY": "Hazır",
+    "statusDELIVERED": "Teslim Edildi",
+    "statusCANCELLED": "İptal"
+  },
+  "footer": {
+    "tagline": "İstanbul · Bespoke Pasta Atölyesi",
+    "explore": "Keşfet",
+    "contact": "İletişim",
+    "follow": "Takip Edin",
+    "rights": "Tüm hakları saklıdır.",
+    "address": "Nişantaşı, İstanbul"
+  },
+  "cookie": {
+    "text": "Deneyiminizi iyileştirmek için çerezler kullanıyoruz. KVKK kapsamında verileriniz güvendedir.",
+    "accept": "Kabul Et",
+    "decline": "Reddet",
+    "policy": "Çerez Politikası"
+  },
+  "validation": {
+    "name": { "short": "Lütfen geçerli bir ad girin" },
+    "email": { "invalid": "Geçerli bir e-posta girin" },
+    "phone": { "invalid": "Geçerli bir telefon numarası girin" },
+    "address": { "short": "Lütfen tam adres girin" },
+    "date": { "tooSoon": "Teslimat en az 5 gün sonrası olmalı" },
+    "slot": { "required": "Saat aralığı seçin" }
+  },
+  "meta": {
+    "homeTitle": "Atelier Cake · Lüks Butik Pasta Atölyesi · İstanbul",
+    "homeDesc": "İstanbul'un en zarif bespoke pasta atölyesi. 3D pasta tasarlayıcı ile hayalinizdeki pastayı yaratın.",
+    "configureTitle": "Pasta Tasarla · Atelier Cake",
+    "galleryTitle": "Galeri · Atelier Cake",
+    "orderTitle": "Sipariş · Atelier Cake",
+    "aboutTitle": "Hakkımızda · Atelier Cake"
+  }
+}
