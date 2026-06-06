@@ -5,6 +5,7 @@ import { Canvas } from '@react-three/fiber';
 import {
   OrbitControls,
   Environment,
+  Lightformer,
   ContactShadows,
   Html,
 } from '@react-three/drei';
@@ -43,7 +44,7 @@ export default function CakeViewer({ config }: { config: CakeConfig }) {
       <Canvas
         ref={canvasRef}
         shadows
-        dpr={[1, 2]}
+        dpr={[1, 1.6]}
         gl={{ preserveDrawingBuffer: true, antialias: true }}
         camera={{ position: [0, 1.5, 5], fov: 40 }}
       >
@@ -67,7 +68,28 @@ export default function CakeViewer({ config }: { config: CakeConfig }) {
             blur={2.4}
             far={4}
           />
-          <Environment preset="studio" />
+          {/* Procedural studio environment — gives soft gold reflections for
+              fondant/ganache without downloading a multi-MB HDRI. */}
+          <Environment resolution={128} frames={1}>
+            <Lightformer
+              intensity={2.2}
+              position={[0, 4, 3]}
+              scale={[8, 8, 1]}
+              color="#fff4d6"
+            />
+            <Lightformer
+              intensity={1.1}
+              position={[-5, 1, -2]}
+              scale={[5, 5, 1]}
+              color="#C9A84C"
+            />
+            <Lightformer
+              intensity={1.3}
+              position={[5, 2, 2]}
+              scale={[5, 5, 1]}
+              color="#ffffff"
+            />
+          </Environment>
         </Suspense>
         <OrbitControls
           enablePan={false}

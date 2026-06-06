@@ -78,7 +78,7 @@ const SIZE_RADIUS: Record<SizeKey, number> = {
   large: 1.5,
 };
 
-const TIER_HEIGHT = 0.7;
+const TIER_HEIGHT = 0.85;
 
 // Sponge/flavor colours show as a thin band where the frosting "reveals" cake.
 const FLAVOR_COLOR: Record<FlavorKey, string> = {
@@ -150,17 +150,46 @@ export default function CakeModel({ config }: { config: CakeConfig }) {
         <meshStandardMaterial color="#e8e0d0" metalness={0.3} roughness={0.4} />
       </mesh>
 
-      {placed.map(({ tier, radius, cy }, i) => (
+      {placed.map(({ tier, radius, cy }, i) => {
+        const frostingMat = (
+          <meshStandardMaterial
+            color={config.frostingColor}
+            roughness={config.frosting === 'fondant' ? 0.25 : 0.7}
+            metalness={config.frosting === 'ganache' ? 0.15 : 0}
+          />
+        );
+        const isTop = i === placed.length - 1;
+        return (
         <group key={i}>
-          {/* Frosted tier */}
+          {/* Frosted tier body */}
           <mesh position={[0, cy, 0]} castShadow receiveShadow>
-            <cylinderGeometry args={[radius, radius, TIER_HEIGHT, 64]} />
-            <meshStandardMaterial
-              color={config.frostingColor}
-              roughness={config.frosting === 'fondant' ? 0.25 : 0.7}
-              metalness={config.frosting === 'ganache' ? 0.15 : 0}
-            />
+            <cylinderGeometry args={[radius, radius * 1.02, TIER_HEIGHT, 64]} />
+            {frostingMat}
           </mesh>
+
+          {/* Rounded top edge — softens the sharp cylinder rim */}
+          <mesh
+            position={[0, cy + TIER_HEIGHT / 2, 0]}
+            rotation={[Math.PI / 2, 0, 0]}
+            castShadow
+          >
+            <torusGeometry args={[radius - 0.04, 0.06, 16, 64]} />
+            {frostingMat}
+          </mesh>
+
+          {/* Domed crown on the very top tier ("kubbe") */}
+          {isTop && (
+            <mesh
+              position={[0, cy + TIER_HEIGHT / 2, 0]}
+              scale={[1, 0.32, 1]}
+              castShadow
+            >
+              <sphereGeometry
+                args={[radius - 0.02, 48, 24, 0, Math.PI * 2, 0, Math.PI / 2]}
+              />
+              {frostingMat}
+            </mesh>
+          )}
 
           {/* Drip effect ring */}
           {hasDrip && (
@@ -180,7 +209,8 @@ export default function CakeModel({ config }: { config: CakeConfig }) {
             <meshStandardMaterial color={FLAVOR_COLOR[tier.flavor]} roughness={0.8} />
           </mesh>
         </group>
-      ))}
+        );
+      })}
 
       {/* Message text on the cake */}
       {config.message.trim() && (

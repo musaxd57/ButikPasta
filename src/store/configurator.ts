@@ -30,14 +30,21 @@ interface ConfiguratorState {
   reset: () => void;
 }
 
+// Graduated default sizes per tier count, so a fresh multi-tier cake always
+// looks like a proper tiered cake (wide base → narrow top). Flavours chosen by
+// the user are preserved when the tier count changes.
+const SIZE_BY_POSITION: Record<number, TierConfig['size'][]> = {
+  1: ['medium'],
+  2: ['large', 'medium'],
+  3: ['large', 'medium', 'small'],
+};
+
 function buildTiers(count: number, existing: TierConfig[]): TierConfig[] {
-  const tiers: TierConfig[] = [];
-  for (let i = 0; i < count; i++) {
-    tiers.push(
-      existing[i] ?? { size: i === 0 ? 'medium' : 'small', flavor: 'vanilla' },
-    );
-  }
-  return tiers;
+  const sizes = SIZE_BY_POSITION[count] ?? SIZE_BY_POSITION[1];
+  return sizes.map((size, i) => ({
+    size,
+    flavor: existing[i]?.flavor ?? 'vanilla',
+  }));
 }
 
 export const useConfigurator = create<ConfiguratorState>()(
