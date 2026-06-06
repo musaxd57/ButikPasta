@@ -23,6 +23,10 @@ interface ConfiguratorState {
   setFrosting: (frosting: FrostingKey) => void;
   setFrostingColor: (color: string) => void;
   setDripColor: (color: string) => void;
+  setSprinkles: (on: boolean) => void;
+  setSprinkleColor: (color: string) => void;
+  setCandles: (count: number) => void;
+  setBoardColor: (color: string) => void;
   toggleDecoration: (deco: DecorationKey) => void;
   setMessage: (message: string) => void;
   setFont: (font: FontKey) => void;
@@ -84,6 +88,16 @@ export const useConfigurator = create<ConfiguratorState>()(
         set((s) => ({ config: { ...s.config, frostingColor } })),
       setDripColor: (dripColor) =>
         set((s) => ({ config: { ...s.config, dripColor } })),
+      setSprinkles: (sprinkles) =>
+        set((s) => ({ config: { ...s.config, sprinkles } })),
+      setSprinkleColor: (sprinkleColor) =>
+        set((s) => ({ config: { ...s.config, sprinkleColor } })),
+      setCandles: (candles) =>
+        set((s) => ({
+          config: { ...s.config, candles: Math.max(0, Math.min(12, candles)) },
+        })),
+      setBoardColor: (boardColor) =>
+        set((s) => ({ config: { ...s.config, boardColor } })),
       toggleDecoration: (deco) =>
         set((s) => {
           const has = s.config.decorations.includes(deco);
@@ -99,7 +113,20 @@ export const useConfigurator = create<ConfiguratorState>()(
         set((s) => ({ config: { ...s.config, deliveryDate, deliverySlot } })),
       reset: () => set({ config: DEFAULT_CONFIG, step: 0 }),
     }),
-    { name: 'atelier-cake-config' },
+    {
+      name: 'atelier-cake-config',
+      version: 2,
+      // Ensure configs persisted before new fields existed get the defaults,
+      // avoiding undefined/NaN when older data is rehydrated.
+      merge: (persisted, current) => {
+        const p = (persisted ?? {}) as Partial<ConfiguratorState>;
+        return {
+          ...current,
+          ...p,
+          config: { ...DEFAULT_CONFIG, ...(p.config ?? {}) },
+        };
+      },
+    },
   ),
 );
 

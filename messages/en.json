@@ -18,7 +18,43 @@
     "contact": "Contact",
     "flavors": "Flavors",
     "track": "Track Order",
+    "reviews": "Reviews",
+    "appointment": "Tasting",
+    "collections": "Collections",
+    "glossary": "Glossary",
+    "care": "Care Guide",
+    "giftCard": "Gift Card",
     "more": "Explore"
+  },
+  "collections": {
+    "title": "Collections",
+    "subtitle": "Our signature series, each curated for a mood.",
+    "explore": "Explore Collection",
+    "designCta": "Design in This Style"
+  },
+  "glossary": {
+    "title": "Cake Glossary",
+    "subtitle": "Let's learn the terms of the cake world together.",
+    "searchPlaceholder": "Search a term..."
+  },
+  "care": {
+    "title": "Storage & Care Guide",
+    "subtitle": "Everything to keep your cake as fresh as day one.",
+    "cta": "More Questions"
+  },
+  "giftcard": {
+    "title": "Gift Card",
+    "subtitle": "Gift a luxurious taste to your loved ones.",
+    "lead": "Atelier Cake gift cards let your loved ones choose their dream cake. Delivered digitally by email.",
+    "amount": "Choose Amount",
+    "custom": "Custom Amount",
+    "recipient": "Recipient Name",
+    "recipientEmail": "Recipient Email",
+    "from": "From",
+    "messageLabel": "Your Message",
+    "buy": "Buy Gift Card",
+    "note": "Gift cards are valid for 12 months.",
+    "success": "Your gift card request has been received! We'll contact you for payment."
   },
   "common": {
     "next": "Next",
@@ -74,7 +110,12 @@
       "frosting": "Frosting",
       "decoration": "Decoration",
       "message": "Message",
-      "delivery": "Delivery"
+      "delivery": "Delivery",
+      "review": "Review"
+    },
+    "review": {
+      "title": "Review Your Design",
+      "hint": "If everything looks good, proceed to order."
     },
     "base": {
       "title": "Choose a starting point",
@@ -107,6 +148,12 @@
       "title": "Add decorations",
       "hint": "You can select multiple",
       "dripColor": "Drip Color"
+    },
+    "extras": {
+      "title": "Finishing Touches",
+      "sprinkles": "Sprinkles",
+      "candles": "Number of Candles",
+      "boardColor": "Cake Board Color"
     },
     "message": {
       "title": "Message on the cake",
@@ -157,6 +204,8 @@
     "extraTier": "Extra Tier",
     "frosting": "Premium Frosting",
     "message": "Message",
+    "sprinkles": "Sprinkles",
+    "candles": "Candles",
     "breakdown": "Price Breakdown"
   },
   "gallery": {
@@ -249,7 +298,13 @@
     "handled": "Handled",
     "markHandled": "Mark handled",
     "revenue6m": "Revenue (6 months)",
-    "statusDist": "Status Distribution"
+    "statusDist": "Status Distribution",
+    "reviewsMod": "Review Moderation",
+    "appointments": "Appointments",
+    "publish": "Publish",
+    "unpublish": "Unpublish",
+    "published": "Published",
+    "pending": "Pending approval"
   },
   "footer": {
     "tagline": "Istanbul · Bespoke Cake Atelier",
@@ -423,6 +478,40 @@
     "zone": "Zone",
     "districts": "Districts",
     "fee": "Fee"
+  },
+  "reviews": {
+    "title": "Customer Reviews",
+    "subtitle": "Experiences from those who chose us.",
+    "writeTitle": "Share Your Experience",
+    "author": "Your Name",
+    "email": "Email",
+    "rating": "Rating",
+    "body": "Your Review",
+    "submit": "Submit Review",
+    "submitting": "Submitting...",
+    "success": "Thank you! Your review will be published once approved.",
+    "error": "Could not submit review, please try again.",
+    "empty": "No reviews yet. Be the first to write one!",
+    "moderationNote": "Reviews are checked before being published."
+  },
+  "appointment": {
+    "title": "Tasting & Consultation Booking",
+    "subtitle": "Experience our flavours at the atelier and plan your design together.",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "date": "Preferred Date",
+    "guests": "Number of Guests",
+    "occasion": "Occasion",
+    "note": "Anything to add",
+    "submit": "Request Appointment",
+    "submitting": "Submitting...",
+    "success": "Your appointment request has been received! We'll get back to you shortly.",
+    "error": "Could not send request, please try again.",
+    "infoTitle": "About Tastings",
+    "info1": "Tastings are complimentary with Couture packages.",
+    "info2": "Appointments are scheduled weekdays 11:00–17:00.",
+    "info3": "Groups of up to 6 guests can be hosted."
   },
   "meta": {
     "homeTitle": "Atelier Cake · Luxury Bespoke Cake Atelier · Istanbul",

@@ -75,6 +75,14 @@ export function calculatePrice(config: CakeConfig): PriceResult {
     });
   });
 
+  if (config.sprinkles) {
+    lines.push({ labelKey: 'price.sprinkles', amount: 60 });
+  }
+
+  if (config.candles > 0) {
+    lines.push({ labelKey: 'price.candles', amount: config.candles * 15 });
+  }
+
   if (config.message.trim().length > 0) {
     lines.push({ labelKey: 'price.message', amount: 90 });
   }

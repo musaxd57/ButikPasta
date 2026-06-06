@@ -18,7 +18,43 @@
     "contact": "İletişim",
     "flavors": "Lezzetler",
     "track": "Sipariş Takibi",
+    "reviews": "Yorumlar",
+    "appointment": "Tadım Randevusu",
+    "collections": "Koleksiyonlar",
+    "glossary": "Sözlük",
+    "care": "Bakım Rehberi",
+    "giftCard": "Hediye Kartı",
     "more": "Keşfet"
+  },
+  "collections": {
+    "title": "Koleksiyonlar",
+    "subtitle": "Her biri bir ruh hâli için özenle derlenmiş imza serilerimiz.",
+    "explore": "Koleksiyonu İncele",
+    "designCta": "Bu Stilde Tasarla"
+  },
+  "glossary": {
+    "title": "Pasta Sözlüğü",
+    "subtitle": "Pasta dünyasının terimlerini birlikte öğrenelim.",
+    "searchPlaceholder": "Terim ara..."
+  },
+  "care": {
+    "title": "Saklama & Bakım Rehberi",
+    "subtitle": "Pastanızın ilk günkü tazeliğini korumak için her şey.",
+    "cta": "Daha Fazla Soru"
+  },
+  "giftcard": {
+    "title": "Hediye Kartı",
+    "subtitle": "Sevdiklerinize lüks bir lezzet armağan edin.",
+    "lead": "Atelier Cake hediye kartları, sevdiklerinizin hayalindeki pastayı seçmesine olanak tanır. Dijital olarak e-posta ile iletilir.",
+    "amount": "Tutar Seçin",
+    "custom": "Özel Tutar",
+    "recipient": "Alıcı Adı",
+    "recipientEmail": "Alıcı E-posta",
+    "from": "Gönderen",
+    "messageLabel": "Mesajınız",
+    "buy": "Hediye Kartı Al",
+    "note": "Hediye kartları 12 ay geçerlidir.",
+    "success": "Hediye kartı talebiniz alındı! Ödeme için sizinle iletişime geçeceğiz."
   },
   "common": {
     "next": "İleri",
@@ -74,7 +110,12 @@
       "frosting": "Kaplama",
       "decoration": "Süsleme",
       "message": "Mesaj",
-      "delivery": "Teslimat"
+      "delivery": "Teslimat",
+      "review": "Özet"
+    },
+    "review": {
+      "title": "Tasarımınızı Gözden Geçirin",
+      "hint": "Her şey yolundaysa siparişe geçebilirsiniz."
     },
     "base": {
       "title": "Bir başlangıç seçin",
@@ -107,6 +148,12 @@
       "title": "Süslemeleri ekleyin",
       "hint": "Birden fazla seçebilirsiniz",
       "dripColor": "Akıtma Rengi"
+    },
+    "extras": {
+      "title": "Son Dokunuşlar",
+      "sprinkles": "Şeker Taneleri",
+      "candles": "Mum Sayısı",
+      "boardColor": "Pasta Altlığı Rengi"
     },
     "message": {
       "title": "Pasta üzerine yazı",
@@ -157,6 +204,8 @@
     "extraTier": "İlave Kat",
     "frosting": "Özel Kaplama",
     "message": "Yazı",
+    "sprinkles": "Şeker Taneleri",
+    "candles": "Mumlar",
     "breakdown": "Fiyat Detayı"
   },
   "gallery": {
@@ -249,7 +298,13 @@
     "handled": "Yanıtlandı",
     "markHandled": "Yanıtlandı işaretle",
     "revenue6m": "Son 6 Ay Ciro",
-    "statusDist": "Durum Dağılımı"
+    "statusDist": "Durum Dağılımı",
+    "reviewsMod": "Yorum Moderasyonu",
+    "appointments": "Randevular",
+    "publish": "Yayınla",
+    "unpublish": "Yayından kaldır",
+    "published": "Yayında",
+    "pending": "Onay bekliyor"
   },
   "footer": {
     "tagline": "İstanbul · Bespoke Pasta Atölyesi",
@@ -423,6 +478,40 @@
     "zone": "Bölge",
     "districts": "İlçeler",
     "fee": "Ücret"
+  },
+  "reviews": {
+    "title": "Müşteri Yorumları",
+    "subtitle": "Bizi tercih edenlerin deneyimleri.",
+    "writeTitle": "Deneyiminizi Paylaşın",
+    "author": "Adınız",
+    "email": "E-posta",
+    "rating": "Puan",
+    "body": "Yorumunuz",
+    "submit": "Yorumu Gönder",
+    "submitting": "Gönderiliyor...",
+    "success": "Teşekkürler! Yorumunuz onaylandıktan sonra yayınlanacak.",
+    "error": "Yorum gönderilemedi, lütfen tekrar deneyin.",
+    "empty": "Henüz yorum yok. İlk yorumu siz yazın!",
+    "moderationNote": "Yorumlar yayınlanmadan önce incelenir."
+  },
+  "appointment": {
+    "title": "Tadım & Danışma Randevusu",
+    "subtitle": "Atölyemizde, lezzetlerimizi deneyimleyin ve tasarımınızı birlikte planlayalım.",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "date": "Tercih Edilen Tarih",
+    "guests": "Kişi Sayısı",
+    "occasion": "Etkinlik Türü",
+    "note": "Eklemek istedikleriniz",
+    "submit": "Randevu Talep Et",
+    "submitting": "Gönderiliyor...",
+    "success": "Randevu talebiniz alındı! Size en kısa sürede dönüş yapacağız.",
+    "error": "Talep gönderilemedi, lütfen tekrar deneyin.",
+    "infoTitle": "Tadım Hakkında",
+    "info1": "Couture paketlerinde tadım ücretsizdir.",
+    "info2": "Randevular hafta içi 11:00–17:00 arası planlanır.",
+    "info3": "En fazla 6 kişilik gruplar ağırlanır."
   },
   "meta": {
     "homeTitle": "Atelier Cake · Lüks Butik Pasta Atölyesi · İstanbul",

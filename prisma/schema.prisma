@@ -80,6 +80,29 @@ model ContactMessage {
   createdAt DateTime @default(now())
 }
 
+model Review {
+  id        String   @id @default(cuid())
+  author    String
+  email     String
+  rating    Int      @default(5)
+  body      String
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Appointment {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  date      DateTime
+  guests    Int      @default(2)
+  occasion  String?
+  note      String?
+  status    String   @default("REQUESTED")
+  createdAt DateTime @default(now())
+}
+
 model Testimonial {
   id        String   @id @default(cuid())
   author    String

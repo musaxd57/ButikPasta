@@ -209,6 +209,164 @@ export const JOURNAL: JournalPost[] = [
       ],
     },
   },
+  {
+    slug: 'fondan-mi-tereyagli-krema-mi',
+    category: 'guides',
+    cover: img('photo-1542826438-bd32f43d626f'),
+    date: '2025-12-15',
+    readingMinutes: 5,
+    author: 'Selin Yıldız',
+    title: { tr: 'Fondan mı, Tereyağlı Krema mı?', en: 'Fondant or Buttercream?' },
+    excerpt: {
+      tr: 'İki popüler kaplama arasındaki farkları ve hangi durumda hangisinin daha uygun olduğunu anlatıyoruz.',
+      en: 'We explain the differences between two popular finishes and when each works best.',
+    },
+    body: {
+      tr: [
+        'Fondan, pürüzsüz ve kusursuz bir yüzey sunar; özellikle keskin hatlı, modern tasarımlar için idealdir.',
+        'Tereyağlı krema ise daha yumuşak bir doku ve zengin bir lezzet verir. Doğal, rustik ve romantik görünümler için tercih edilir.',
+        'Lezzet açısından çoğu kişi tereyağlı kremayı daha çok sever; fondan ise dayanıklılık ve görsel netlik sağlar.',
+        'Sıcak havalarda dış mekan etkinlikleri için fondan daha güvenlidir. İç mekan davetlerinde tereyağlı krema harika sonuç verir.',
+      ],
+      en: [
+        'Fondant offers a smooth, flawless surface; it is ideal for modern designs with sharp edges.',
+        'Buttercream gives a softer texture and richer flavour. It is preferred for natural, rustic and romantic looks.',
+        'In terms of taste, most people prefer buttercream; fondant provides durability and visual clarity.',
+        'For outdoor events in hot weather, fondant is safer. For indoor celebrations, buttercream works beautifully.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-renk-paleti-secimi',
+    category: 'trends',
+    cover: img('photo-1464349095431-e9a21285b5f3'),
+    date: '2025-11-28',
+    readingMinutes: 4,
+    author: 'Mert Korkmaz',
+    title: { tr: 'Etkinliğinize Uygun Renk Paleti', en: 'A Colour Palette for Your Event' },
+    excerpt: {
+      tr: 'Pastanızın rengi, etkinliğinizin ruhunu yansıtır. Doğru paleti seçmenin inceliklerini paylaşıyoruz.',
+      en: 'Your cake colour reflects the spirit of your event. We share the art of choosing the right palette.',
+    },
+    body: {
+      tr: [
+        'Renk, bir pastanın vereceği ilk izlenimi belirler. Etkinliğin temasıyla uyumlu olmalıdır.',
+        'Zamansız bir zarafet için fildişi, şampanya ve pudra tonları idealdir.',
+        'Cesur ve modern bir hava için derin bordo, zümrüt yeşili veya gece mavisi tercih edilebilir.',
+        'Altın yaprak detayları neredeyse her paletle uyum sağlar ve lüks bir dokunuş katar.',
+      ],
+      en: [
+        'Colour sets the first impression a cake makes. It should harmonise with the event theme.',
+        'For timeless elegance, ivory, champagne and powder tones are ideal.',
+        'For a bold, modern feel, deep burgundy, emerald or midnight blue work wonderfully.',
+        'Gold-leaf details pair with almost any palette and add a luxurious touch.',
+      ],
+    },
+  },
+  {
+    slug: 'glutensiz-pastalarin-sirri',
+    category: 'recipes',
+    cover: img('photo-1571115177098-24ec42ed204d'),
+    date: '2025-11-10',
+    readingMinutes: 5,
+    author: 'Selin Yıldız',
+    title: { tr: 'Glutensiz Pastaların Sırrı', en: 'The Secret of Gluten-Free Cakes' },
+    excerpt: {
+      tr: 'Glutensiz bir pasta da en az klasik kadar lezzetli ve nemli olabilir. İşte nasıl?',
+      en: 'A gluten-free cake can be just as delicious and moist as the classic. Here is how.',
+    },
+    body: {
+      tr: [
+        'Glutensiz pastalarda doku, doğru un karışımıyla başlar. Badem ve pirinç ununu dengeli biçimde kullanıyoruz.',
+        'Nem dengesini korumak için doğal yoğurt ve kaliteli tereyağı ekliyoruz.',
+        'Sonuç, gluteni olmayan ama lezzetten ödün vermeyen, herkesin keyifle yiyebileceği bir pasta.',
+        'Çölyak hassasiyeti olan misafirleriniz için ayrı hazırlık alanı kullanıyoruz.',
+      ],
+      en: [
+        'Texture in gluten-free cakes starts with the right flour blend. We balance almond and rice flours.',
+        'To maintain moisture, we add natural yoghurt and quality butter.',
+        'The result is a cake with no gluten but no compromise on flavour — one everyone can enjoy.',
+        'For guests with coeliac sensitivity, we use a separate preparation area.',
+      ],
+    },
+  },
+  {
+    slug: 'mini-pastalar-ve-bireysel-tatlilar',
+    category: 'trends',
+    cover: img('photo-1535920527002-b35e96722eb9'),
+    date: '2025-10-22',
+    readingMinutes: 3,
+    author: 'Atelier Cake',
+    title: { tr: 'Mini Pastalar ve Bireysel Tatlılar', en: 'Mini Cakes & Individual Desserts' },
+    excerpt: {
+      tr: 'Büyük etkinliklerde porsiyonlama derdini ortadan kaldıran şık çözüm: bireysel mini pastalar.',
+      en: 'The elegant solution that removes portioning hassle at large events: individual mini cakes.',
+    },
+    body: {
+      tr: [
+        'Mini pastalar hem servisi kolaylaştırır hem de her misafire kişisel bir dokunuş sunar.',
+        'Farklı lezzetleri bir arada sunarak misafirlerinize seçenek sağlarsınız.',
+        'Kurumsal etkinlikler ve kokteyllerde özellikle pratiktir.',
+      ],
+      en: [
+        'Mini cakes both simplify service and offer each guest a personal touch.',
+        'By presenting different flavours together, you give your guests choice.',
+        'They are especially practical at corporate events and cocktails.',
+      ],
+    },
+  },
+  {
+    slug: 'pasta-fotografciligi-ipuclari',
+    category: 'guides',
+    cover: img('photo-1606313564200-e75d5e30476c'),
+    date: '2025-10-05',
+    readingMinutes: 4,
+    author: 'Mert Korkmaz',
+    title: { tr: 'Pastanızı En İyi Şekilde Fotoğraflamak', en: 'Photographing Your Cake Beautifully' },
+    excerpt: {
+      tr: 'Özenle hazırlanan pastanızı anılarda ölümsüzleştirmek için basit ama etkili fotoğraf ipuçları.',
+      en: 'Simple yet effective photography tips to immortalise your carefully crafted cake.',
+    },
+    body: {
+      tr: [
+        'Doğal ışık en iyi dostunuzdur. Pencereden gelen yumuşak ışıkta çekim yapın.',
+        'Sade bir arka plan, pastanın detaylarını öne çıkarır.',
+        'Farklı açılar deneyin; özellikle hafif yukarıdan çekimler katmanları güzel gösterir.',
+        'Yakın çekimlerle doku ve süsleme detaylarını yakalamayı unutmayın.',
+      ],
+      en: [
+        'Natural light is your best friend. Shoot in the soft light from a window.',
+        'A simple background highlights the cake’s details.',
+        'Try different angles; slightly elevated shots show the tiers beautifully.',
+        'Don’t forget close-ups to capture texture and decoration details.',
+      ],
+    },
+  },
+  {
+    slug: 'sevgililer-gunu-ozel-tasarimlar',
+    category: 'behindscenes',
+    cover: img('photo-1586985289688-ca3cf47d3e6e'),
+    date: '2025-09-18',
+    readingMinutes: 4,
+    author: 'Defne Aydın',
+    title: { tr: 'Sevgililer Günü Özel Tasarımlar', en: "Valentine's Day Special Designs" },
+    excerpt: {
+      tr: 'Sevdiklerinize duygularınızı en tatlı şekilde anlatmanın yolu: kişiye özel romantik pastalar.',
+      en: 'The sweetest way to express your feelings to loved ones: bespoke romantic cakes.',
+    },
+    body: {
+      tr: [
+        'Sevgililer Günü için kalp formlu tasarımlar ve kırmızı meyveli lezzetler hazırlıyoruz.',
+        'Çiftin baş harfleri veya özel bir notla pastayı tamamen kişiselleştiriyoruz.',
+        'Sınırlı sayıda hazırlanan bu özel koleksiyon, her yıl büyük ilgi görüyor.',
+      ],
+      en: [
+        "For Valentine's Day we create heart-shaped designs and red-berry flavours.",
+        "We fully personalise the cake with the couple's initials or a special note.",
+        'Prepared in limited numbers, this special collection draws great interest each year.',
+      ],
+    },
+  },
 ];
 
 export function getPost(slug: string) {

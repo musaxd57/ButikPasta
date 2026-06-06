@@ -10,6 +10,8 @@ import {
   FLAVOR_PRICE,
   FROSTING_PRICE,
   SIZE_PRICE,
+  calculatePrice,
+  formatPrice,
 } from '@/lib/pricing';
 import {
   DecorationKey,
@@ -292,6 +294,78 @@ export default function Steps() {
               </div>
             </motion.div>
           )}
+
+          {/* Finishing touches: sprinkles, candles, cake board */}
+          <div className="mt-8 space-y-6 border-t border-charcoal/10 pt-6">
+            <p className="label-lux !mb-0">{t('extras.title')}</p>
+
+            {/* Sprinkles */}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <label className="flex items-center gap-2 text-sm text-charcoal/75">
+                <input
+                  type="checkbox"
+                  checked={config.sprinkles}
+                  onChange={(e) => actions.setSprinkles(e.target.checked)}
+                  className="h-4 w-4 accent-gold"
+                />
+                {t('extras.sprinkles')}
+              </label>
+              {config.sprinkles && (
+                <div className="flex gap-2">
+                  {COLOR_SWATCHES.slice(0, 6).map((c) => (
+                    <button
+                      key={c}
+                      onClick={() => actions.setSprinkleColor(c)}
+                      className={`h-7 w-7 rounded-full border-2 ${
+                        config.sprinkleColor.toLowerCase() === c.toLowerCase()
+                          ? 'border-gold'
+                          : 'border-charcoal/10'
+                      }`}
+                      style={{ background: c }}
+                      aria-label={c}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Candles */}
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-charcoal/75">{t('extras.candles')}</span>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => actions.setCandles(config.candles - 1)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-charcoal/15 text-charcoal/70 hover:border-gold"
+                >
+                  −
+                </button>
+                <span className="w-6 text-center font-medium">{config.candles}</span>
+                <button
+                  onClick={() => actions.setCandles(config.candles + 1)}
+                  className="flex h-8 w-8 items-center justify-center rounded-full border border-charcoal/15 text-charcoal/70 hover:border-gold"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            {/* Board colour */}
+            <div>
+              <p className="mb-2 text-sm text-charcoal/75">{t('extras.boardColor')}</p>
+              <div className="flex flex-wrap gap-3">
+                {['#e8e0d0', '#1a1a1a', '#C9A84C', '#FAF7F2', '#C4896F', '#5a3825'].map(
+                  (c) => (
+                    <Swatch
+                      key={c}
+                      background={c}
+                      selected={config.boardColor.toLowerCase() === c.toLowerCase()}
+                      onClick={() => actions.setBoardColor(c)}
+                    />
+                  ),
+                )}
+              </div>
+            </div>
+          </div>
         </StepWrap>
       );
 
@@ -367,6 +441,60 @@ export default function Steps() {
           </div>
         </StepWrap>
       );
+
+    case 8: { // Review summary
+      const price = calculatePrice(config);
+      const rows: { label: string; value: string }[] = [
+        {
+          label: t('steps.tiers'),
+          value: `${config.tierCount}`,
+        },
+        ...config.tiers.map((tier, idx) => ({
+          label: `${t('size.tier')} ${idx + 1}`,
+          value: `${tSize(tier.size)} · ${tFlavor(tier.flavor)}`,
+        })),
+        { label: t('steps.frosting'), value: tFrosting(config.frosting) },
+        {
+          label: t('steps.decoration'),
+          value: config.decorations.length
+            ? config.decorations.map((d) => tDeco(d)).join(', ')
+            : '—',
+        },
+        {
+          label: t('steps.message'),
+          value: config.message ? `“${config.message}” (${tFont(config.font)})` : '—',
+        },
+        {
+          label: t('steps.delivery'),
+          value:
+            config.deliveryDate && config.deliverySlot
+              ? `${config.deliveryDate} · ${config.deliverySlot}`
+              : '—',
+        },
+      ];
+      return (
+        <StepWrap title={t('review.title')} hint={t('review.hint')}>
+          <ul className="divide-y divide-charcoal/10">
+            {rows.map((row, idx) => (
+              <li key={idx} className="flex items-start justify-between gap-4 py-3">
+                <span className="text-xs uppercase tracking-wider text-charcoal/45">
+                  {row.label}
+                </span>
+                <span className="text-right text-sm text-charcoal">{row.value}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-5 flex items-center justify-between rounded-xl bg-gold/10 px-4 py-4">
+            <span className="text-sm uppercase tracking-wider text-gold-dark">
+              {t('yourPrice')}
+            </span>
+            <span className="font-serif text-2xl font-semibold text-gold-dark">
+              {formatPrice(price.total, locale)}
+            </span>
+          </div>
+        </StepWrap>
+      );
+    }
 
     default:
       return null;

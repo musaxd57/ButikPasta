@@ -17,10 +17,16 @@ const LINKS = [
 
 // Secondary links grouped under the "Explore" dropdown.
 const MORE_LINKS = [
+  { href: '/collections', key: 'collections' },
   { href: '/corporate', key: 'corporate' },
   { href: '/flavors', key: 'flavors' },
   { href: '/pricing', key: 'pricing' },
   { href: '/journal', key: 'journal' },
+  { href: '/reviews', key: 'reviews' },
+  { href: '/appointment', key: 'appointment' },
+  { href: '/gift-card', key: 'giftCard' },
+  { href: '/glossary', key: 'glossary' },
+  { href: '/care', key: 'care' },
   { href: '/faq', key: 'faq' },
   { href: '/track', key: 'track' },
   { href: '/contact', key: 'contact' },
