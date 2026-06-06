@@ -53,11 +53,16 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         shimmer: 'shimmer 6s linear infinite',
         'fade-up': 'fade-up 0.8s ease-out forwards',
         float: 'float 6s ease-in-out infinite',
+        marquee: 'marquee 28s linear infinite',
       },
     },
   },

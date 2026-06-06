@@ -9,7 +9,16 @@
     "gallery": "Gallery",
     "order": "Order",
     "about": "About",
-    "admin": "Admin"
+    "admin": "Admin",
+    "weddings": "Weddings",
+    "corporate": "Corporate",
+    "pricing": "Pricing",
+    "journal": "Journal",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "flavors": "Flavors",
+    "track": "Track Order",
+    "more": "Explore"
   },
   "common": {
     "next": "Next",
@@ -21,7 +30,16 @@
     "viewAll": "View All",
     "send": "Send",
     "close": "Close",
-    "currencyNote": "VAT included"
+    "currencyNote": "VAT included",
+    "home": "Home",
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "minRead": "min read",
+    "all": "All",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "required": "Required field"
   },
   "home": {
     "heroTagline": "Every Cake, A Story",
@@ -245,6 +263,157 @@
     "address": { "short": "Please enter a full address" },
     "date": { "tooSoon": "Delivery must be at least 5 days from now" },
     "slot": { "required": "Select a time slot" }
+  },
+  "newsletter": {
+    "title": "News from the Atelier",
+    "subtitle": "Be the first to hear about new collections, seasonal flavours and private events.",
+    "placeholder": "Your email address",
+    "cta": "Subscribe",
+    "success": "Thank you! You are subscribed to our newsletter.",
+    "error": "Something went wrong, please try again.",
+    "invalid": "Please enter a valid email."
+  },
+  "process": {
+    "eyebrow": "How It Works",
+    "title": "From Idea to Celebration",
+    "lead": "In four steps, we bring your dream cake to your table."
+  },
+  "ingredients": {
+    "eyebrow": "Ingredient Quality",
+    "title": "Only the Finest",
+    "lead": "At the heart of every recipe lie carefully selected premium ingredients."
+  },
+  "stats": {
+    "eyebrow": "By the Numbers",
+    "title": "Trust, Rewarded"
+  },
+  "seasonal": {
+    "eyebrow": "Seasonal Collection",
+    "title": "This Season's Favourites",
+    "lead": "Limited signature designs crafted with the freshest flavours of the season.",
+    "cta": "View Collection"
+  },
+  "whyus": {
+    "eyebrow": "Why Atelier Cake",
+    "title": "The Fine Details of Luxury"
+  },
+  "ctaBand": {
+    "title": "Ready to design your dream cake?",
+    "lead": "Create your own cake in minutes with our 3D configurator, or get in touch with us.",
+    "primary": "Start Designing",
+    "secondary": "Contact Us"
+  },
+  "faqPage": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "We're here for everything on your mind.",
+    "stillTitle": "Didn't find your answer?",
+    "stillLead": "Our team would be delighted to help.",
+    "stillCta": "Get in Touch"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Planning a project? Let's talk.",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "subject": "Subject",
+    "message": "Your Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Your message has been received! We'll get back to you shortly.",
+    "error": "Message could not be sent, please try again.",
+    "infoTitle": "Information",
+    "addressLabel": "Address",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "hoursLabel": "Opening Hours",
+    "hours": "Mon–Sat: 09:00–19:00",
+    "whatsapp": "Message on WhatsApp"
+  },
+  "pricing": {
+    "title": "Packages & Pricing",
+    "subtitle": "Bespoke solutions for every budget and every occasion.",
+    "from": "from",
+    "popular": "Most Popular",
+    "serves": "Serves",
+    "choose": "Choose This Package",
+    "customTitle": "Have something different in mind?",
+    "customLead": "Create a fully bespoke cake with our 3D configurator and see the price instantly.",
+    "customCta": "Design Your Own Cake",
+    "note": "All prices include VAT. The final price is determined by design details."
+  },
+  "weddings": {
+    "title": "Wedding Cakes",
+    "heroLead": "A timeless masterpiece worthy of the most special day of your life.",
+    "introTitle": "Let Your Love Story Become Sugar",
+    "introBody": "Every wedding cake is a unique creation that tells the couple's story. With one-to-one consultation, a tasting session and event-day setup, we deliver a flawless experience.",
+    "ctaConsult": "Book a Free Consultation",
+    "galleryTitle": "Wedding Gallery",
+    "processTitle": "The Wedding Process"
+  },
+  "corporate": {
+    "title": "Corporate Cakes",
+    "heroLead": "Professional cake solutions that add prestige to your brand.",
+    "introTitle": "Crown Your Brand with Flavour",
+    "introBody": "Custom designs with your logo and corporate colours for launches, anniversaries, openings and special corporate events — with bulk-order and invoicing benefits.",
+    "ctaQuote": "Request a Quote",
+    "perksTitle": "Corporate Benefits",
+    "perk1": "Edible logo printing",
+    "perk2": "Bulk-order discounts",
+    "perk3": "Corporate invoicing",
+    "perk4": "Priority delivery"
+  },
+  "journal": {
+    "title": "Journal",
+    "subtitle": "Inspiration, guides and stories from the world of cakes.",
+    "readArticle": "Read Article",
+    "related": "Related Articles",
+    "byAuthor": "By",
+    "backToJournal": "Back to Journal",
+    "categories": {
+      "all": "All",
+      "trends": "Trends",
+      "guides": "Guides",
+      "behindscenes": "Behind the Scenes",
+      "recipes": "Recipes"
+    }
+  },
+  "track": {
+    "title": "Track Order",
+    "subtitle": "Enter your order number to see its status instantly.",
+    "placeholder": "e.g. AC-XXXXXX",
+    "button": "Check",
+    "searching": "Searching...",
+    "notFound": "No order found with that number. Please double-check.",
+    "statusTitle": "Order Status",
+    "orderNumber": "Order No",
+    "deliveryDate": "Delivery Date",
+    "amount": "Amount",
+    "timeline": {
+      "PENDING": "Pending",
+      "IN_PROGRESS": "In Progress",
+      "READY": "Ready",
+      "DELIVERED": "Delivered",
+      "CANCELLED": "Cancelled"
+    }
+  },
+  "flavorsPage": {
+    "title": "Our Flavors",
+    "subtitle": "Discover our signature tastes, each carefully balanced.",
+    "tasteTitle": "Fancy a tasting session?",
+    "tasteLead": "Experience our flavours with your loved ones as part of our Couture packages.",
+    "designCta": "Design With This Flavor"
+  },
+  "legal": {
+    "privacyTitle": "Privacy Policy",
+    "termsTitle": "Terms of Use",
+    "kvkkTitle": "KVKK Disclosure",
+    "deliveryTitle": "Delivery & Returns",
+    "updated": "Last updated",
+    "deliveryZonesTitle": "Delivery Zones",
+    "zone": "Zone",
+    "districts": "Districts",
+    "fee": "Fee"
   },
   "meta": {
     "homeTitle": "Atelier Cake · Luxury Bespoke Cake Atelier · Istanbul",

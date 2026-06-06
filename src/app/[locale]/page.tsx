@@ -6,6 +6,14 @@ import {
   InstaGrid,
   Testimonials,
 } from '@/components/home/Sections';
+import {
+  ProcessSection,
+  IngredientsSection,
+  StatsSection,
+  WhyUsSection,
+  NewsletterSection,
+} from '@/components/home/MoreSections';
+import CtaBand from '@/components/marketing/CtaBand';
 
 export default function HomePage({
   params,
@@ -18,9 +26,15 @@ export default function HomePage({
     <>
       <Hero />
       <BrandStory />
+      <ProcessSection />
       <FeaturedCarousel />
+      <IngredientsSection />
+      <StatsSection />
+      <WhyUsSection />
       <InstaGrid />
       <Testimonials />
+      <NewsletterSection />
+      <CtaBand />
     </>
   );
 }
