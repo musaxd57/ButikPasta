@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Check, Loader2, Mail, MailOpen } from 'lucide-react';
+import { Check, Download, Loader2, Mail, MailOpen } from 'lucide-react';
 import { useToast } from '@/components/ui/Toast';
+import { downloadCsv } from '@/lib/utils';
 
 interface Message {
   id: string;
@@ -125,6 +126,23 @@ export default function AdminMessages({ t }: { t: (k: string) => string }) {
         </div>
       ) : (
         <div className="overflow-hidden rounded-2xl border border-ivory/10">
+          <div className="flex justify-end border-b border-ivory/10 bg-charcoal p-2">
+            <button
+              onClick={() =>
+                downloadCsv(
+                  `subscribers-${new Date().toISOString().slice(0, 10)}.csv`,
+                  subscribers.map((s) => ({
+                    email: s.email,
+                    locale: s.locale,
+                    date: new Date(s.createdAt).toLocaleDateString('tr-TR'),
+                  })),
+                )
+              }
+              className="flex items-center gap-2 rounded-full border border-ivory/15 px-4 py-1.5 text-xs text-ivory/70 transition hover:border-gold hover:text-gold"
+            >
+              <Download size={13} /> CSV
+            </button>
+          </div>
           <table className="w-full text-left text-sm">
             <thead className="bg-charcoal text-xs uppercase tracking-wider text-ivory/40">
               <tr>

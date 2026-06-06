@@ -7,6 +7,7 @@ import { X } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { GALLERY, GALLERY_CATEGORIES, GalleryItemData } from '@/lib/data';
 import { cn } from '@/lib/utils';
+import FavoriteButton from '@/components/ui/FavoriteButton';
 
 export default function GalleryClient() {
   const t = useTranslations('gallery');
@@ -74,6 +75,7 @@ export default function GalleryClient() {
                   </h3>
                   <p className="text-xs text-ivory/70">{item.priceRange}</p>
                 </div>
+                <FavoriteButton id={item.id} className="absolute right-3 top-3" />
               </motion.div>
             ))}
           </AnimatePresence>

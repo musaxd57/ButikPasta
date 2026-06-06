@@ -29,7 +29,40 @@
     "sustainability": "Sustainability",
     "press": "Press",
     "menu": "Signature Menu",
+    "cupcakes": "Cupcakes & Bites",
+    "favorites": "My Favorites",
     "more": "Explore"
+  },
+  "cupcakes": {
+    "title": "Cupcakes & Bites",
+    "subtitle": "Boxes of little treats for events and gifting.",
+    "all": "All",
+    "cupcake": "Cupcakes",
+    "macaron": "Macarons",
+    "cookie": "Cookies",
+    "bite": "Bites",
+    "perBox": "box",
+    "pieces": "pcs",
+    "order": "Order",
+    "ctaTitle": "Planning a big event?",
+    "ctaLead": "Get in touch for dessert tables and bulk orders.",
+    "ctaButton": "Contact Us"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "lead": "The page you're looking for may have moved or never existed. Let us take you back to something sweet.",
+    "home": "Home",
+    "gallery": "Gallery"
+  },
+  "favorites": {
+    "title": "My Favorites",
+    "subtitle": "The designs and flavours you loved and saved.",
+    "empty": "You haven't added any favorites yet. Tap the heart icon on gallery and menu items to save the ones you love.",
+    "browseGallery": "Explore Gallery",
+    "browseMenu": "View Menu",
+    "clear": "Clear All",
+    "designs": "Designs",
+    "flavors": "Flavors"
   },
   "menu": {
     "title": "Signature Menu",

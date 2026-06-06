@@ -127,4 +127,68 @@ export const COLLECTIONS: Collection[] = [
       c('photo-1607478900766-efe13248b125'),
     ],
   },
+  {
+    slug: 'midnight-noir',
+    cover: c('photo-1606313564200-e75d5e30476c'),
+    name: { tr: 'Gece Yarısı Noir', en: 'Midnight Noir' },
+    tagline: { tr: 'Cesur ve dramatik', en: 'Bold and dramatic' },
+    description: {
+      tr: 'Koyu tonlar, mat siyah ve altın kontrastıyla iddialı, modern bir ifade.',
+      en: 'A bold, modern statement with dark tones and matte-black-and-gold contrast.',
+    },
+    images: [
+      c('photo-1606313564200-e75d5e30476c'),
+      c('photo-1602351447937-745cb720612f'),
+      c('photo-1562440499-64c9a111f713'),
+      c('photo-1571115177098-24ec42ed204d'),
+    ],
+  },
+  {
+    slug: 'citrus-garden',
+    cover: c('photo-1519915028121-7d3463d20b13'),
+    name: { tr: 'Narenciye Bahçesi', en: 'Citrus Garden' },
+    tagline: { tr: 'Ferah ve canlı', en: 'Fresh and vibrant' },
+    description: {
+      tr: 'Limon, portakal ve yeşil yaprak detaylarıyla yaz esintisi taşıyan tasarımlar.',
+      en: 'Designs with a summer breeze of lemon, orange and green-leaf details.',
+    },
+    images: [
+      c('photo-1519915028121-7d3463d20b13'),
+      c('photo-1488477181946-6428a0291777'),
+      c('photo-1464349095431-e9a21285b5f3'),
+      c('photo-1535254973040-607b474cb50d'),
+    ],
+  },
+  {
+    slug: 'royal-affair',
+    cover: c('photo-1535141192574-5d4897c12636'),
+    name: { tr: 'Kraliyet Zarafeti', en: 'Royal Affair' },
+    tagline: { tr: 'Görkemli ve klasik', en: 'Majestic and classic' },
+    description: {
+      tr: 'Çok katlı, bol detaylı ve altın işlemeli, bir kraliyet kutlamasına yakışır tasarımlar.',
+      en: 'Multi-tier, richly detailed and gold-embellished designs worthy of a royal celebration.',
+    },
+    images: [
+      c('photo-1535141192574-5d4897c12636'),
+      c('photo-1557925923-cd4648e211a0'),
+      c('photo-1621303837174-89787a7d4729'),
+      c('photo-1542826438-bd32f43d626f'),
+    ],
+  },
+  {
+    slug: 'enchanted-forest',
+    cover: c('photo-1488477181946-6428a0291777'),
+    name: { tr: 'Büyülü Orman', en: 'Enchanted Forest' },
+    tagline: { tr: 'Doğal ve masalsı', en: 'Natural and whimsical' },
+    description: {
+      tr: 'Yeşillikler, orman meyveleri ve organik dokularla masalsı bir atmosfer.',
+      en: 'A whimsical atmosphere with greenery, forest berries and organic textures.',
+    },
+    images: [
+      c('photo-1488477181946-6428a0291777'),
+      c('photo-1464349095431-e9a21285b5f3'),
+      c('photo-1535920527002-b35e96722eb9'),
+      c('photo-1606313564200-e75d5e30476c'),
+    ],
+  },
 ];

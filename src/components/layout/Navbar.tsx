@@ -18,6 +18,8 @@ const LINKS = [
 // Secondary links grouped under the "Explore" dropdown.
 const MORE_LINKS = [
   { href: '/menu', key: 'menu' },
+  { href: '/cupcakes', key: 'cupcakes' },
+  { href: '/favorites', key: 'favorites' },
   { href: '/occasions', key: 'occasions' },
   { href: '/collections', key: 'collections' },
   { href: '/atelier', key: 'atelier' },
@@ -64,11 +66,17 @@ export default function Navbar() {
     router.replace(pathname, { locale: next });
   };
 
+  // The transparent/light navbar only suits the homepage's dark hero. Every
+  // other page has a light area at the top, so the navbar must stay solid with
+  // dark text for the links to be readable.
+  const isHome = pathname === '/';
+  const solid = scrolled || !isHome;
+
   return (
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-500',
-        scrolled
+        solid
           ? 'bg-ivory/90 py-3 shadow-[0_4px_30px_rgba(26,26,26,0.06)] backdrop-blur-md'
           : 'bg-transparent py-5',
       )}
@@ -78,7 +86,7 @@ export default function Navbar() {
           <span
             className={cn(
               'font-serif text-xl font-semibold tracking-wide transition-colors md:text-2xl',
-              scrolled ? 'text-charcoal' : 'text-ivory',
+              solid ? 'text-charcoal' : 'text-ivory',
             )}
           >
             {tBrand('name')}
@@ -99,7 +107,7 @@ export default function Navbar() {
                 href={link.href}
                 className={cn(
                   'relative text-xs uppercase tracking-[0.18em] transition-colors',
-                  scrolled ? 'text-charcoal/70' : 'text-ivory/80',
+                  solid ? 'text-charcoal/70' : 'text-ivory/80',
                   'hover:text-gold',
                   active && 'text-gold',
                 )}
@@ -120,7 +128,7 @@ export default function Navbar() {
             <button
               className={cn(
                 'flex items-center gap-1 text-xs uppercase tracking-[0.18em] transition-colors hover:text-gold',
-                scrolled ? 'text-charcoal/70' : 'text-ivory/80',
+                solid ? 'text-charcoal/70' : 'text-ivory/80',
               )}
             >
               {t('more')}
@@ -153,7 +161,7 @@ export default function Navbar() {
           <div
             className={cn(
               'hidden items-center gap-1 rounded-full border px-1 py-1 text-xs sm:flex',
-              scrolled ? 'border-charcoal/15' : 'border-ivory/30',
+              solid ? 'border-charcoal/15' : 'border-ivory/30',
             )}
           >
             {(['tr', 'en'] as const).map((l) => (
@@ -164,7 +172,7 @@ export default function Navbar() {
                   'rounded-full px-2.5 py-1 uppercase tracking-wider transition-colors',
                   locale === l
                     ? 'bg-gold text-charcoal'
-                    : scrolled
+                    : solid
                       ? 'text-charcoal/60 hover:text-charcoal'
                       : 'text-ivory/70 hover:text-ivory',
                 )}
@@ -179,7 +187,7 @@ export default function Navbar() {
             aria-label="Menu"
             className={cn(
               'lg:hidden',
-              scrolled ? 'text-charcoal' : 'text-ivory',
+              solid ? 'text-charcoal' : 'text-ivory',
             )}
           >
             {open ? <X size={24} /> : <Menu size={24} />}

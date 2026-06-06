@@ -4,25 +4,27 @@ import { useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
-import { MENU, MenuCategory } from '@/lib/content/menu';
+import { CUPCAKES, CupcakeCategory } from '@/lib/content/cupcakes';
 import { pick } from '@/lib/i18nContent';
 import { formatPrice } from '@/lib/pricing';
 import { cn } from '@/lib/utils';
 import FavoriteButton from '@/components/ui/FavoriteButton';
 
-const CATEGORIES: (MenuCategory | 'all')[] = [
+const CATEGORIES: (CupcakeCategory | 'all')[] = [
   'all',
-  'signature',
-  'seasonal',
-  'classic',
+  'cupcake',
+  'macaron',
+  'cookie',
+  'bite',
 ];
 
-export default function MenuClient() {
-  const t = useTranslations('menu');
+export default function CupcakesClient() {
+  const t = useTranslations('cupcakes');
   const locale = useLocale();
   const [filter, setFilter] = useState<(typeof CATEGORIES)[number]>('all');
 
-  const items = filter === 'all' ? MENU : MENU.filter((i) => i.category === filter);
+  const items =
+    filter === 'all' ? CUPCAKES : CUPCAKES.filter((c) => c.category === filter);
 
   return (
     <div>
@@ -56,7 +58,7 @@ export default function MenuClient() {
               className="group relative overflow-hidden rounded-2xl bg-white shadow-[0_4px_30px_rgba(26,26,26,0.05)]"
             >
               <FavoriteButton id={item.id} className="absolute right-3 top-3 z-10" />
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-square overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={item.image}
@@ -66,33 +68,29 @@ export default function MenuClient() {
                 />
               </div>
               <div className="p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <Link
-                    href={`/menu/${item.id}`}
-                    className="font-serif text-xl transition-colors hover:text-gold-dark"
-                  >
-                    {pick(item.name, locale)}
-                  </Link>
-                  <span className="shrink-0 font-serif text-lg text-gold-dark">
-                    {formatPrice(item.price, locale)}
-                  </span>
-                </div>
-                <p className="mt-2 text-sm text-charcoal/60">
+                <p className="text-[0.65rem] uppercase tracking-[0.2em] text-gold">
+                  {t(item.category)}
+                </p>
+                <Link
+                  href={`/cupcakes/${item.id}`}
+                  className="mt-1 block font-serif text-lg transition-colors hover:text-gold-dark"
+                >
+                  {pick(item.name, locale)}
+                </Link>
+                <p className="mt-1.5 text-sm text-charcoal/60">
                   {pick(item.description, locale)}
                 </p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {item.tags.map((tag, j) => (
-                    <span
-                      key={j}
-                      className="rounded-full bg-gold/10 px-2.5 py-0.5 text-[0.65rem] uppercase tracking-wider text-gold-dark"
-                    >
-                      {pick(tag, locale)}
-                    </span>
-                  ))}
+                <div className="mt-3 flex items-end justify-between">
+                  <span className="text-xs text-charcoal/45">
+                    {item.boxSize} {t('pieces')} / {t('perBox')}
+                  </span>
+                  <span className="font-serif text-lg text-gold-dark">
+                    {formatPrice(item.pricePerBox, locale)}
+                  </span>
                 </div>
                 <Link
                   href="/order"
-                  className="mt-4 inline-block text-xs uppercase tracking-[0.18em] text-gold transition-colors hover:text-gold-dark"
+                  className="mt-3 inline-block text-xs uppercase tracking-[0.18em] text-gold transition-colors hover:text-gold-dark"
                 >
                   {t('order')} →
                 </Link>

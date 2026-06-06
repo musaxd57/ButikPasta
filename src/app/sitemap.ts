@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { JOURNAL } from '@/lib/content/journal';
 import { GALLERY } from '@/lib/data';
 import { MENU } from '@/lib/content/menu';
+import { CUPCAKES } from '@/lib/content/cupcakes';
 import { COLLECTIONS } from '@/lib/content/collections';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/configure',
     '/menu',
+    '/cupcakes',
+    '/favorites',
     '/gallery',
     '/weddings',
     '/corporate',
@@ -43,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...JOURNAL.map((p) => `/journal/${p.slug}`),
     ...GALLERY.map((g) => `/gallery/${g.id}`),
     ...MENU.map((m) => `/menu/${m.id}`),
+    ...CUPCAKES.map((c) => `/cupcakes/${c.id}`),
     ...COLLECTIONS.map((c) => `/collections/${c.slug}`),
   ];
 
