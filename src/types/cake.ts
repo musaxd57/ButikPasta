@@ -38,6 +38,7 @@ export interface CakeConfig {
   frosting: FrostingKey;
   frostingColor: string;
   decorations: DecorationKey[];
+  dripColor: string;
   message: string;
   font: FontKey;
   deliveryDate: string | null; // ISO date
@@ -61,6 +62,7 @@ export const DEFAULT_CONFIG: CakeConfig = {
   frosting: 'buttercream',
   frostingColor: '#FAF7F2',
   decorations: [],
+  dripColor: '#C9A84C',
   message: '',
   font: 'script',
   deliveryDate: null,

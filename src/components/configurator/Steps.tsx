@@ -1,8 +1,8 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
-import OptionCard from './OptionCard';
+import { Plus } from 'lucide-react';
 import { useConfigurator } from '@/store/configurator';
 import { PRESETS } from '@/lib/data';
 import {
@@ -19,7 +19,16 @@ import {
   SizeKey,
 } from '@/types/cake';
 import { DELIVERY_SLOTS, minDeliveryDate } from '@/lib/utils';
-import { useLocale } from 'next-intl';
+import {
+  DecorationVisual,
+  FLAVOR_VISUAL,
+  FROSTING_VISUAL,
+  FontPreview,
+  SizeSilhouette,
+  Swatch,
+  TierSilhouette,
+  VisualTile,
+} from './visuals';
 
 const FLAVORS: FlavorKey[] = [
   'vanilla',
@@ -28,12 +37,7 @@ const FLAVORS: FlavorKey[] = [
   'pistachio',
   'lemon',
 ];
-const FROSTINGS: FrostingKey[] = [
-  'buttercream',
-  'whipped',
-  'ganache',
-  'fondant',
-];
+const FROSTINGS: FrostingKey[] = ['buttercream', 'whipped', 'ganache', 'fondant'];
 const DECORATIONS: DecorationKey[] = [
   'flowers',
   'macarons',
@@ -44,7 +48,7 @@ const DECORATIONS: DecorationKey[] = [
 const SIZES: SizeKey[] = ['small', 'medium', 'large'];
 const FONTS: FontKey[] = ['script', 'serif', 'modern'];
 
-const FROSTING_SWATCHES = [
+const COLOR_SWATCHES = [
   '#FAF7F2',
   '#C9A84C',
   '#C4896F',
@@ -53,18 +57,28 @@ const FROSTING_SWATCHES = [
   '#8e2b2b',
   '#5a3825',
   '#bcd49a',
+  '#1a1a1a',
 ];
 
-function StepWrap({ children }: { children: React.ReactNode }) {
+function StepWrap({
+  title,
+  hint,
+  children,
+}: {
+  title: string;
+  hint?: string;
+  children: React.ReactNode;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, x: 24 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -24 }}
       transition={{ duration: 0.35 }}
-      className="space-y-3"
     >
-      {children}
+      <h3 className="font-serif text-2xl">{title}</h3>
+      {hint && <p className="mt-1 text-xs text-charcoal/45">{hint}</p>}
+      <div className="mt-5">{children}</div>
     </motion.div>
   );
 }
@@ -84,130 +98,157 @@ export default function Steps() {
   switch (step) {
     case 0: // Base
       return (
-        <StepWrap>
-          <h3 className="mb-4 font-serif text-2xl">{t('base.title')}</h3>
-          <OptionCard
-            label={t('base.scratch')}
-            sublabel={t('base.scratchDesc')}
-            active={config.preset === null}
-            onClick={() => actions.setPreset(null)}
-          />
-          {PRESETS.map((p) => (
-            <OptionCard
-              key={p.id}
-              label={locale === 'tr' ? p.nameTr : p.nameEn}
-              sublabel={t('base.presetDesc')}
-              active={config.preset === p.id}
-              swatch={p.frostingColor}
-              onClick={() => {
-                actions.setPreset(p.id, p.tiers);
-                actions.setFrostingColor(p.frostingColor);
-              }}
+        <StepWrap title={t('base.title')}>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <VisualTile
+              label={t('base.scratch')}
+              sublabel={t('base.scratchDesc')}
+              selected={config.preset === null}
+              onClick={() => actions.setPreset(null)}
+              visual={
+                <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-ivory to-ivory-dark">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-gold/60 text-gold">
+                    <Plus size={22} />
+                  </span>
+                </div>
+              }
             />
-          ))}
-        </StepWrap>
-      );
-
-    case 1: // Tiers
-      return (
-        <StepWrap>
-          <h3 className="mb-4 font-serif text-2xl">{t('tiers.title')}</h3>
-          {([1, 2, 3] as const).map((n) => (
-            <OptionCard
-              key={n}
-              label={t(`tiers.${n === 1 ? 'one' : n === 2 ? 'two' : 'three'}`)}
-              active={config.tierCount === n}
-              onClick={() => actions.setTierCount(n)}
-            />
-          ))}
-        </StepWrap>
-      );
-
-    case 2: // Size
-      return (
-        <StepWrap>
-          <h3 className="mb-4 font-serif text-2xl">{t('size.title')}</h3>
-          {config.tiers.map((tier, i) => (
-            <div key={i} className="mb-4">
-              <p className="label-lux">
-                {t('size.tier')} {i + 1}
-              </p>
-              <div className="grid gap-2">
-                {SIZES.map((s) => (
-                  <OptionCard
-                    key={s}
-                    label={tSize(s)}
-                    price={SIZE_PRICE[s]}
-                    active={tier.size === s}
-                    onClick={() => actions.setTier(i, { size: s })}
+            {PRESETS.map((p) => (
+              <VisualTile
+                key={p.id}
+                label={locale === 'tr' ? p.nameTr : p.nameEn}
+                sublabel={t('base.presetDesc')}
+                selected={config.preset === p.id}
+                onClick={() => {
+                  actions.setPreset(p.id, p.tiers);
+                  actions.setFrostingColor(p.frostingColor);
+                }}
+                visual={
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={p.imageUrl}
+                    alt={p.nameEn}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                ))}
-              </div>
-            </div>
-          ))}
+                }
+              />
+            ))}
+          </div>
         </StepWrap>
       );
 
-    case 3: // Flavor
+    case 1: // Tiers — visual silhouette cards
       return (
-        <StepWrap>
-          <h3 className="mb-4 font-serif text-2xl">{t('flavor.title')}</h3>
-          {config.tiers.map((tier, i) => (
-            <div key={i} className="mb-4">
-              <p className="label-lux">
-                {t('flavor.tier')} {i + 1}
-              </p>
-              <div className="grid gap-2">
-                {FLAVORS.map((f) => (
-                  <OptionCard
-                    key={f}
-                    label={tFlavor(f)}
-                    price={FLAVOR_PRICE[f]}
-                    active={tier.flavor === f}
-                    onClick={() => actions.setTier(i, { flavor: f })}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
+        <StepWrap title={t('tiers.title')}>
+          <div className="grid grid-cols-3 gap-3">
+            {([1, 2, 3] as const).map((n) => (
+              <VisualTile
+                key={n}
+                ratio="aspect-square"
+                label={t(`tiers.${n === 1 ? 'one' : n === 2 ? 'two' : 'three'}`)}
+                selected={config.tierCount === n}
+                onClick={() => actions.setTierCount(n)}
+                visual={
+                  <TierSilhouette count={n} selected={config.tierCount === n} />
+                }
+              />
+            ))}
+          </div>
         </StepWrap>
       );
 
-    case 4: // Frosting
+    case 2: // Size — silhouette comparison per tier
       return (
-        <StepWrap>
-          <h3 className="mb-4 font-serif text-2xl">{t('frosting.title')}</h3>
-          {FROSTINGS.map((f) => (
-            <OptionCard
-              key={f}
-              label={tFrosting(f)}
-              price={FROSTING_PRICE[f]}
-              active={config.frosting === f}
-              onClick={() => actions.setFrosting(f)}
-            />
-          ))}
-          <div className="pt-4">
+        <StepWrap title={t('size.title')}>
+          <div className="space-y-5">
+            {config.tiers.map((tier, i) => (
+              <div key={i}>
+                <p className="label-lux">
+                  {t('size.tier')} {i + 1}
+                </p>
+                <div className="grid grid-cols-3 gap-3">
+                  {SIZES.map((s) => (
+                    <VisualTile
+                      key={s}
+                      ratio="aspect-[4/3]"
+                      label={tSize(s)}
+                      price={SIZE_PRICE[s]}
+                      selected={tier.size === s}
+                      onClick={() => actions.setTier(i, { size: s })}
+                      visual={<SizeSilhouette size={s} selected={tier.size === s} />}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </StepWrap>
+      );
+
+    case 3: // Flavor — sponge colour swatches per tier
+      return (
+        <StepWrap title={t('flavor.title')}>
+          <div className="space-y-6">
+            {config.tiers.map((tier, i) => (
+              <div key={i}>
+                <p className="label-lux">
+                  {t('flavor.tier')} {i + 1}
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  {FLAVORS.map((f) => (
+                    <Swatch
+                      key={f}
+                      large
+                      background={FLAVOR_VISUAL[f]}
+                      label={tFlavor(f)}
+                      price={FLAVOR_PRICE[f]}
+                      selected={tier.flavor === f}
+                      onClick={() => actions.setTier(i, { flavor: f })}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </StepWrap>
+      );
+
+    case 4: // Frosting — texture swatches + colour swatches
+      return (
+        <StepWrap title={t('frosting.title')}>
+          <div className="flex flex-wrap gap-4">
+            {FROSTINGS.map((f) => (
+              <Swatch
+                key={f}
+                large
+                background={FROSTING_VISUAL[f]}
+                label={tFrosting(f)}
+                price={FROSTING_PRICE[f]}
+                selected={config.frosting === f}
+                onClick={() => actions.setFrosting(f)}
+              />
+            ))}
+          </div>
+
+          <div className="mt-7">
             <p className="label-lux">{t('frosting.colorLabel')}</p>
-            <div className="flex flex-wrap gap-2.5">
-              {FROSTING_SWATCHES.map((c) => (
-                <button
+            <div className="flex flex-wrap items-center gap-3">
+              {COLOR_SWATCHES.map((c) => (
+                <Swatch
                   key={c}
+                  background={c}
+                  selected={config.frostingColor.toLowerCase() === c.toLowerCase()}
                   onClick={() => actions.setFrostingColor(c)}
-                  className={`h-9 w-9 rounded-full border-2 transition ${
-                    config.frostingColor === c
-                      ? 'border-gold scale-110'
-                      : 'border-charcoal/10'
-                  }`}
-                  style={{ background: c }}
-                  aria-label={c}
                 />
               ))}
-              <label className="relative h-9 w-9 cursor-pointer overflow-hidden rounded-full border-2 border-dashed border-charcoal/25">
+              <label className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-2 border-dashed border-charcoal/25 text-charcoal/40 transition hover:border-gold hover:text-gold">
+                <Plus size={16} />
                 <input
                   type="color"
                   value={config.frostingColor}
                   onChange={(e) => actions.setFrostingColor(e.target.value)}
-                  className="absolute inset-0 h-12 w-12 -translate-x-1.5 -translate-y-1.5 cursor-pointer"
+                  className="sr-only"
                 />
               </label>
             </div>
@@ -215,29 +256,48 @@ export default function Steps() {
         </StepWrap>
       );
 
-    case 5: // Decoration
+    case 5: // Decoration — photo tiles + drip colour swatches
       return (
-        <StepWrap>
-          <h3 className="font-serif text-2xl">{t('decoration.title')}</h3>
-          <p className="mb-3 text-xs text-charcoal/45">
-            {t('decoration.hint')}
-          </p>
-          {DECORATIONS.map((d) => (
-            <OptionCard
-              key={d}
-              label={tDeco(d)}
-              price={DECORATION_PRICE[d]}
-              active={config.decorations.includes(d)}
-              onClick={() => actions.toggleDecoration(d)}
-            />
-          ))}
+        <StepWrap title={t('decoration.title')} hint={t('decoration.hint')}>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {DECORATIONS.map((d) => (
+              <VisualTile
+                key={d}
+                ratio="aspect-square"
+                label={tDeco(d)}
+                price={DECORATION_PRICE[d]}
+                selected={config.decorations.includes(d)}
+                onClick={() => actions.toggleDecoration(d)}
+                visual={<DecorationVisual deco={d} />}
+              />
+            ))}
+          </div>
+
+          {config.decorations.includes('drip') && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="mt-6"
+            >
+              <p className="label-lux">{t('decoration.dripColor')}</p>
+              <div className="flex flex-wrap gap-3">
+                {COLOR_SWATCHES.map((c) => (
+                  <Swatch
+                    key={c}
+                    background={c}
+                    selected={config.dripColor.toLowerCase() === c.toLowerCase()}
+                    onClick={() => actions.setDripColor(c)}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
         </StepWrap>
       );
 
-    case 6: // Message
+    case 6: // Message — live font preview tiles
       return (
-        <StepWrap>
-          <h3 className="mb-4 font-serif text-2xl">{t('message.title')}</h3>
+        <StepWrap title={t('message.title')}>
           <input
             type="text"
             maxLength={30}
@@ -246,24 +306,31 @@ export default function Steps() {
             placeholder={t('message.placeholder')}
             className="input-lux"
           />
-          <p className="label-lux mt-4">{t('message.fontLabel')}</p>
-          <div className="grid gap-2">
+          <p className="label-lux mt-5">{t('message.fontLabel')}</p>
+          <div className="grid grid-cols-3 gap-3">
             {FONTS.map((f) => (
-              <OptionCard
+              <VisualTile
                 key={f}
+                ratio="aspect-[5/3]"
                 label={tFont(f)}
-                active={config.font === f}
+                selected={config.font === f}
                 onClick={() => actions.setFont(f)}
+                visual={
+                  <FontPreview
+                    font={f}
+                    text={config.message}
+                    selected={config.font === f}
+                  />
+                }
               />
             ))}
           </div>
         </StepWrap>
       );
 
-    case 7: // Delivery
+    case 7: // Delivery — visual date + slot tiles (no dropdowns)
       return (
-        <StepWrap>
-          <h3 className="mb-4 font-serif text-2xl">{t('delivery.title')}</h3>
+        <StepWrap title={t('delivery.title')}>
           <p className="mb-4 rounded-lg bg-gold/10 px-4 py-3 text-xs text-gold-dark">
             {t('delivery.note')}
           </p>
@@ -279,18 +346,22 @@ export default function Steps() {
               className="input-lux"
             />
           </div>
-          <div className="mt-4">
+          <div className="mt-5">
             <label className="label-lux">{t('delivery.slotLabel')}</label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               {DELIVERY_SLOTS.map((slot) => (
-                <OptionCard
+                <button
                   key={slot}
-                  label={slot}
-                  active={config.deliverySlot === slot}
-                  onClick={() =>
-                    actions.setDelivery(config.deliveryDate, slot)
+                  type="button"
+                  onClick={() => actions.setDelivery(config.deliveryDate, slot)}
+                  className={
+                    config.deliverySlot === slot
+                      ? 'rounded-xl border-2 border-gold bg-gold/10 px-3 py-3 text-sm font-medium text-charcoal'
+                      : 'rounded-xl border-2 border-transparent px-3 py-3 text-sm text-charcoal/65 ring-1 ring-charcoal/10 transition hover:ring-gold/50'
                   }
-                />
+                >
+                  {slot}
+                </button>
               ))}
             </div>
           </div>

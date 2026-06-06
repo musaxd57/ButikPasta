@@ -87,7 +87,8 @@
     },
     "decoration": {
       "title": "Add decorations",
-      "hint": "You can select multiple"
+      "hint": "You can select multiple",
+      "dripColor": "Drip Color"
     },
     "message": {
       "title": "Message on the cake",
@@ -174,7 +175,10 @@
     "whatsapp": "Order via WhatsApp",
     "success": "Your order has been received!",
     "successBody": "Your order number: {orderNumber}. A confirmation email has been sent.",
-    "advanceNote": "Orders require minimum 5 days advance notice."
+    "advanceNote": "Orders require minimum 5 days advance notice.",
+    "redirecting": "Redirecting you to secure payment...",
+    "canceled": "Payment canceled. You can try again.",
+    "errorGeneric": "Something went wrong. Please try again."
   },
   "about": {
     "title": "About Us",

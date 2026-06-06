@@ -31,7 +31,21 @@ export default function OrderClient() {
   const [mounted, setMounted] = useState(false);
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    // Handle the redirect back from Stripe Checkout.
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('success') === '1') {
+      const ordered = params.get('order');
+      if (ordered) {
+        setOrderNumber(ordered);
+        reset();
+      }
+    } else if (params.get('canceled') === '1') {
+      toast(t('canceled'), 'error');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const price = calculatePrice(config);
   const minDate = minDeliveryDate().toISOString().split('T')[0];
@@ -65,11 +79,34 @@ export default function OrderClient() {
       });
       if (!res.ok) throw new Error('failed');
       const data = await res.json();
+
+      // Attempt Stripe Checkout. When Stripe is configured we redirect the
+      // customer to the hosted payment page; otherwise we fall back to the
+      // in-app confirmation (order is already saved).
+      const checkout = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: price.total,
+          paymentType: values.paymentType,
+          orderNumber: data.orderNumber,
+          locale,
+        }),
+      });
+      const checkoutData = await checkout.json().catch(() => ({}));
+
+      if (checkoutData?.stripeConfigured && checkoutData?.url) {
+        toast(t('redirecting'), 'info');
+        window.location.href = checkoutData.url as string;
+        return;
+      }
+
+      // No Stripe configured → confirm in-app.
       setOrderNumber(data.orderNumber);
       reset();
       toast(t('success'), 'success');
     } catch {
-      toast('Error', 'error');
+      toast(t('errorGeneric'), 'error');
     }
   };
 

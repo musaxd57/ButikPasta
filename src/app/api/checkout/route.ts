@@ -31,8 +31,9 @@ export async function POST(req: Request) {
         quantity: 1,
       },
     ],
-    success_url: `${baseUrl}/${locale}/order?success=1`,
+    success_url: `${baseUrl}/${locale}/order?success=1&order=${orderNumber}`,
     cancel_url: `${baseUrl}/${locale}/order?canceled=1`,
+    metadata: { orderNumber },
   });
 
   return NextResponse.json({ stripeConfigured: true, url: session.url });

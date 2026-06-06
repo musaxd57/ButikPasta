@@ -13,14 +13,19 @@ checkout, automated order emails, and a protected admin panel.
 - **Cinematic homepage** — animated gold tagline, brand story, featured carousel,
   Instagram-style grid, testimonials.
 - **🎂 Interactive 3D cake configurator** (`/configure`) — the centerpiece.
-  Real-time React Three Fiber cake that updates live across an 8-step flow
-  (base → tiers → size → flavor → frosting + color → decorations → message →
-  delivery), with orbit/zoom controls, snapshot-to-PNG, and a live price calculator.
+  **Visual-first** (Tesla/BMW-configurator style): every option is a clickable
+  swatch or photo tile — flavor sponge swatches, frosting texture swatches +
+  colour dots, size/tier silhouettes, decoration photo tiles, drip-colour dots,
+  and a live message font preview. **No dropdowns.** The React Three Fiber cake
+  updates live across the 8-step flow with orbit/zoom, snapshot-to-PNG, and a
+  live price calculator. Decorations are **real GLTF (.glb) models**.
 - **Gallery** (`/gallery`) — masonry grid, category filters, lazy loading,
   lightbox detail with "Order Similar" CTA.
 - **Order / checkout** (`/order`) — config summary, Zod-validated form,
-  5-day-advance delivery rule, 50% deposit or full payment, Stripe-ready,
-  WhatsApp fallback, automated TR/EN confirmation email.
+  5-day-advance delivery rule, 50% deposit or full payment. On submit the order
+  is saved then the customer is **redirected to Stripe Checkout** (when keys are
+  set); without Stripe it falls back to in-app confirmation. WhatsApp fallback +
+  automated TR/EN confirmation email.
 - **About** (`/about`) — brand story, founder profile, values, press strip.
 - **Admin panel** (`/admin`) — NextAuth login, dashboard stats, orders table with
   status updates, gallery & menu/pricing management. Dark luxury UI.
@@ -31,8 +36,8 @@ checkout, automated order emails, and a protected admin panel.
 ## 🛠 Tech Stack
 
 Next.js 14 (App Router) · TypeScript · Tailwind CSS · Framer Motion ·
-React Three Fiber / drei · Prisma + SQLite (Postgres-ready) · NextAuth ·
-Stripe · next-intl · Zod · Zustand · Resend (email).
+React Three Fiber / drei (real GLTF assets) · Prisma + **PostgreSQL** ·
+NextAuth · Stripe Checkout · next-intl · Zod · Zustand · Resend (email).
 
 ## 🎨 Design System
 
@@ -49,11 +54,23 @@ Typography: **Playfair Display** (headings) + **Inter** (body).
 
 ```bash
 npm install
-cp .env.example .env          # already created for local dev
-npx prisma db push            # create the SQLite schema
+cp .env.example .env.local    # set DATABASE_URL to your PostgreSQL/Supabase URL
+npm run models:generate       # build the GLTF (.glb) decoration assets
+npx prisma db push            # create the PostgreSQL schema
 npm run db:seed               # admin + gallery + pricing seed data
 npm run dev                   # http://localhost:3000
 ```
+
+> **Database:** uses **PostgreSQL**. For Supabase, use the *Session pooler* URL
+> (port `5432`). Both `.env` (read by Prisma CLI) and `.env.local` (read by
+> Next.js) are git-ignored; put your `DATABASE_URL` in them.
+>
+> **3D models:** real `.glb` assets live in `public/models/`. Regenerate them
+> with `npm run models:generate`, or drop in any artist/CC0 `.glb` (e.g. from
+> Meshy) with the same filename.
+>
+> **Stripe:** set `STRIPE_SECRET_KEY` to enable hosted Checkout; otherwise the
+> checkout gracefully confirms in-app.
 
 The site redirects `/` → `/tr`. Admin lives at `/admin`.
 

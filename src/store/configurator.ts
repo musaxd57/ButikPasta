@@ -22,6 +22,7 @@ interface ConfiguratorState {
   setTier: (index: number, patch: Partial<TierConfig>) => void;
   setFrosting: (frosting: FrostingKey) => void;
   setFrostingColor: (color: string) => void;
+  setDripColor: (color: string) => void;
   toggleDecoration: (deco: DecorationKey) => void;
   setMessage: (message: string) => void;
   setFont: (font: FontKey) => void;
@@ -74,6 +75,8 @@ export const useConfigurator = create<ConfiguratorState>()(
         set((s) => ({ config: { ...s.config, frosting } })),
       setFrostingColor: (frostingColor) =>
         set((s) => ({ config: { ...s.config, frostingColor } })),
+      setDripColor: (dripColor) =>
+        set((s) => ({ config: { ...s.config, dripColor } })),
       toggleDecoration: (deco) =>
         set((s) => {
           const has = s.config.decorations.includes(deco);
