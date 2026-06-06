@@ -1,11 +1,13 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import Newsletter from '@/components/ui/Newsletter';
 
 export default function Footer() {
   const t = useTranslations('footer');
   const tNav = useTranslations('nav');
   const tBrand = useTranslations('brand');
+  const tLegal = useTranslations('legal');
   const year = new Date().getFullYear();
 
   return (
@@ -27,13 +29,23 @@ export default function Footer() {
           <h4 className="mb-4 text-xs uppercase tracking-[0.25em] text-gold">
             {t('explore')}
           </h4>
-          <ul className="space-y-2.5 text-sm text-ivory/70">
-            {(['configure', 'gallery', 'about', 'order'] as const).map((k) => (
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm text-ivory/70">
+            {(
+              [
+                'configure',
+                'gallery',
+                'weddings',
+                'corporate',
+                'flavors',
+                'pricing',
+                'journal',
+                'faq',
+                'about',
+                'track',
+              ] as const
+            ).map((k) => (
               <li key={k}>
-                <Link
-                  href={`/${k === 'configure' ? 'configure' : k}`}
-                  className="transition-colors hover:text-gold"
-                >
+                <Link href={`/${k}`} className="transition-colors hover:text-gold">
                   {tNav(k)}
                 </Link>
               </li>
@@ -70,15 +82,37 @@ export default function Footer() {
           >
             <Instagram size={18} /> @ateliercake
           </a>
+
+          <div className="mt-6">
+            <Newsletter tone="light" />
+          </div>
         </div>
       </div>
 
       <div className="border-t border-ivory/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 py-6 text-xs text-ivory/40 sm:flex-row">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-ivory/40 sm:flex-row">
           <p>
             © {year} {tBrand('name')}. {t('rights')}
           </p>
-          <p>Made with care in {t('address')}</p>
+          <div className="flex flex-wrap items-center gap-4">
+            {(['privacy', 'terms', 'kvkk', 'delivery'] as const).map((k) => (
+              <Link
+                key={k}
+                href={`/${k}`}
+                className="transition-colors hover:text-gold"
+              >
+                {tLegal(
+                  k === 'privacy'
+                    ? 'privacyTitle'
+                    : k === 'terms'
+                      ? 'termsTitle'
+                      : k === 'kvkk'
+                        ? 'kvkkTitle'
+                        : 'deliveryTitle',
+                )}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

@@ -63,6 +63,74 @@ function renderHtml(data: OrderEmailData) {
   </div>`;
 }
 
+const STATUS_COPY: Record<
+  string,
+  { tr: string; en: string }
+> = {
+  IN_PROGRESS: {
+    tr: 'Siparişiniz hazırlanmaya başladı! 🎂',
+    en: 'Your order is now being prepared! 🎂',
+  },
+  READY: {
+    tr: 'Pastanız hazır! Teslimat için gün sayıyoruz.',
+    en: 'Your cake is ready! We are counting down to delivery.',
+  },
+  DELIVERED: {
+    tr: 'Siparişiniz teslim edildi. Afiyet olsun!',
+    en: 'Your order has been delivered. Enjoy!',
+  },
+  CANCELLED: {
+    tr: 'Siparişiniz iptal edildi.',
+    en: 'Your order has been cancelled.',
+  },
+};
+
+interface StatusEmailData {
+  orderNumber: string;
+  customerEmail: string;
+  customerName: string;
+  status: string;
+  locale: 'tr' | 'en';
+}
+
+export async function sendStatusUpdate(data: StatusEmailData) {
+  const copy = STATUS_COPY[data.status];
+  if (!copy) return { sent: false, reason: 'no-copy' };
+  const apiKey = process.env.RESEND_API_KEY;
+  const message = data.locale === 'tr' ? copy.tr : copy.en;
+
+  if (!apiKey || apiKey.startsWith('re_xxx')) {
+    console.info(
+      `[email] (dev mode) Status "${data.status}" → ${data.customerEmail}: ${message}`,
+    );
+    return { sent: false, reason: 'no-api-key' };
+  }
+
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: process.env.EMAIL_FROM ?? 'Atelier Cake <onboarding@resend.dev>',
+        to: data.customerEmail,
+        subject: `${data.orderNumber} · ${message}`,
+        html: `<div style="font-family:Inter,Arial,sans-serif;background:#FAF7F2;padding:40px">
+          <div style="max-width:480px;margin:0 auto;background:#fff;border-radius:16px;padding:32px;text-align:center">
+            <h1 style="color:#C9A84C;font-family:Georgia,serif">Atelier Cake</h1>
+            <p style="color:#1a1a1a;font-size:18px">${message}</p>
+            <p style="color:#999;font-size:13px">${data.orderNumber}</p>
+          </div></div>`,
+      }),
+    });
+    return { sent: res.ok };
+  } catch {
+    return { sent: false, reason: 'error' };
+  }
+}
+
 export async function sendOrderConfirmation(data: OrderEmailData) {
   const apiKey = process.env.RESEND_API_KEY;
   const c = COPY[data.locale];

@@ -13,9 +13,12 @@ import {
   TrendingUp,
   Clock,
   CheckCircle,
+  BarChart3,
+  Inbox,
+  Star,
+  CalendarDays,
 } from 'lucide-react';
 import { formatPrice } from '@/lib/pricing';
-import { GALLERY } from '@/lib/data';
 import {
   BASE_PRICE,
   DECORATION_PRICE,
@@ -24,15 +27,26 @@ import {
 } from '@/lib/pricing';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/components/ui/Toast';
+import AdminGallery from './AdminGallery';
+import AdminMessages from './AdminMessages';
+import AdminAnalytics from './AdminAnalytics';
+import AdminReviews from './AdminReviews';
+import AdminAppointments from './AdminAppointments';
+import OrderDrawer from './OrderDrawer';
 
 interface Order {
   id: string;
   orderNumber: string;
   customerName: string;
   customerEmail: string;
+  customerPhone?: string;
+  address?: string;
+  cakeConfig?: string;
   totalPrice: number;
   status: string;
   paymentStatus: string;
+  deliverySlot?: string;
+  notes?: string | null;
   deliveryDate: string;
   createdAt: string;
 }
@@ -46,7 +60,15 @@ const STATUS_COLOR: Record<string, string> = {
   CANCELLED: 'bg-rose-500/15 text-rose-400',
 };
 
-type Tab = 'dashboard' | 'orders' | 'gallery' | 'menu';
+type Tab =
+  | 'dashboard'
+  | 'orders'
+  | 'analytics'
+  | 'gallery'
+  | 'reviews'
+  | 'appointments'
+  | 'messages'
+  | 'menu';
 
 export default function AdminDashboard() {
   const t = useTranslations('admin');
@@ -54,6 +76,7 @@ export default function AdminDashboard() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [tab, setTab] = useState<Tab>('dashboard');
+  const [selected, setSelected] = useState<Order | null>(null);
 
   useEffect(() => {
     fetch('/api/orders')
@@ -90,7 +113,11 @@ export default function AdminDashboard() {
   const nav = [
     { id: 'dashboard' as Tab, icon: LayoutDashboard, label: t('dashboard') },
     { id: 'orders' as Tab, icon: ShoppingBag, label: t('orders') },
+    { id: 'analytics' as Tab, icon: BarChart3, label: t('analytics') },
     { id: 'gallery' as Tab, icon: ImageIcon, label: t('galleryMgmt') },
+    { id: 'reviews' as Tab, icon: Star, label: t('reviewsMod') },
+    { id: 'appointments' as Tab, icon: CalendarDays, label: t('appointments') },
+    { id: 'messages' as Tab, icon: Inbox, label: t('inbox') },
     { id: 'menu' as Tab, icon: Settings, label: t('menuMgmt') },
   ];
 
@@ -159,13 +186,20 @@ export default function AdminDashboard() {
                 orders={orders}
                 t={t}
                 onUpdate={updateStatus}
+                onSelect={setSelected}
               />
             )}
-            {tab === 'gallery' && <GalleryMgmt t={t} />}
+            {tab === 'analytics' && <AdminAnalytics orders={orders} t={t} />}
+            {tab === 'gallery' && <AdminGallery t={t} />}
+            {tab === 'reviews' && <AdminReviews t={t} />}
+            {tab === 'appointments' && <AdminAppointments t={t} />}
+            {tab === 'messages' && <AdminMessages t={t} />}
             {tab === 'menu' && <MenuMgmt t={t} />}
           </>
         )}
       </main>
+
+      <OrderDrawer order={selected} onClose={() => setSelected(null)} />
     </div>
   );
 }
@@ -251,10 +285,12 @@ function OrdersTable({
   orders,
   t,
   onUpdate,
+  onSelect,
 }: {
   orders: Order[];
   t: (k: string) => string;
   onUpdate: (id: string, status: string) => void;
+  onSelect: (o: Order) => void;
 }) {
   if (orders.length === 0) {
     return <p className="text-sm text-ivory/40">{t('noOrders')}</p>;
@@ -280,7 +316,12 @@ function OrdersTable({
                 className="border-t border-ivory/5 hover:bg-ivory/5"
               >
                 <td className="px-4 py-3 font-mono text-gold">
-                  {o.orderNumber}
+                  <button
+                    onClick={() => onSelect(o)}
+                    className="underline-offset-2 hover:underline"
+                  >
+                    {o.orderNumber}
+                  </button>
                 </td>
                 <td className="px-4 py-3">
                   <p>{o.customerName}</p>
@@ -310,32 +351,6 @@ function OrdersTable({
             ))}
           </tbody>
         </table>
-      </div>
-    </div>
-  );
-}
-
-function GalleryMgmt({ t }: { t: (k: string) => string }) {
-  return (
-    <div>
-      <h2 className="mb-6 font-serif text-3xl">{t('galleryMgmt')}</h2>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-        {GALLERY.map((g) => (
-          <div
-            key={g.id}
-            className="group relative overflow-hidden rounded-xl border border-ivory/10"
-          >
-            <img
-              src={g.imageUrl}
-              alt={g.titleEn}
-              className="aspect-square w-full object-cover"
-            />
-            <div className="p-2 text-xs">
-              <p className="truncate text-ivory/80">{g.titleEn}</p>
-              <p className="text-ivory/40">{g.category}</p>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );

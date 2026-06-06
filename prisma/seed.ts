@@ -58,6 +58,20 @@ async function main() {
   }
   console.log(`✓ ${TESTIMONIALS.length} testimonials`);
 
+  // Seed a few approved reviews for the public reviews page.
+  const seedReviews = [
+    { author: 'Ayşe K.', email: 'ayse@example.com', rating: 5, body: 'Düğün pastamız muhteşemdi, herkes çok beğendi. Lezzet ve görsellik kusursuzdu!' },
+    { author: 'Can D.', email: 'can@example.com', rating: 5, body: 'Kurumsal etkinliğimiz için hazırladıkları logolu pasta çok şıktı. Teşekkürler.' },
+    { author: 'Elif T.', email: 'elif@example.com', rating: 5, body: 'Antep fıstıklı pasta hayatımda yediğim en iyisiydi. Kesinlikle tavsiye ederim.' },
+    { author: 'Mehmet S.', email: 'mehmet@example.com', rating: 4, body: 'Zamanında teslim, çok lezzetli. Tasarım sürecinde çok yardımcı oldular.' },
+    { author: 'Zeynep A.', email: 'zeynep2@example.com', rating: 5, body: 'Kızımın doğum günü pastası rüya gibiydi. Tekrar sipariş vereceğiz.' },
+  ];
+  for (const r of seedReviews) {
+    const exists = await prisma.review.findFirst({ where: { email: r.email, body: r.body } });
+    if (!exists) await prisma.review.create({ data: { ...r, approved: true } });
+  }
+  console.log(`✓ ${seedReviews.length} reviews`);
+
   // Cake options / pricing
   const options: {
     category: string;

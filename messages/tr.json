@@ -9,7 +9,120 @@
     "gallery": "Galeri",
     "order": "Sipariş",
     "about": "Hakkımızda",
-    "admin": "Yönetim"
+    "admin": "Yönetim",
+    "weddings": "Düğün",
+    "corporate": "Kurumsal",
+    "pricing": "Fiyatlar",
+    "journal": "Günlük",
+    "faq": "S.S.S.",
+    "contact": "İletişim",
+    "flavors": "Lezzetler",
+    "track": "Sipariş Takibi",
+    "reviews": "Yorumlar",
+    "appointment": "Tadım Randevusu",
+    "collections": "Koleksiyonlar",
+    "glossary": "Sözlük",
+    "care": "Bakım Rehberi",
+    "giftCard": "Hediye Kartı",
+    "atelier": "Atölye",
+    "occasions": "Özel Günler",
+    "sustainability": "Sürdürülebilirlik",
+    "press": "Basın",
+    "menu": "İmza Menü",
+    "more": "Keşfet"
+  },
+  "menu": {
+    "title": "İmza Menü",
+    "subtitle": "Hazır sipariş edebileceğiniz, ev favorisi imza pastalarımız.",
+    "all": "Tümü",
+    "signature": "İmza",
+    "seasonal": "Mevsimlik",
+    "classic": "Klasik",
+    "order": "Sipariş Ver",
+    "customNote": "Tamamen kişiye özel bir tasarım mı istiyorsunuz?",
+    "customCta": "3D Tasarlayıcıyı Aç"
+  },
+  "sustainability": {
+    "title": "Sürdürülebilirlik",
+    "subtitle": "Lezzet kadar gezegene de özen gösteriyoruz.",
+    "introTitle": "Sorumlu Lüks",
+    "introBody": "Lüksün, doğaya saygıyla bir arada var olabileceğine inanıyoruz. Tedarikten ambalaja kadar her adımda izimizi azaltmaya çalışıyoruz.",
+    "p1Title": "Yerel Tedarik",
+    "p1Body": "Malzemelerimizi mümkün olduğunca yerel üreticilerden, mevsiminde temin ediyoruz.",
+    "p2Title": "Geri Dönüştürülebilir Ambalaj",
+    "p2Body": "Pasta kutularımız geri dönüştürülebilir ve plastiksiz malzemelerden üretilir.",
+    "p3Title": "Sıfır İsraf Mutfağı",
+    "p3Body": "Üretim fazlalıklarını minimuma indiriyor, artıkları değerlendiriyoruz.",
+    "p4Title": "Enerji Verimliliği",
+    "p4Body": "Atölyemizde enerji tasarruflu ekipman ve aydınlatma kullanıyoruz."
+  },
+  "press": {
+    "title": "Basın & Ödüller",
+    "subtitle": "Hakkımızda söylenenler ve kazandığımız ödüller.",
+    "awardsTitle": "Ödüller",
+    "featuredTitle": "Basında Biz",
+    "quote1": "İstanbul'un en yaratıcı pasta atölyelerinden biri.",
+    "quote2": "Her detayda kusursuzluk arayan bir marka.",
+    "quote3": "Lüks pastacılığın yeni adresi.",
+    "award1": "Altın Pasta Ödülü 2025",
+    "award2": "En İyi Düğün Pastası 2024",
+    "award3": "Gastronomi Mükemmellik Sertifikası",
+    "award4": "Müşteri Memnuniyeti Birincisi 2025"
+  },
+  "occasions": {
+    "title": "Özel Günler",
+    "subtitle": "Her an, kutlanmaya değer. Size en uygun pasta deneyimini seçin.",
+    "wedding": "Düğün & Nişan",
+    "weddingDesc": "Hayatınızın en özel gününe yakışır görkemli tasarımlar.",
+    "birthday": "Doğum Günü",
+    "birthdayDesc": "Küçük büyük herkes için neşeli ve renkli pastalar.",
+    "corporate": "Kurumsal",
+    "corporateDesc": "Markanıza prestij katan profesyonel çözümler.",
+    "baby": "Baby Shower",
+    "babyDesc": "Yeni bir hayata zarif bir merhaba.",
+    "custom": "Tamamen Özel",
+    "customDesc": "Hayalinizdeki tasarımı sıfırdan birlikte yaratalım.",
+    "explore": "Keşfet"
+  },
+  "atelier": {
+    "title": "Atölyemiz",
+    "subtitle": "Nişantaşı'nın kalbinde, her pastanın doğduğu yer.",
+    "spaceTitle": "Sanatın Mutfağı",
+    "spaceBody": "Atölyemiz; modern ekipman, el yapımı gelenek ve sınırsız yaratıcılığın buluştuğu bir alandır. Her köşesi, kusursuzluk arayışıyla tasarlandı.",
+    "teamTitle": "Ekibimiz",
+    "teamSubtitle": "Tutkuyla çalışan zanaatkârlar",
+    "valuesTitle": "Değerlerimiz",
+    "pressTitle": "Basında Biz"
+  },
+  "collections": {
+    "title": "Koleksiyonlar",
+    "subtitle": "Her biri bir ruh hâli için özenle derlenmiş imza serilerimiz.",
+    "explore": "Koleksiyonu İncele",
+    "designCta": "Bu Stilde Tasarla"
+  },
+  "glossary": {
+    "title": "Pasta Sözlüğü",
+    "subtitle": "Pasta dünyasının terimlerini birlikte öğrenelim.",
+    "searchPlaceholder": "Terim ara..."
+  },
+  "care": {
+    "title": "Saklama & Bakım Rehberi",
+    "subtitle": "Pastanızın ilk günkü tazeliğini korumak için her şey.",
+    "cta": "Daha Fazla Soru"
+  },
+  "giftcard": {
+    "title": "Hediye Kartı",
+    "subtitle": "Sevdiklerinize lüks bir lezzet armağan edin.",
+    "lead": "Atelier Cake hediye kartları, sevdiklerinizin hayalindeki pastayı seçmesine olanak tanır. Dijital olarak e-posta ile iletilir.",
+    "amount": "Tutar Seçin",
+    "custom": "Özel Tutar",
+    "recipient": "Alıcı Adı",
+    "recipientEmail": "Alıcı E-posta",
+    "from": "Gönderen",
+    "messageLabel": "Mesajınız",
+    "buy": "Hediye Kartı Al",
+    "note": "Hediye kartları 12 ay geçerlidir.",
+    "success": "Hediye kartı talebiniz alındı! Ödeme için sizinle iletişime geçeceğiz."
   },
   "common": {
     "next": "İleri",
@@ -21,7 +134,16 @@
     "viewAll": "Tümünü Gör",
     "send": "Gönder",
     "close": "Kapat",
-    "currencyNote": "KDV dahil"
+    "currencyNote": "KDV dahil",
+    "home": "Ana Sayfa",
+    "readMore": "Devamını Oku",
+    "learnMore": "Daha Fazla",
+    "getStarted": "Hemen Başla",
+    "minRead": "dk okuma",
+    "all": "Tümü",
+    "submit": "Gönder",
+    "sending": "Gönderiliyor...",
+    "required": "Zorunlu alan"
   },
   "home": {
     "heroTagline": "Her Pasta, Bir Hikaye",
@@ -56,7 +178,12 @@
       "frosting": "Kaplama",
       "decoration": "Süsleme",
       "message": "Mesaj",
-      "delivery": "Teslimat"
+      "delivery": "Teslimat",
+      "review": "Özet"
+    },
+    "review": {
+      "title": "Tasarımınızı Gözden Geçirin",
+      "hint": "Her şey yolundaysa siparişe geçebilirsiniz."
     },
     "base": {
       "title": "Bir başlangıç seçin",
@@ -89,6 +216,12 @@
       "title": "Süslemeleri ekleyin",
       "hint": "Birden fazla seçebilirsiniz",
       "dripColor": "Akıtma Rengi"
+    },
+    "extras": {
+      "title": "Son Dokunuşlar",
+      "sprinkles": "Şeker Taneleri",
+      "candles": "Mum Sayısı",
+      "boardColor": "Pasta Altlığı Rengi"
     },
     "message": {
       "title": "Pasta üzerine yazı",
@@ -139,6 +272,8 @@
     "extraTier": "İlave Kat",
     "frosting": "Özel Kaplama",
     "message": "Yazı",
+    "sprinkles": "Şeker Taneleri",
+    "candles": "Mumlar",
     "breakdown": "Fiyat Detayı"
   },
   "gallery": {
@@ -222,7 +357,22 @@
     "statusIN_PROGRESS": "Hazırlanıyor",
     "statusREADY": "Hazır",
     "statusDELIVERED": "Teslim Edildi",
-    "statusCANCELLED": "İptal"
+    "statusCANCELLED": "İptal",
+    "analytics": "Analiz",
+    "inbox": "Gelen Kutusu",
+    "messages": "Mesajlar",
+    "subscribers": "Aboneler",
+    "noMessages": "Henüz mesaj yok.",
+    "handled": "Yanıtlandı",
+    "markHandled": "Yanıtlandı işaretle",
+    "revenue6m": "Son 6 Ay Ciro",
+    "statusDist": "Durum Dağılımı",
+    "reviewsMod": "Yorum Moderasyonu",
+    "appointments": "Randevular",
+    "publish": "Yayınla",
+    "unpublish": "Yayından kaldır",
+    "published": "Yayında",
+    "pending": "Onay bekliyor"
   },
   "footer": {
     "tagline": "İstanbul · Bespoke Pasta Atölyesi",
@@ -245,6 +395,193 @@
     "address": { "short": "Lütfen tam adres girin" },
     "date": { "tooSoon": "Teslimat en az 5 gün sonrası olmalı" },
     "slot": { "required": "Saat aralığı seçin" }
+  },
+  "newsletter": {
+    "title": "Atölyeden Haberler",
+    "subtitle": "Yeni koleksiyonlar, sezonluk lezzetler ve özel davetlerden ilk siz haberdar olun.",
+    "placeholder": "E-posta adresiniz",
+    "cta": "Abone Ol",
+    "success": "Teşekkürler! Bültenimize abone oldunuz.",
+    "error": "Bir hata oluştu, lütfen tekrar deneyin.",
+    "invalid": "Lütfen geçerli bir e-posta girin."
+  },
+  "process": {
+    "eyebrow": "Nasıl Çalışır",
+    "title": "Fikirden Şölene",
+    "lead": "Dört adımda, hayalinizdeki pastayı sofranıza taşıyoruz."
+  },
+  "ingredients": {
+    "eyebrow": "Malzeme Kalitesi",
+    "title": "Yalnızca En İyisi",
+    "lead": "Her tarifin temelinde, özenle seçilmiş premium malzemeler yatar."
+  },
+  "stats": {
+    "eyebrow": "Rakamlarla Biz",
+    "title": "Güvenin Karşılığı"
+  },
+  "seasonal": {
+    "eyebrow": "Sezon Koleksiyonu",
+    "title": "Bu Mevsimin Favorileri",
+    "lead": "Mevsimin en taze lezzetleriyle hazırlanan, sınırlı sayıda imza tasarımlar.",
+    "cta": "Koleksiyonu Gör"
+  },
+  "whyus": {
+    "eyebrow": "Neden Atelier Cake",
+    "title": "Lüksün İnce Detayları"
+  },
+  "ctaBand": {
+    "title": "Hayalinizdeki pastayı tasarlamaya hazır mısınız?",
+    "lead": "3D tasarlayıcımızla dakikalar içinde kendi pastanızı yaratın veya bizimle iletişime geçin.",
+    "primary": "Tasarlamaya Başla",
+    "secondary": "Bize Ulaşın"
+  },
+  "faqPage": {
+    "title": "Sıkça Sorulan Sorular",
+    "subtitle": "Aklınıza takılan her şey için buradayız.",
+    "stillTitle": "Cevabını bulamadınız mı?",
+    "stillLead": "Ekibimiz size yardımcı olmaktan mutluluk duyar.",
+    "stillCta": "İletişime Geçin"
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Bir proje mi planlıyorsunuz? Konuşalım.",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "subject": "Konu",
+    "message": "Mesajınız",
+    "send": "Mesaj Gönder",
+    "sending": "Gönderiliyor...",
+    "success": "Mesajınız alındı! En kısa sürede dönüş yapacağız.",
+    "error": "Mesaj gönderilemedi, lütfen tekrar deneyin.",
+    "infoTitle": "Bilgiler",
+    "addressLabel": "Adres",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-posta",
+    "hoursLabel": "Çalışma Saatleri",
+    "hours": "Pzt–Cmt: 09:00–19:00",
+    "whatsapp": "WhatsApp'tan Yazın"
+  },
+  "pricing": {
+    "title": "Paketler & Fiyatlandırma",
+    "subtitle": "Her bütçeye ve her etkinliğe uygun bespoke çözümler.",
+    "from": "başlangıç",
+    "popular": "En Popüler",
+    "serves": "Porsiyon",
+    "choose": "Bu Paketi Seç",
+    "customTitle": "Aklınızdaki tasarım farklı mı?",
+    "customLead": "3D tasarlayıcımızla tamamen size özel bir pasta yaratın; fiyatı anında görün.",
+    "customCta": "Kendi Pastanı Tasarla",
+    "note": "Tüm fiyatlara KDV dahildir. Nihai fiyat tasarım detaylarına göre belirlenir.",
+    "addonsTitle": "Ek Hizmetler",
+    "addonsEyebrow": "Pastanı Tamamla"
+  },
+  "weddings": {
+    "title": "Düğün Pastaları",
+    "heroLead": "Hayatınızın en özel gününe yakışır, zamansız bir başyapıt.",
+    "introTitle": "Aşkınızın Hikâyesi, Şekere Dönüşsün",
+    "introBody": "Her düğün pastası, çiftin hikâyesini anlatan eşsiz bir eserdir. Birebir danışmanlık, tadım seansı ve etkinlik günü kurulumuyla, kusursuz bir deneyim sunuyoruz.",
+    "ctaConsult": "Ücretsiz Danışma Alın",
+    "galleryTitle": "Düğün Galerisi",
+    "processTitle": "Düğün Süreci"
+  },
+  "corporate": {
+    "title": "Kurumsal Pastalar",
+    "heroLead": "Markanıza prestij katan, profesyonel pasta çözümleri.",
+    "introTitle": "Markanızı Lezzetle Taçlandırın",
+    "introBody": "Lansman, yıl dönümü, açılış ve özel kurumsal etkinlikleriniz için logolu, kurumsal renklerinizde özel tasarımlar. Toplu sipariş ve faturalandırma avantajlarıyla.",
+    "ctaQuote": "Teklif Alın",
+    "perksTitle": "Kurumsal Avantajlar",
+    "perk1": "Logolu yenilebilir baskı",
+    "perk2": "Toplu sipariş indirimleri",
+    "perk3": "Kurumsal faturalandırma",
+    "perk4": "Öncelikli teslimat"
+  },
+  "journal": {
+    "title": "Günlük",
+    "subtitle": "Pasta dünyasından ilham, rehber ve hikâyeler.",
+    "readArticle": "Yazıyı Oku",
+    "related": "İlgili Yazılar",
+    "byAuthor": "Yazar",
+    "backToJournal": "Günlüğe Dön",
+    "categories": {
+      "all": "Tümü",
+      "trends": "Trendler",
+      "guides": "Rehberler",
+      "behindscenes": "Perde Arkası",
+      "recipes": "Tarifler"
+    }
+  },
+  "track": {
+    "title": "Sipariş Takibi",
+    "subtitle": "Sipariş numaranızı girerek durumunu anında görün.",
+    "placeholder": "Örn: AC-XXXXXX",
+    "button": "Sorgula",
+    "searching": "Aranıyor...",
+    "notFound": "Bu numarayla bir sipariş bulunamadı. Lütfen kontrol edin.",
+    "statusTitle": "Sipariş Durumu",
+    "orderNumber": "Sipariş No",
+    "deliveryDate": "Teslimat Tarihi",
+    "amount": "Tutar",
+    "timeline": {
+      "PENDING": "Beklemede",
+      "IN_PROGRESS": "Hazırlanıyor",
+      "READY": "Hazır",
+      "DELIVERED": "Teslim Edildi",
+      "CANCELLED": "İptal Edildi"
+    }
+  },
+  "flavorsPage": {
+    "title": "Lezzetlerimiz",
+    "subtitle": "Her biri özenle dengelenmiş imza tatlarımızı keşfedin.",
+    "tasteTitle": "Tadım seansı ister misiniz?",
+    "tasteLead": "Couture paketlerimizde, sevdiklerinizle birlikte lezzetlerimizi deneyimleyin.",
+    "designCta": "Bu Lezzetle Tasarla"
+  },
+  "legal": {
+    "privacyTitle": "Gizlilik Politikası",
+    "termsTitle": "Kullanım Şartları",
+    "kvkkTitle": "KVKK Aydınlatma Metni",
+    "deliveryTitle": "Teslimat & İade",
+    "updated": "Son güncelleme",
+    "deliveryZonesTitle": "Teslimat Bölgeleri",
+    "zone": "Bölge",
+    "districts": "İlçeler",
+    "fee": "Ücret"
+  },
+  "reviews": {
+    "title": "Müşteri Yorumları",
+    "subtitle": "Bizi tercih edenlerin deneyimleri.",
+    "writeTitle": "Deneyiminizi Paylaşın",
+    "author": "Adınız",
+    "email": "E-posta",
+    "rating": "Puan",
+    "body": "Yorumunuz",
+    "submit": "Yorumu Gönder",
+    "submitting": "Gönderiliyor...",
+    "success": "Teşekkürler! Yorumunuz onaylandıktan sonra yayınlanacak.",
+    "error": "Yorum gönderilemedi, lütfen tekrar deneyin.",
+    "empty": "Henüz yorum yok. İlk yorumu siz yazın!",
+    "moderationNote": "Yorumlar yayınlanmadan önce incelenir."
+  },
+  "appointment": {
+    "title": "Tadım & Danışma Randevusu",
+    "subtitle": "Atölyemizde, lezzetlerimizi deneyimleyin ve tasarımınızı birlikte planlayalım.",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "date": "Tercih Edilen Tarih",
+    "guests": "Kişi Sayısı",
+    "occasion": "Etkinlik Türü",
+    "note": "Eklemek istedikleriniz",
+    "submit": "Randevu Talep Et",
+    "submitting": "Gönderiliyor...",
+    "success": "Randevu talebiniz alındı! Size en kısa sürede dönüş yapacağız.",
+    "error": "Talep gönderilemedi, lütfen tekrar deneyin.",
+    "infoTitle": "Tadım Hakkında",
+    "info1": "Couture paketlerinde tadım ücretsizdir.",
+    "info2": "Randevular hafta içi 11:00–17:00 arası planlanır.",
+    "info3": "En fazla 6 kişilik gruplar ağırlanır."
   },
   "meta": {
     "homeTitle": "Atelier Cake · Lüks Butik Pasta Atölyesi · İstanbul",

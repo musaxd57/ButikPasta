@@ -4,14 +4,43 @@ import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link, usePathname, useRouter } from '@/i18n/routing';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const LINKS = [
   { href: '/', key: 'home' },
   { href: '/configure', key: 'configure' },
   { href: '/gallery', key: 'gallery' },
+  { href: '/weddings', key: 'weddings' },
   { href: '/about', key: 'about' },
+] as const;
+
+// Secondary links grouped under the "Explore" dropdown.
+const MORE_LINKS = [
+  { href: '/menu', key: 'menu' },
+  { href: '/occasions', key: 'occasions' },
+  { href: '/collections', key: 'collections' },
+  { href: '/atelier', key: 'atelier' },
+  { href: '/sustainability', key: 'sustainability' },
+  { href: '/press', key: 'press' },
+  { href: '/corporate', key: 'corporate' },
+  { href: '/flavors', key: 'flavors' },
+  { href: '/pricing', key: 'pricing' },
+  { href: '/journal', key: 'journal' },
+  { href: '/reviews', key: 'reviews' },
+  { href: '/appointment', key: 'appointment' },
+  { href: '/gift-card', key: 'giftCard' },
+  { href: '/glossary', key: 'glossary' },
+  { href: '/care', key: 'care' },
+  { href: '/faq', key: 'faq' },
+  { href: '/track', key: 'track' },
+  { href: '/contact', key: 'contact' },
+] as const;
+
+// Flat list used for the mobile menu.
+const ALL_MOBILE_LINKS = [
+  ...LINKS,
+  ...MORE_LINKS,
   { href: '/order', key: 'order' },
 ] as const;
 
@@ -85,6 +114,39 @@ export default function Navbar() {
               </Link>
             );
           })}
+
+          {/* Explore dropdown */}
+          <div className="group relative">
+            <button
+              className={cn(
+                'flex items-center gap-1 text-xs uppercase tracking-[0.18em] transition-colors hover:text-gold',
+                scrolled ? 'text-charcoal/70' : 'text-ivory/80',
+              )}
+            >
+              {t('more')}
+              <ChevronDown size={13} className="transition-transform group-hover:rotate-180" />
+            </button>
+            <div className="invisible absolute left-1/2 top-full z-50 w-52 -translate-x-1/2 pt-4 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+              <div className="overflow-hidden rounded-2xl border border-charcoal/10 bg-ivory py-2 shadow-[0_10px_40px_rgba(26,26,26,0.12)]">
+                {MORE_LINKS.map((link) => (
+                  <Link
+                    key={link.key}
+                    href={link.href}
+                    className="block px-5 py-2.5 text-xs uppercase tracking-[0.15em] text-charcoal/70 transition-colors hover:bg-gold/10 hover:text-gold"
+                  >
+                    {t(link.key)}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <Link
+            href="/order"
+            className="rounded-full bg-gold px-5 py-2 text-xs font-medium uppercase tracking-[0.18em] text-charcoal transition-all hover:bg-gold-light"
+          >
+            {t('order')}
+          </Link>
         </div>
 
         <div className="flex items-center gap-4">
@@ -133,8 +195,8 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden bg-ivory lg:hidden"
           >
-            <div className="flex flex-col gap-1 px-6 py-4">
-              {LINKS.map((link) => (
+            <div className="flex max-h-[70vh] flex-col gap-1 overflow-y-auto px-6 py-4">
+              {ALL_MOBILE_LINKS.map((link) => (
                 <Link
                   key={link.key}
                   href={link.href}

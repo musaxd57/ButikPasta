@@ -147,7 +147,7 @@ export default function CakeModel({ config }: { config: CakeConfig }) {
       {/* Cake plate */}
       <mesh position={[0, -0.08, 0]} receiveShadow>
         <cylinderGeometry args={[SIZE_RADIUS[tiers[0].size] + 0.35, SIZE_RADIUS[tiers[0].size] + 0.45, 0.12, 64]} />
-        <meshStandardMaterial color="#e8e0d0" metalness={0.3} roughness={0.4} />
+        <meshStandardMaterial color={config.boardColor || '#e8e0d0'} metalness={0.3} roughness={0.4} />
       </mesh>
 
       {placed.map(({ tier, radius, cy }, i) => {
@@ -230,6 +230,98 @@ export default function CakeModel({ config }: { config: CakeConfig }) {
       )}
 
       <Decorations config={config} radius={topTier.radius} topY={topY} />
+
+      {config.sprinkles && (
+        <Sprinkles
+          radius={topTier.radius}
+          y={topY + 0.02}
+          color={config.sprinkleColor || '#C4896F'}
+        />
+      )}
+
+      {config.candles > 0 && (
+        <Candles count={config.candles} radius={topTier.radius} y={topY} />
+      )}
     </group>
+  );
+}
+
+// Deterministic pseudo-random scatter of small sprinkles across the top.
+function Sprinkles({
+  radius,
+  y,
+  color,
+}: {
+  radius: number;
+  y: number;
+  color: string;
+}) {
+  const items = useMemo(() => {
+    const out: { pos: [number, number, number]; rot: [number, number, number] }[] = [];
+    let seed = 42;
+    const rand = () => {
+      seed = (seed * 9301 + 49297) % 233280;
+      return seed / 233280;
+    };
+    for (let i = 0; i < 60; i++) {
+      const r = Math.sqrt(rand()) * radius * 0.85;
+      const a = rand() * Math.PI * 2;
+      out.push({
+        pos: [Math.cos(a) * r, y + rand() * 0.02, Math.sin(a) * r],
+        rot: [rand() * Math.PI, rand() * Math.PI, rand() * Math.PI],
+      });
+    }
+    return out;
+  }, [radius, y]);
+
+  const palette = ['#C4896F', '#E0C878', '#bcd49a', '#8e2b2b', color];
+  return (
+    <>
+      {items.map((s, i) => (
+        <mesh key={i} position={s.pos} rotation={s.rot} castShadow>
+          <boxGeometry args={[0.035, 0.035, 0.12]} />
+          <meshStandardMaterial color={palette[i % palette.length]} roughness={0.4} />
+        </mesh>
+      ))}
+    </>
+  );
+}
+
+// Thin candles with glowing flames arranged in a ring on top.
+function Candles({
+  count,
+  radius,
+  y,
+}: {
+  count: number;
+  radius: number;
+  y: number;
+}) {
+  const r = Math.min(radius * 0.55, 0.5);
+  return (
+    <>
+      {Array.from({ length: count }).map((_, i) => {
+        const a = (i / count) * Math.PI * 2;
+        const x = Math.cos(a) * (count === 1 ? 0 : r);
+        const z = Math.sin(a) * (count === 1 ? 0 : r);
+        return (
+          <group key={i} position={[x, y, z]}>
+            <mesh position={[0, 0.18, 0]} castShadow>
+              <cylinderGeometry args={[0.03, 0.03, 0.36, 12]} />
+              <meshStandardMaterial color="#FAF7F2" roughness={0.5} />
+            </mesh>
+            <mesh position={[0, 0.42, 0]}>
+              <coneGeometry args={[0.04, 0.12, 12]} />
+              <meshStandardMaterial
+                color="#ffcf6b"
+                emissive="#ffae34"
+                emissiveIntensity={2}
+              />
+            </mesh>
+            <pointLight position={[0, 0.44, 0]} intensity={0.25} distance={1.2} color="#ffb347" />
+          </group>
+        );
+      })}
+    </>
   );
 }

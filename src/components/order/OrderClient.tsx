@@ -193,6 +193,31 @@ export default function OrderClient() {
                   </span>
                 </li>
               )}
+              {config.sprinkles && (
+                <li className="flex justify-between text-charcoal/70">
+                  <span>{tConf('extras.sprinkles')}</span>
+                  <span className="flex items-center gap-2 text-charcoal">
+                    <span
+                      className="h-3 w-3 rounded-full border border-charcoal/10"
+                      style={{ background: config.sprinkleColor }}
+                    />
+                    ✓
+                  </span>
+                </li>
+              )}
+              {config.candles > 0 && (
+                <li className="flex justify-between text-charcoal/70">
+                  <span>{tConf('extras.candles')}</span>
+                  <span className="text-charcoal">{config.candles}</span>
+                </li>
+              )}
+              <li className="flex justify-between text-charcoal/70">
+                <span>{tConf('extras.boardColor')}</span>
+                <span
+                  className="h-3 w-3 self-center rounded-full border border-charcoal/10"
+                  style={{ background: config.boardColor }}
+                />
+              </li>
               {config.message && (
                 <li className="flex justify-between text-charcoal/70">
                   <span>{tConf('steps.message')}</span>

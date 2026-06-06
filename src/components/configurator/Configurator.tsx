@@ -27,6 +27,7 @@ const STEP_KEYS = [
   'decoration',
   'message',
   'delivery',
+  'review',
 ] as const;
 
 export default function Configurator() {
