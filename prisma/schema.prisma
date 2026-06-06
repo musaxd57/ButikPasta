@@ -25,6 +25,9 @@ model Order {
   // Full cake configuration captured from the 3D configurator (JSON string).
   cakeConfig    String
   totalPrice    Float
+  couponCode    String?
+  discount      Float    @default(0)
+  customerId    String?
   depositPaid   Boolean  @default(false)
   // Status: PENDING | IN_PROGRESS | READY | DELIVERED | CANCELLED
   status        String   @default("PENDING")
@@ -60,6 +63,37 @@ model GalleryItem {
   priceRange String?
   featured   Boolean  @default(false)
   createdAt  DateTime @default(now())
+}
+
+model Customer {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  phone        String?
+  createdAt    DateTime @default(now())
+}
+
+model Coupon {
+  id         String    @id @default(cuid())
+  code       String    @unique
+  type       String    @default("percent") // percent | fixed
+  value      Float
+  active     Boolean   @default(true)
+  minTotal   Float     @default(0)
+  usageCount Int       @default(0)
+  expiresAt  DateTime?
+  createdAt  DateTime  @default(now())
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  postSlug  String
+  author    String
+  email     String
+  body      String
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
 }
 
 model NewsletterSubscriber {

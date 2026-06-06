@@ -18,6 +18,8 @@ import {
   Star,
   CalendarDays,
   Download,
+  MessageSquare,
+  Ticket,
 } from 'lucide-react';
 import { formatPrice } from '@/lib/pricing';
 import {
@@ -33,6 +35,8 @@ import AdminMessages from './AdminMessages';
 import AdminAnalytics from './AdminAnalytics';
 import AdminReviews from './AdminReviews';
 import AdminAppointments from './AdminAppointments';
+import AdminCoupons from './AdminCoupons';
+import AdminComments from './AdminComments';
 import OrderDrawer from './OrderDrawer';
 
 interface Order {
@@ -67,7 +71,9 @@ type Tab =
   | 'analytics'
   | 'gallery'
   | 'reviews'
+  | 'comments'
   | 'appointments'
+  | 'coupons'
   | 'messages'
   | 'menu';
 
@@ -117,7 +123,9 @@ export default function AdminDashboard() {
     { id: 'analytics' as Tab, icon: BarChart3, label: t('analytics') },
     { id: 'gallery' as Tab, icon: ImageIcon, label: t('galleryMgmt') },
     { id: 'reviews' as Tab, icon: Star, label: t('reviewsMod') },
+    { id: 'comments' as Tab, icon: MessageSquare, label: t('commentsMod') },
     { id: 'appointments' as Tab, icon: CalendarDays, label: t('appointments') },
+    { id: 'coupons' as Tab, icon: Ticket, label: t('coupons') },
     { id: 'messages' as Tab, icon: Inbox, label: t('inbox') },
     { id: 'menu' as Tab, icon: Settings, label: t('menuMgmt') },
   ];
@@ -193,7 +201,9 @@ export default function AdminDashboard() {
             {tab === 'analytics' && <AdminAnalytics orders={orders} t={t} />}
             {tab === 'gallery' && <AdminGallery t={t} />}
             {tab === 'reviews' && <AdminReviews t={t} />}
+            {tab === 'comments' && <AdminComments t={t} />}
             {tab === 'appointments' && <AdminAppointments t={t} />}
+            {tab === 'coupons' && <AdminCoupons t={t} />}
             {tab === 'messages' && <AdminMessages t={t} />}
             {tab === 'menu' && <MenuMgmt t={t} />}
           </>

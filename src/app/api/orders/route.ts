@@ -5,6 +5,8 @@ import { authOptions } from '@/lib/auth';
 import { orderSchema } from '@/lib/validation';
 import { generateOrderNumber } from '@/lib/utils';
 import { sendOrderConfirmation } from '@/lib/email';
+import { evaluateCoupon } from '@/lib/coupons';
+import { getCustomerId } from '@/lib/customerAuth';
 
 // Create a new order from the configurator/checkout flow.
 export async function POST(req: Request) {
@@ -22,6 +24,19 @@ export async function POST(req: Request) {
     const data = parsed.data;
     const orderNumber = generateOrderNumber();
 
+    // Re-evaluate any coupon server-side so the discount can't be tampered with.
+    let discount = 0;
+    let appliedCode: string | null = null;
+    if (data.couponCode) {
+      const result = await evaluateCoupon(data.couponCode, data.totalPrice);
+      if (result.valid && result.discount) {
+        discount = result.discount;
+        appliedCode = result.code ?? null;
+      }
+    }
+    const finalTotal = Math.max(0, data.totalPrice - discount);
+    const customerId = getCustomerId();
+
     const order = await prisma.order.create({
       data: {
         orderNumber,
@@ -30,7 +45,10 @@ export async function POST(req: Request) {
         customerPhone: data.customerPhone,
         address: data.address,
         cakeConfig: data.cakeConfig,
-        totalPrice: data.totalPrice,
+        totalPrice: finalTotal,
+        couponCode: appliedCode,
+        discount,
+        customerId,
         depositPaid: data.paymentType === 'deposit',
         paymentStatus: data.paymentType === 'deposit' ? 'DEPOSIT_PAID' : 'PAID',
         deliveryDate: new Date(data.deliveryDate),
@@ -39,6 +57,16 @@ export async function POST(req: Request) {
         notes: data.notes || null,
       },
     });
+
+    // Increment coupon usage after a successful order.
+    if (appliedCode) {
+      await prisma.coupon
+        .update({
+          where: { code: appliedCode },
+          data: { usageCount: { increment: 1 } },
+        })
+        .catch(() => undefined);
+    }
 
     // Fire-and-forget confirmation email.
     await sendOrderConfirmation({

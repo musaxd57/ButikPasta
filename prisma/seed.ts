@@ -72,6 +72,20 @@ async function main() {
   }
   console.log(`✓ ${seedReviews.length} reviews`);
 
+  // Sample coupons
+  const seedCoupons = [
+    { code: 'WELCOME10', type: 'percent', value: 10, minTotal: 0 },
+    { code: 'SWEET250', type: 'fixed', value: 250, minTotal: 2000 },
+  ];
+  for (const c of seedCoupons) {
+    await prisma.coupon.upsert({
+      where: { code: c.code },
+      update: {},
+      create: c,
+    });
+  }
+  console.log(`✓ ${seedCoupons.length} coupons`);
+
   // Cake options / pricing
   const options: {
     category: string;

@@ -30,6 +30,12 @@ export default function OrderClient() {
   const { config, reset } = useConfigurator();
   const [mounted, setMounted] = useState(false);
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
+  const [couponInput, setCouponInput] = useState('');
+  const [coupon, setCoupon] = useState<{ code: string; discount: number } | null>(
+    null,
+  );
+  const [couponMsg, setCouponMsg] = useState<string | null>(null);
+  const [couponLoading, setCouponLoading] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -53,6 +59,7 @@ export default function OrderClient() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: zodResolver(orderSchema),
@@ -66,6 +73,53 @@ export default function OrderClient() {
     },
   });
 
+  // Prefill the form for logged-in customers.
+  useEffect(() => {
+    fetch('/api/account/me')
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.customer) {
+          if (d.customer.name) setValue('customerName', d.customer.name);
+          setValue('customerEmail', d.customer.email);
+          if (d.customer.phone) setValue('customerPhone', d.customer.phone);
+        }
+      })
+      .catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const discount = coupon?.discount ?? 0;
+  const finalTotal = Math.max(0, price.total - discount);
+
+  const applyCoupon = async () => {
+    if (!couponInput.trim()) return;
+    setCouponLoading(true);
+    setCouponMsg(null);
+    try {
+      const res = await fetch('/api/coupon', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: couponInput, total: price.total }),
+      });
+      const data = await res.json();
+      if (data.valid) {
+        setCoupon({ code: data.code, discount: data.discount });
+        setCouponMsg(t('couponApplied'));
+      } else {
+        setCoupon(null);
+        setCouponMsg(
+          data.reason === 'min'
+            ? t('couponMin', { min: formatPrice(data.minTotal ?? 0, locale) })
+            : t('couponInvalid'),
+        );
+      }
+    } catch {
+      setCouponMsg(t('couponInvalid'));
+    } finally {
+      setCouponLoading(false);
+    }
+  };
+
   const onSubmit = async (values: FormValues) => {
     try {
       const res = await fetch('/api/orders', {
@@ -75,6 +129,7 @@ export default function OrderClient() {
           ...values,
           cakeConfig: JSON.stringify(config),
           totalPrice: price.total,
+          couponCode: coupon?.code ?? '',
         }),
       });
       if (!res.ok) throw new Error('failed');
@@ -87,7 +142,7 @@ export default function OrderClient() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          amount: price.total,
+          amount: finalTotal,
           paymentType: values.paymentType,
           orderNumber: data.orderNumber,
           locale,
@@ -114,7 +169,7 @@ export default function OrderClient() {
 
   const whatsappHref = () => {
     const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '905555555555';
-    const msg = `${t('whatsapp')} — ${formatPrice(price.total, locale)}`;
+    const msg = `${t('whatsapp')} — ${formatPrice(finalTotal, locale)}`;
     return `https://wa.me/${number}?text=${encodeURIComponent(msg)}`;
   };
 
@@ -238,12 +293,57 @@ export default function OrderClient() {
               ))}
             </div>
 
-            <div className="flex items-end justify-between border-t border-charcoal/10 pt-4">
+            {/* Coupon */}
+            <div className="border-t border-charcoal/10 pt-4">
+              <label className="label-lux">{t('couponLabel')}</label>
+              <div className="flex gap-2">
+                <input
+                  value={couponInput}
+                  onChange={(e) => setCouponInput(e.target.value.toUpperCase())}
+                  placeholder={t('couponPlaceholder')}
+                  className="input-lux flex-1 uppercase"
+                />
+                <button
+                  type="button"
+                  onClick={applyCoupon}
+                  disabled={couponLoading}
+                  className="shrink-0 rounded-xl border border-gold/50 px-4 text-xs font-medium uppercase tracking-wider text-gold-dark transition hover:bg-gold hover:text-charcoal disabled:opacity-60"
+                >
+                  {couponLoading ? '...' : t('couponApply')}
+                </button>
+              </div>
+              {couponMsg && (
+                <p
+                  className={`mt-2 text-xs ${
+                    coupon ? 'text-emerald-600' : 'text-rose'
+                  }`}
+                >
+                  {couponMsg}
+                </p>
+              )}
+            </div>
+
+            {discount > 0 && (
+              <div className="mt-3 space-y-1 text-sm">
+                <div className="flex justify-between text-charcoal/55">
+                  <span>{t('subtotal')}</span>
+                  <span>{formatPrice(price.total, locale)}</span>
+                </div>
+                <div className="flex justify-between text-emerald-600">
+                  <span>
+                    {t('discount')} {coupon ? `(${coupon.code})` : ''}
+                  </span>
+                  <span>−{formatPrice(discount, locale)}</span>
+                </div>
+              </div>
+            )}
+
+            <div className="mt-3 flex items-end justify-between border-t border-charcoal/10 pt-4">
               <span className="text-xs uppercase tracking-wider text-charcoal/50">
                 {t('paymentTitle')}
               </span>
               <span className="font-serif text-2xl font-semibold text-gold-dark">
-                {formatPrice(price.total, locale)}
+                {formatPrice(finalTotal, locale)}
               </span>
             </div>
 
@@ -371,7 +471,7 @@ export default function OrderClient() {
                   className="accent-gold"
                   {...register('paymentType')}
                 />
-                {t('payDeposit')} ({formatPrice(price.total / 2, locale)})
+                {t('payDeposit')} ({formatPrice(finalTotal / 2, locale)})
               </label>
               <label className="flex cursor-pointer items-center gap-2 rounded-xl border border-charcoal/12 p-4 text-sm has-[:checked]:border-gold has-[:checked]:bg-gold/10">
                 <input
