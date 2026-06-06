@@ -51,6 +51,38 @@ function buildTiers(count: number, existing: TierConfig[]): TierConfig[] {
   }));
 }
 
+const SIZE_RANK: Record<TierConfig['size'], number> = {
+  small: 0,
+  medium: 1,
+  large: 2,
+};
+const RANK_SIZE: TierConfig['size'][] = ['small', 'medium', 'large'];
+
+// Keeps tiers in a physically valid order: the base (index 0) is the widest and
+// each tier above is the same size or smaller. `changed` is the tier the user
+// just edited, so we respect their choice and adjust the others around it.
+function enforceTierSizes(
+  tiers: TierConfig[],
+  changed: number,
+): TierConfig[] {
+  const out = tiers.map((t) => ({ ...t }));
+  const target = SIZE_RANK[out[changed].size];
+
+  // Tiers above must not be larger than the changed tier.
+  let cap = target;
+  for (let i = changed + 1; i < out.length; i++) {
+    if (SIZE_RANK[out[i].size] > cap) out[i].size = RANK_SIZE[cap];
+    else cap = SIZE_RANK[out[i].size];
+  }
+  // Tiers below must not be smaller than the changed tier.
+  let floor = target;
+  for (let i = changed - 1; i >= 0; i--) {
+    if (SIZE_RANK[out[i].size] < floor) out[i].size = RANK_SIZE[floor];
+    else floor = SIZE_RANK[out[i].size];
+  }
+  return out;
+}
+
 export const useConfigurator = create<ConfiguratorState>()(
   persist(
     (set) => ({
@@ -77,9 +109,15 @@ export const useConfigurator = create<ConfiguratorState>()(
         })),
       setTier: (index, patch) =>
         set((s) => {
-          const tiers = s.config.tiers.map((t, i) =>
+          let tiers = s.config.tiers.map((t, i) =>
             i === index ? { ...t, ...patch } : t,
           );
+          // A real cake must taper upward: no tier may be wider than the tier
+          // below it. When a size changes, gently push neighbours into a valid
+          // bottom-to-top (large→small) order around the user's latest choice.
+          if (patch.size) {
+            tiers = enforceTierSizes(tiers, index);
+          }
           return { config: { ...s.config, tiers } };
         }),
       setFrosting: (frosting) =>

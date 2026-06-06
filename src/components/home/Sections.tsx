@@ -32,7 +32,7 @@ export function BrandStory() {
             href="/about"
             className="group mt-8 inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-gold"
           >
-            {t('ctaConfigure')}
+            {t('readStory')}
             <ArrowRight
               size={16}
               className="transition-transform group-hover:translate-x-1"
@@ -70,6 +70,7 @@ export function FeaturedCarousel() {
                 whileHover={{ y: -8 }}
                 className="group overflow-hidden rounded-2xl bg-charcoal-light"
               >
+               <Link href={`/gallery/${cake.id}`}>
                 <div className="relative aspect-[4/5] overflow-hidden">
                   <div
                     className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -86,6 +87,7 @@ export function FeaturedCarousel() {
                   </h3>
                   <p className="mt-1 text-sm text-ivory/50">{cake.priceRange}</p>
                 </div>
+               </Link>
               </motion.div>
             </Reveal>
           ))}
