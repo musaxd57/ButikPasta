@@ -1,0 +1,253 @@
+{
+  "brand": {
+    "name": "Atelier Cake",
+    "tagline": "Every Cake, A Story"
+  },
+  "nav": {
+    "home": "Home",
+    "configure": "Customize",
+    "gallery": "Gallery",
+    "order": "Order",
+    "about": "About",
+    "admin": "Admin"
+  },
+  "common": {
+    "next": "Next",
+    "back": "Back",
+    "continue": "Continue",
+    "loading": "Loading...",
+    "from": "from",
+    "total": "Total",
+    "viewAll": "View All",
+    "send": "Send",
+    "close": "Close",
+    "currencyNote": "VAT included"
+  },
+  "home": {
+    "heroTagline": "Every Cake, A Story",
+    "heroSub": "Istanbul's most elegant bespoke cake atelier. Let's design your dream cake together.",
+    "ctaConfigure": "Design Your Cake",
+    "ctaGallery": "Explore Gallery",
+    "ctaOrder": "Place Order",
+    "storyTitle": "Craft & Passion",
+    "storyLead": "Handmade elegance",
+    "storyBody": "Atelier Cake creates bespoke cakes where every detail is crafted with care. With premium ingredients, French patisserie techniques and boundless imagination, we immortalise your special moments.",
+    "featuredTitle": "Featured Designs",
+    "featuredSub": "Our most beloved signature cakes",
+    "instaTitle": "From the Atelier",
+    "instaSub": "Get inspired by our recent work",
+    "testimonialsTitle": "What Our Clients Say",
+    "orderSimilar": "Order Similar"
+  },
+  "configurator": {
+    "title": "Cake Atelier",
+    "subtitle": "Design your own cake step by step",
+    "snapshot": "Take a Snapshot",
+    "snapshotSaved": "Design snapshot saved",
+    "orderThis": "Order This Cake",
+    "yourPrice": "Estimated Price",
+    "rotateHint": "Drag to rotate · Scroll to zoom",
+    "stepLabel": "Step",
+    "steps": {
+      "base": "Base",
+      "tiers": "Tiers",
+      "size": "Size",
+      "flavor": "Flavor",
+      "frosting": "Frosting",
+      "decoration": "Decoration",
+      "message": "Message",
+      "delivery": "Delivery"
+    },
+    "base": {
+      "title": "Choose a starting point",
+      "scratch": "Start from Scratch",
+      "scratchDesc": "Create a fully original design",
+      "presetDesc": "Get inspired by a preset"
+    },
+    "tiers": {
+      "title": "How many tiers?",
+      "one": "Single Tier",
+      "two": "Two Tiers",
+      "three": "Three Tiers"
+    },
+    "size": {
+      "title": "Choose a size per tier",
+      "tier": "Tier",
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large"
+    },
+    "flavor": {
+      "title": "Choose the flavor",
+      "tier": "Tier"
+    },
+    "frosting": {
+      "title": "Frosting & color",
+      "colorLabel": "Frosting Color"
+    },
+    "decoration": {
+      "title": "Add decorations",
+      "hint": "You can select multiple"
+    },
+    "message": {
+      "title": "Message on the cake",
+      "placeholder": "e.g. Happy Birthday Elif",
+      "fontLabel": "Font Style"
+    },
+    "delivery": {
+      "title": "Delivery date and time",
+      "dateLabel": "Delivery Date",
+      "slotLabel": "Time Slot",
+      "note": "Istanbul delivery only · Minimum 5 days notice",
+      "selectSlot": "Select a time slot"
+    }
+  },
+  "flavor": {
+    "chocolate": "Chocolate",
+    "vanilla": "Vanilla",
+    "redvelvet": "Red Velvet",
+    "pistachio": "Pistachio",
+    "lemon": "Lemon"
+  },
+  "frosting": {
+    "buttercream": "Buttercream",
+    "fondant": "Fondant",
+    "whipped": "Whipped Cream",
+    "ganache": "Ganache"
+  },
+  "decoration": {
+    "flowers": "Flowers",
+    "macarons": "Macarons",
+    "berries": "Berries",
+    "drip": "Drip Effect",
+    "topper": "Custom Topper"
+  },
+  "font": {
+    "script": "Script",
+    "serif": "Classic",
+    "modern": "Modern"
+  },
+  "size": {
+    "small": "Small (10cm)",
+    "medium": "Medium (15cm)",
+    "large": "Large (20cm)"
+  },
+  "price": {
+    "base": "Base Cake",
+    "tier": "Tier Upgrade",
+    "extraTier": "Extra Tier",
+    "frosting": "Premium Frosting",
+    "message": "Message",
+    "breakdown": "Price Breakdown"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "A selection of our signature designs",
+    "all": "All",
+    "wedding": "Wedding",
+    "birthday": "Birthday",
+    "corporate": "Corporate",
+    "baby": "Baby Shower",
+    "custom": "Custom",
+    "details": "Details",
+    "orderSimilar": "Order Similar",
+    "empty": "No work in this category yet."
+  },
+  "order": {
+    "title": "Complete Your Order",
+    "summary": "Cake Summary",
+    "noConfig": "You haven't designed a cake yet.",
+    "designNow": "Design Now",
+    "details": "Contact Details",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Delivery Address",
+    "deliveryDate": "Delivery Date",
+    "deliverySlot": "Time Slot",
+    "notes": "Anything to add (optional)",
+    "paymentTitle": "Payment",
+    "payFull": "Full Payment",
+    "payDeposit": "50% Deposit",
+    "place": "Confirm Order",
+    "placing": "Processing...",
+    "whatsapp": "Order via WhatsApp",
+    "success": "Your order has been received!",
+    "successBody": "Your order number: {orderNumber}. A confirmation email has been sent.",
+    "advanceNote": "Orders require minimum 5 days advance notice."
+  },
+  "about": {
+    "title": "About Us",
+    "lead": "Istanbul's home of handmade luxury cakes",
+    "story": "Atelier Cake was born from a passion that sees cake-making as an art. Every cake is a unique creation that tells our client's story.",
+    "founderName": "Chef Defne Aydın",
+    "founderRole": "Founder & Head Pastry Chef",
+    "founderBio": "Trained at Le Cordon Bleu in Paris, Defne has over 15 years of experience and has made Atelier Cake Istanbul's most distinguished cake atelier.",
+    "valuesTitle": "Our Values",
+    "value1": "Handmade",
+    "value1Desc": "Every cake is crafted one by one, by hand.",
+    "value2": "Premium Ingredients",
+    "value2Desc": "Only the finest, freshest ingredients.",
+    "value3": "Bespoke Design",
+    "value3Desc": "Entirely unique designs, just for you.",
+    "pressTitle": "As Featured In"
+  },
+  "admin": {
+    "loginTitle": "Admin Login",
+    "email": "Email",
+    "password": "Password",
+    "login": "Sign In",
+    "loginError": "Invalid email or password",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "orders": "Orders",
+    "galleryMgmt": "Gallery",
+    "menuMgmt": "Menu & Pricing",
+    "totalOrders": "Total Orders",
+    "pending": "Pending",
+    "completed": "Completed",
+    "revenue": "Revenue",
+    "orderNumber": "Order No",
+    "customer": "Customer",
+    "date": "Date",
+    "status": "Status",
+    "amount": "Amount",
+    "updateStatus": "Update Status",
+    "noOrders": "No orders yet.",
+    "statusPENDING": "Pending",
+    "statusIN_PROGRESS": "In Progress",
+    "statusREADY": "Ready",
+    "statusDELIVERED": "Delivered",
+    "statusCANCELLED": "Cancelled"
+  },
+  "footer": {
+    "tagline": "Istanbul · Bespoke Cake Atelier",
+    "explore": "Explore",
+    "contact": "Contact",
+    "follow": "Follow Us",
+    "rights": "All rights reserved.",
+    "address": "Nişantaşı, Istanbul"
+  },
+  "cookie": {
+    "text": "We use cookies to improve your experience. Your data is protected under KVKK.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "policy": "Cookie Policy"
+  },
+  "validation": {
+    "name": { "short": "Please enter a valid name" },
+    "email": { "invalid": "Enter a valid email" },
+    "phone": { "invalid": "Enter a valid phone number" },
+    "address": { "short": "Please enter a full address" },
+    "date": { "tooSoon": "Delivery must be at least 5 days from now" },
+    "slot": { "required": "Select a time slot" }
+  },
+  "meta": {
+    "homeTitle": "Atelier Cake · Luxury Bespoke Cake Atelier · Istanbul",
+    "homeDesc": "Istanbul's most elegant bespoke cake atelier. Create your dream cake with our 3D cake configurator.",
+    "configureTitle": "Design a Cake · Atelier Cake",
+    "galleryTitle": "Gallery · Atelier Cake",
+    "orderTitle": "Order · Atelier Cake",
+    "aboutTitle": "About · Atelier Cake"
+  }
+}

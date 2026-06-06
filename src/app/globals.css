@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #c9a84c;
+  --charcoal: #1a1a1a;
+  --ivory: #faf7f2;
+  --rose: #c4896f;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-charcoal font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+  }
+  ::selection {
+    background: var(--gold);
+    color: var(--charcoal);
+  }
+}
+
+@layer components {
+  /* Shimmering gold text used for taglines and accents */
+  .text-gold-shimmer {
+    @apply bg-gold-shimmer bg-shimmer bg-clip-text text-transparent animate-shimmer;
+  }
+
+  .btn-gold {
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full
+      bg-gold px-8 py-3.5 text-sm font-medium uppercase tracking-[0.18em]
+      text-charcoal transition-all duration-300 hover:bg-gold-light
+      hover:shadow-[0_8px_30px_rgba(201,168,76,0.35)] active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border
+      border-gold/60 px-8 py-3.5 text-sm font-medium uppercase tracking-[0.18em]
+      text-gold transition-all duration-300 hover:bg-gold hover:text-charcoal;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+      text-sm uppercase tracking-[0.15em] text-charcoal/70 transition-colors
+      hover:text-charcoal;
+  }
+
+  .section-title {
+    @apply font-serif text-3xl md:text-5xl font-medium tracking-tight;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.35em] text-gold font-medium;
+  }
+
+  .card-lux {
+    @apply rounded-2xl border border-charcoal/5 bg-white shadow-[0_4px_30px_rgba(26,26,26,0.06)];
+  }
+
+  .hairline {
+    @apply h-px w-16 bg-gradient-to-r from-transparent via-gold to-transparent;
+  }
+
+  /* Input styling shared across forms */
+  .input-lux {
+    @apply w-full rounded-xl border border-charcoal/15 bg-white px-4 py-3 text-sm
+      text-charcoal placeholder:text-charcoal/35 transition-colors
+      focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/20;
+  }
+
+  .label-lux {
+    @apply mb-1.5 block text-xs uppercase tracking-[0.15em] text-charcoal/55;
+  }
+}
+
+/* Custom scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: #d8cdb4;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Masonry columns for gallery */
+.masonry {
+  column-gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
