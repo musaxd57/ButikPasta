@@ -237,6 +237,10 @@
     "yourPrice": "Tahmini Fiyat",
     "rotateHint": "Sürükleyerek döndürün · Kaydırarak yakınlaştırın",
     "stepLabel": "Adım",
+    "servings": "Yaklaşık {count} kişilik",
+    "servingsLabel": "Porsiyon",
+    "startOver": "Baştan Başla",
+    "resetConfirm": "Tüm tasarım sıfırlanacak. Emin misiniz?",
     "steps": {
       "base": "Taban",
       "tiers": "Kat",

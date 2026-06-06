@@ -33,7 +33,9 @@ export async function POST(req: Request) {
     ],
     success_url: `${baseUrl}/${locale}/order?success=1&order=${orderNumber}`,
     cancel_url: `${baseUrl}/${locale}/order?canceled=1`,
-    metadata: { orderNumber },
+    // paymentType lets the webhook record DEPOSIT_PAID vs PAID once Stripe
+    // confirms the payment.
+    metadata: { orderNumber, paymentType: paymentType ?? 'full' },
   });
 
   return NextResponse.json({ stripeConfigured: true, url: session.url });

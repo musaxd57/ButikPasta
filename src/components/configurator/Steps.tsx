@@ -11,6 +11,7 @@ import {
   FROSTING_PRICE,
   SIZE_PRICE,
   calculatePrice,
+  estimateServings,
   formatPrice,
 } from '@/lib/pricing';
 import {
@@ -92,6 +93,7 @@ export default function Steps() {
   const tDeco = useTranslations('decoration');
   const tSize = useTranslations('size');
   const tFont = useTranslations('font');
+  const tRoot = useTranslations();
   const locale = useLocale();
   const { config, step, ...actions } = useConfigurator();
 
@@ -472,6 +474,7 @@ export default function Steps() {
               : '—',
         },
       ];
+      const servings = estimateServings(config);
       return (
         <StepWrap title={t('review.title')} hint={t('review.hint')}>
           <ul className="divide-y divide-charcoal/10">
@@ -483,8 +486,30 @@ export default function Steps() {
                 <span className="text-right text-sm text-charcoal">{row.value}</span>
               </li>
             ))}
+            <li className="flex items-start justify-between gap-4 py-3">
+              <span className="text-xs uppercase tracking-wider text-charcoal/45">
+                {t('servingsLabel')}
+              </span>
+              <span className="text-right text-sm text-charcoal">
+                {t('servings', { count: servings })}
+              </span>
+            </li>
           </ul>
-          <div className="mt-5 flex items-center justify-between rounded-xl bg-gold/10 px-4 py-4">
+
+          {/* Transparent price breakdown */}
+          <div className="mt-5 rounded-xl bg-ivory-dark/40 px-4 py-3">
+            {price.lines.map((line, idx) => (
+              <div
+                key={idx}
+                className="flex justify-between py-0.5 text-xs text-charcoal/55"
+              >
+                <span>{tRoot(line.labelKey)}</span>
+                <span>{formatPrice(line.amount, locale)}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-3 flex items-center justify-between rounded-xl bg-gold/10 px-4 py-4">
             <span className="text-sm uppercase tracking-wider text-gold-dark">
               {t('yourPrice')}
             </span>

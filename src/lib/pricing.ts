@@ -91,6 +91,22 @@ export function calculatePrice(config: CakeConfig): PriceResult {
   return { lines, total };
 }
 
+// Rough serving estimate per tier size (typical dessert-portion slices). Used
+// to answer the question every cake customer asks: "how many people does it
+// serve?" Summed across all tiers.
+const SERVINGS_BY_SIZE: Record<SizeKey, number> = {
+  small: 8,
+  medium: 16,
+  large: 30,
+};
+
+export function estimateServings(config: CakeConfig): number {
+  return config.tiers.reduce(
+    (sum, tier) => sum + SERVINGS_BY_SIZE[tier.size],
+    0,
+  );
+}
+
 export function formatPrice(amount: number, locale: string): string {
   return new Intl.NumberFormat(locale === 'tr' ? 'tr-TR' : 'en-US', {
     style: 'currency',

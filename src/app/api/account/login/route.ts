@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
 import { setCustomerCookie } from '@/lib/customerAuth';
+import { enforceRateLimit } from '@/lib/rateLimit';
 
 const schema = z.object({
   email: z.string().email(),
@@ -10,6 +11,9 @@ const schema = z.object({
 });
 
 export async function POST(req: Request) {
+  // Throttle login attempts to slow down credential brute-forcing.
+  const limited = enforceRateLimit(req, 'login', 8, 60_000);
+  if (limited) return limited;
   try {
     const parsed = schema.safeParse(await req.json());
     if (!parsed.success) {

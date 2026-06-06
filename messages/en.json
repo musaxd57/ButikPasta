@@ -237,6 +237,10 @@
     "yourPrice": "Estimated Price",
     "rotateHint": "Drag to rotate · Scroll to zoom",
     "stepLabel": "Step",
+    "servings": "Serves about {count}",
+    "servingsLabel": "Servings",
+    "startOver": "Start Over",
+    "resetConfirm": "This will reset your whole design. Are you sure?",
     "steps": {
       "base": "Base",
       "tiers": "Tiers",

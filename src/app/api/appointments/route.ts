@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
+import { enforceRateLimit } from '@/lib/rateLimit';
 
 const schema = z.object({
   name: z.string().min(2).max(80),
@@ -14,6 +15,8 @@ const schema = z.object({
 
 // Public: request a tasting / consultation appointment.
 export async function POST(req: Request) {
+  const limited = enforceRateLimit(req, 'appointments', 6, 60_000);
+  if (limited) return limited;
   try {
     const parsed = schema.safeParse(await req.json());
     if (!parsed.success) {

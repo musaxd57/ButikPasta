@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/prisma';
+import { enforceRateLimit } from '@/lib/rateLimit';
 
 // Public: list approved comments for a post.
 export async function GET(req: Request) {
@@ -25,6 +26,8 @@ const schema = z.object({
 
 // Public: submit a comment (held for moderation).
 export async function POST(req: Request) {
+  const limited = enforceRateLimit(req, 'comments', 6, 60_000);
+  if (limited) return limited;
   try {
     const parsed = schema.safeParse(await req.json());
     if (!parsed.success) {

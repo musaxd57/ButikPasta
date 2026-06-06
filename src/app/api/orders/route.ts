@@ -7,9 +7,12 @@ import { generateOrderNumber } from '@/lib/utils';
 import { sendOrderConfirmation } from '@/lib/email';
 import { evaluateCoupon } from '@/lib/coupons';
 import { getCustomerId } from '@/lib/customerAuth';
+import { enforceRateLimit } from '@/lib/rateLimit';
 
 // Create a new order from the configurator/checkout flow.
 export async function POST(req: Request) {
+  const limited = enforceRateLimit(req, 'orders', 10, 60_000);
+  if (limited) return limited;
   try {
     const body = await req.json();
     const parsed = orderSchema.safeParse(body);
@@ -49,8 +52,12 @@ export async function POST(req: Request) {
         couponCode: appliedCode,
         discount,
         customerId,
-        depositPaid: data.paymentType === 'deposit',
-        paymentStatus: data.paymentType === 'deposit' ? 'DEPOSIT_PAID' : 'PAID',
+        // Payment is NOT confirmed yet. It is marked paid only when Stripe
+        // sends a verified `checkout.session.completed` webhook (see
+        // /api/webhooks/stripe). This prevents an order being recorded as paid
+        // when the customer abandons the Stripe page or pays nothing.
+        depositPaid: false,
+        paymentStatus: 'UNPAID',
         deliveryDate: new Date(data.deliveryDate),
         deliverySlot: data.deliverySlot,
         locale: data.locale,
