@@ -15,9 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/menu',
     '/cupcakes',
     '/favorites',
-    '/account',
-    '/account/login',
-    '/account/register',
     '/gallery',
     '/weddings',
     '/corporate',
@@ -55,12 +52,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const all = [...staticRoutes, ...dynamicRoutes];
 
-  return locales.flatMap((locale) =>
-    all.map((route) => ({
-      url: `${base}/${locale}${route}`,
+  // The site uses next-intl `localePrefix: 'as-needed'`: the default locale (tr)
+  // is served at the root with NO prefix, while en lives under /en. The sitemap
+  // must list the canonical (non-redirecting) URLs, so tr gets no prefix.
+  return locales.flatMap((locale) => {
+    const prefix = locale === 'tr' ? '' : `/${locale}`;
+    return all.map((route) => ({
+      url: `${base}${prefix}${route}` || base,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: route === '' ? 1 : route.includes('/journal/') ? 0.6 : 0.8,
-    })),
-  );
+    }));
+  });
 }

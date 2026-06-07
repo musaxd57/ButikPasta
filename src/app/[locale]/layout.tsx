@@ -55,7 +55,9 @@ export async function generateMetadata({
       description: t('homeDesc'),
     },
     alternates: {
-      languages: { tr: '/tr', en: '/en' },
+      // tr is served at the root (localePrefix: 'as-needed'), en under /en.
+      canonical: params.locale === 'tr' ? '/' : '/en',
+      languages: { tr: '/', en: '/en', 'x-default': '/' },
     },
   };
 }
