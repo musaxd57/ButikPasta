@@ -78,6 +78,7 @@
     "perBox": "kutu",
     "pieces": "adet",
     "order": "Sipariş Ver",
+    "orderMessage": "Merhaba, şu ürünü sipariş etmek istiyorum",
     "ctaTitle": "Büyük etkinlik mi planlıyorsunuz?",
     "ctaLead": "Tatlı masası ve toplu sipariş için bizimle iletişime geçin.",
     "ctaButton": "İletişime Geç"
@@ -106,6 +107,7 @@
     "seasonal": "Mevsimlik",
     "classic": "Klasik",
     "order": "Sipariş Ver",
+    "orderMessage": "Merhaba, şu pastayı sipariş etmek istiyorum",
     "customNote": "Tamamen kişiye özel bir tasarım mı istiyorsunuz?",
     "customCta": "3D Tasarlayıcıyı Aç"
   },
@@ -185,10 +187,13 @@
     "custom": "Özel Tutar",
     "recipient": "Alıcı Adı",
     "recipientEmail": "Alıcı E-posta",
-    "from": "Gönderen",
+    "from": "Gönderen Adı",
+    "fromEmail": "Gönderen E-posta",
     "messageLabel": "Mesajınız",
     "buy": "Hediye Kartı Al",
     "note": "Hediye kartları 12 ay geçerlidir.",
+    "invalidAmount": "Lütfen geçerli bir tutar girin (en az ₺250).",
+    "error": "Bir hata oluştu, lütfen tekrar deneyin.",
     "success": "Hediye kartı talebiniz alındı! Ödeme için sizinle iletişime geçeceğiz."
   },
   "common": {

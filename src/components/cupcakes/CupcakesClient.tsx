@@ -7,7 +7,7 @@ import { Link } from '@/i18n/routing';
 import { CUPCAKES, CupcakeCategory } from '@/lib/content/cupcakes';
 import { pick } from '@/lib/i18nContent';
 import { formatPrice } from '@/lib/pricing';
-import { cn } from '@/lib/utils';
+import { cn, whatsappHref } from '@/lib/utils';
 import FavoriteButton from '@/components/ui/FavoriteButton';
 
 const CATEGORIES: (CupcakeCategory | 'all')[] = [
@@ -88,12 +88,16 @@ export default function CupcakesClient() {
                     {formatPrice(item.pricePerBox, locale)}
                   </span>
                 </div>
-                <Link
-                  href="/order"
+                <a
+                  href={whatsappHref(
+                    `${t('orderMessage')}: ${pick(item.name, locale)} (${item.boxSize} ${t('pieces')}) — ${formatPrice(item.pricePerBox, locale)}`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-3 inline-block text-xs uppercase tracking-[0.18em] text-gold transition-colors hover:text-gold-dark"
                 >
                   {t('order')} →
-                </Link>
+                </a>
               </div>
             </motion.div>
           ))}
