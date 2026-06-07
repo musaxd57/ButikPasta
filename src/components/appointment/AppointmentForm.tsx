@@ -8,6 +8,7 @@ import { minDeliveryDate } from '@/lib/utils';
 
 export default function AppointmentForm() {
   const t = useTranslations('appointment');
+  const tCommon = useTranslations('common');
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
@@ -31,6 +32,10 @@ export default function AppointmentForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, guests: Number(form.guests) }),
       });
+      if (res.status === 429) {
+        toast(tCommon('rateLimited'), 'error');
+        return;
+      }
       if (!res.ok) throw new Error();
       toast(t('success'), 'success');
       setForm({

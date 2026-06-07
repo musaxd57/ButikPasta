@@ -210,7 +210,8 @@
     "all": "All",
     "submit": "Submit",
     "sending": "Sending...",
-    "required": "Required field"
+    "required": "Required field",
+    "rateLimited": "Too many attempts. Please wait a moment and try again."
   },
   "home": {
     "heroTagline": "Every Cake, A Story",

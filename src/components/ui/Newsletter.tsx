@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 /** Email capture form posting to /api/newsletter. */
 export default function Newsletter({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
   const t = useTranslations('newsletter');
+  const tCommon = useTranslations('common');
   const locale = useLocale();
   const { toast } = useToast();
   const [email, setEmail] = useState('');
@@ -27,6 +28,10 @@ export default function Newsletter({ tone = 'light' }: { tone?: 'light' | 'dark'
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, locale }),
       });
+      if (res.status === 429) {
+        toast(tCommon('rateLimited'), 'error');
+        return;
+      }
       if (!res.ok) throw new Error();
       toast(t('success'), 'success');
       setEmail('');

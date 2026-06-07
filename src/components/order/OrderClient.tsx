@@ -104,6 +104,10 @@ export default function OrderClient() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: couponInput, total: price.total }),
       });
+      if (res.status === 429) {
+        setCouponMsg(tRoot('common.rateLimited'));
+        return;
+      }
       const data = await res.json();
       if (data.valid) {
         setCoupon({ code: data.code, discount: data.discount });
@@ -135,6 +139,10 @@ export default function OrderClient() {
           couponCode: coupon?.code ?? '',
         }),
       });
+      if (res.status === 429) {
+        toast(tRoot('common.rateLimited'), 'error');
+        return;
+      }
       if (!res.ok) throw new Error('failed');
       const data = await res.json();
 
