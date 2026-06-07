@@ -6,6 +6,7 @@ import { formatPrice } from '@/lib/pricing';
 import type { CakeConfig } from '@/types/cake';
 
 interface Order {
+  id: string;
   orderNumber: string;
   customerName: string;
   customerEmail: string;
@@ -21,6 +22,14 @@ interface Order {
   createdAt: string;
 }
 
+const PAYMENT_STATUSES = ['UNPAID', 'DEPOSIT_PAID', 'PAID', 'REFUNDED'];
+const PAYMENT_LABEL: Record<string, string> = {
+  UNPAID: 'Ödenmedi',
+  DEPOSIT_PAID: 'Kapora Alındı',
+  PAID: 'Ödendi',
+  REFUNDED: 'İade Edildi',
+};
+
 function parseConfig(raw?: string): Partial<CakeConfig> | null {
   if (!raw) return null;
   try {
@@ -33,9 +42,11 @@ function parseConfig(raw?: string): Partial<CakeConfig> | null {
 export default function OrderDrawer({
   order,
   onClose,
+  onUpdatePayment,
 }: {
   order: Order | null;
   onClose: () => void;
+  onUpdatePayment?: (id: string, paymentStatus: string) => void;
 }) {
   const config = parseConfig(order?.cakeConfig);
 
@@ -76,10 +87,34 @@ export default function OrderDrawer({
                 }`}
               />
               <Row label="Tutar" value={formatPrice(order.totalPrice, 'tr')} />
-              {order.paymentStatus && <Row label="Ödeme" value={order.paymentStatus} />}
               <Row label="Durum" value={order.status} />
               {order.notes && <Row label="Not" value={order.notes} />}
             </dl>
+
+            {/* Editable payment status — lets the admin reconcile manual
+                (bank transfer / cash / WhatsApp) payments. */}
+            <div className="mt-4 rounded-xl border border-ivory/10 bg-charcoal-dark p-4">
+              <p className="mb-2 text-xs uppercase tracking-wider text-ivory/40">
+                Ödeme Durumu
+              </p>
+              {onUpdatePayment ? (
+                <select
+                  value={order.paymentStatus ?? 'UNPAID'}
+                  onChange={(e) => onUpdatePayment(order.id, e.target.value)}
+                  className="w-full rounded-lg border border-ivory/15 bg-charcoal px-3 py-2 text-sm text-ivory focus:border-gold focus:outline-none"
+                >
+                  {PAYMENT_STATUSES.map((s) => (
+                    <option key={s} value={s} className="bg-charcoal text-ivory">
+                      {PAYMENT_LABEL[s]}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <p className="text-sm text-ivory/85">
+                  {PAYMENT_LABEL[order.paymentStatus ?? 'UNPAID']}
+                </p>
+              )}
+            </div>
 
             {config && (
               <div className="mt-6 rounded-xl border border-ivory/10 bg-charcoal-dark p-4">

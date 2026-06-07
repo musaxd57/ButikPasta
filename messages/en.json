@@ -358,6 +358,7 @@
     "custom": "Custom",
     "details": "Details",
     "orderSimilar": "Order Similar",
+    "viewDetails": "View Details",
     "empty": "No work in this category yet."
   },
   "order": {
