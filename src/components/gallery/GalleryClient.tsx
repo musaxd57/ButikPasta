@@ -58,8 +58,18 @@ export default function GalleryClient() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: (i % 6) * 0.05 }}
                 onClick={() => setActive(item)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setActive(item);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={locale === 'tr' ? item.titleTr : item.titleEn}
+                className="group relative cursor-pointer overflow-hidden rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
               >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={item.imageUrl}
                   alt={locale === 'tr' ? item.titleTr : item.titleEn}
@@ -113,13 +123,22 @@ export default function GalleryClient() {
                 </h2>
                 <div className="hairline my-5" />
                 <p className="text-sm text-charcoal/60">{active.priceRange}</p>
-                <Link
-                  href="/configure"
-                  className="btn-gold mt-8 w-fit"
-                  onClick={() => setActive(null)}
-                >
-                  {t('orderSimilar')}
-                </Link>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href="/configure"
+                    className="btn-gold w-fit"
+                    onClick={() => setActive(null)}
+                  >
+                    {t('orderSimilar')}
+                  </Link>
+                  <Link
+                    href={`/gallery/${active.id}`}
+                    className="btn-outline w-fit"
+                    onClick={() => setActive(null)}
+                  >
+                    {t('viewDetails')}
+                  </Link>
+                </div>
               </div>
               <button
                 onClick={() => setActive(null)}

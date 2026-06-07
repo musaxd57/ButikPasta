@@ -117,6 +117,19 @@ export default function AdminDashboard() {
     toast(res.ok ? 'Updated' : 'Error', res.ok ? 'success' : 'error');
   };
 
+  const updatePayment = async (id: string, paymentStatus: string) => {
+    setOrders((prev) =>
+      prev.map((o) => (o.id === id ? { ...o, paymentStatus } : o)),
+    );
+    setSelected((s) => (s && s.id === id ? { ...s, paymentStatus } : s));
+    const res = await fetch(`/api/orders/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ paymentStatus }),
+    });
+    toast(res.ok ? 'Updated' : 'Error', res.ok ? 'success' : 'error');
+  };
+
   const nav = [
     { id: 'dashboard' as Tab, icon: LayoutDashboard, label: t('dashboard') },
     { id: 'orders' as Tab, icon: ShoppingBag, label: t('orders') },
@@ -210,7 +223,11 @@ export default function AdminDashboard() {
         )}
       </main>
 
-      <OrderDrawer order={selected} onClose={() => setSelected(null)} />
+      <OrderDrawer
+        order={selected}
+        onClose={() => setSelected(null)}
+        onUpdatePayment={updatePayment}
+      />
     </div>
   );
 }
