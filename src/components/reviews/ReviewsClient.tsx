@@ -47,6 +47,7 @@ function Stars({
 
 export default function ReviewsClient() {
   const t = useTranslations('reviews');
+  const tCommon = useTranslations('common');
   const locale = useLocale();
   const { toast } = useToast();
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -72,6 +73,10 @@ export default function ReviewsClient() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
+      if (res.status === 429) {
+        toast(tCommon('rateLimited'), 'error');
+        return;
+      }
       if (!res.ok) throw new Error();
       toast(t('success'), 'success');
       setForm({ author: '', email: '', rating: 5, body: '' });
