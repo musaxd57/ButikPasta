@@ -9,6 +9,7 @@ import FavoriteButton from '@/components/ui/FavoriteButton';
 import { useFavorites } from '@/store/favorites';
 import { GALLERY } from '@/lib/data';
 import { MENU } from '@/lib/content/menu';
+import { CUPCAKES } from '@/lib/content/cupcakes';
 import { pick } from '@/lib/i18nContent';
 import { formatPrice } from '@/lib/pricing';
 
@@ -25,7 +26,9 @@ export default function FavoritesClient() {
 
   const designs = GALLERY.filter((g) => ids.includes(g.id));
   const flavors = MENU.filter((m) => ids.includes(m.id));
-  const isEmpty = designs.length === 0 && flavors.length === 0;
+  const treats = CUPCAKES.filter((c) => ids.includes(c.id));
+  const isEmpty =
+    designs.length === 0 && flavors.length === 0 && treats.length === 0;
 
   if (isEmpty) {
     return (
@@ -107,6 +110,37 @@ export default function FavoritesClient() {
                   </div>
                 </Link>
                 <FavoriteButton id={m.id} className="absolute right-3 top-3" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {treats.length > 0 && (
+        <div>
+          <h2 className="mb-6 font-serif text-2xl">{t('treats')}</h2>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {treats.map((c) => (
+              <div
+                key={c.id}
+                className="group relative overflow-hidden rounded-2xl bg-white shadow-sm"
+              >
+                <Link href={`/cupcakes/${c.id}`}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={c.image}
+                    alt={pick(c.name, locale)}
+                    loading="lazy"
+                    className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="p-4">
+                    <h3 className="font-serif text-lg">{pick(c.name, locale)}</h3>
+                    <p className="text-sm text-gold-dark">
+                      {formatPrice(c.pricePerBox, locale)}
+                    </p>
+                  </div>
+                </Link>
+                <FavoriteButton id={c.id} className="absolute right-3 top-3" />
               </div>
             ))}
           </div>
