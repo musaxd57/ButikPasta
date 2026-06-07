@@ -40,8 +40,12 @@ export default function AdminCoupons({ t }: { t: (k: string) => string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
-          value: Number(form.value),
-          minTotal: Number(form.minTotal),
+          // Clamp: percent coupons can't exceed 100%, nothing can be negative.
+          value:
+            form.type === 'percent'
+              ? Math.min(100, Math.max(0, Number(form.value)))
+              : Math.max(0, Number(form.value)),
+          minTotal: Math.max(0, Number(form.minTotal)),
         }),
       });
       if (!res.ok) throw new Error();
@@ -65,6 +69,7 @@ export default function AdminCoupons({ t }: { t: (k: string) => string }) {
   };
 
   const remove = async (id: string) => {
+    if (!window.confirm('Silmek istediğinize emin misiniz?')) return;
     setCoupons((p) => p.filter((c) => c.id !== id));
     await fetch('/api/admin/coupons', {
       method: 'DELETE',

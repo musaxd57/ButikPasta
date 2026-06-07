@@ -63,6 +63,7 @@ export default function AdminGallery({ t }: { t: (k: string) => string }) {
   };
 
   const remove = async (id: string) => {
+    if (!window.confirm('Silmek istediğinize emin misiniz?')) return;
     setItems((prev) => prev.filter((i) => i.id !== id));
     const res = await fetch(`/api/admin/gallery/${id}`, { method: 'DELETE' });
     toast(res.ok ? 'Silindi' : 'Hata', res.ok ? 'success' : 'error');

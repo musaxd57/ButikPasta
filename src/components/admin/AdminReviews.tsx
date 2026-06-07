@@ -41,6 +41,7 @@ export default function AdminReviews({ t }: { t: (k: string) => string }) {
   };
 
   const remove = async (id: string) => {
+    if (!window.confirm('Silmek istediğinize emin misiniz?')) return;
     setReviews((prev) => prev.filter((r) => r.id !== id));
     const res = await fetch('/api/admin/reviews', {
       method: 'DELETE',
