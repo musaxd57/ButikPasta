@@ -39,6 +39,7 @@ export default function AdminComments({ t }: { t: (k: string) => string }) {
   };
 
   const remove = async (id: string) => {
+    if (!window.confirm('Silmek istediğinize emin misiniz?')) return;
     setComments((p) => p.filter((c) => c.id !== id));
     await fetch('/api/admin/comments', {
       method: 'DELETE',
