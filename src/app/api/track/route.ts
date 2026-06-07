@@ -16,6 +16,7 @@ export async function GET(req: Request) {
     select: {
       orderNumber: true,
       status: true,
+      paymentStatus: true,
       deliveryDate: true,
       deliverySlot: true,
       totalPrice: true,

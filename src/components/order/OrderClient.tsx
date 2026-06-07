@@ -137,12 +137,13 @@ export default function OrderClient() {
 
       // Attempt Stripe Checkout. When Stripe is configured we redirect the
       // customer to the hosted payment page; otherwise we fall back to the
-      // in-app confirmation (order is already saved).
+      // in-app confirmation (order is already saved). Use the server-confirmed
+      // total (data.totalPrice) so the charged amount can't be tampered with.
       const checkout = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          amount: finalTotal,
+          amount: data.totalPrice ?? finalTotal,
           paymentType: values.paymentType,
           orderNumber: data.orderNumber,
           locale,

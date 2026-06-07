@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Section from '@/components/ui/Section';
 import Button from '@/components/ui/Button';
 import LogoutButton from '@/components/account/LogoutButton';
+import { Link } from '@/i18n/routing';
 import { getCurrentCustomer } from '@/lib/customerAuth';
 import { prisma } from '@/lib/prisma';
 import { formatPrice } from '@/lib/pricing';
@@ -25,6 +26,21 @@ const STATUS_COLOR: Record<string, string> = {
   CANCELLED: 'bg-rose-500/15 text-rose-600',
 };
 
+const PAYMENT_META: Record<string, { tr: string; en: string; cls: string }> = {
+  UNPAID: { tr: 'Ödenmedi', en: 'Unpaid', cls: 'bg-rose-500/15 text-rose-600' },
+  DEPOSIT_PAID: {
+    tr: 'Kapora Alındı',
+    en: 'Deposit Paid',
+    cls: 'bg-amber-500/15 text-amber-600',
+  },
+  PAID: { tr: 'Ödendi', en: 'Paid', cls: 'bg-emerald-500/15 text-emerald-600' },
+  REFUNDED: {
+    tr: 'İade Edildi',
+    en: 'Refunded',
+    cls: 'bg-charcoal/10 text-charcoal/55',
+  },
+};
+
 export default async function AccountPage({
   params,
 }: {
@@ -39,8 +55,12 @@ export default async function AccountPage({
   const t = await getTranslations({ locale: params.locale, namespace: 'account' });
   const tAdmin = await getTranslations({ locale: params.locale, namespace: 'admin' });
 
+  // Match by linked customer id OR email so orders placed before logging in
+  // (or as a guest with the same email) still appear in the history.
   const orders = await prisma.order.findMany({
-    where: { customerEmail: customer.email },
+    where: {
+      OR: [{ customerId: customer.id }, { customerEmail: customer.email }],
+    },
     orderBy: { createdAt: 'desc' },
   });
 
@@ -87,26 +107,44 @@ export default async function AccountPage({
                   <th className="px-5 py-3">{t('orderNumber')}</th>
                   <th className="px-5 py-3">{t('date')}</th>
                   <th className="px-5 py-3">{t('amount')}</th>
+                  <th className="px-5 py-3">{t('payment')}</th>
                   <th className="px-5 py-3">{t('status')}</th>
                 </tr>
               </thead>
               <tbody>
-                {orders.map((o) => (
-                  <tr key={o.id} className="border-t border-charcoal/8">
-                    <td className="px-5 py-4 font-mono text-gold-dark">{o.orderNumber}</td>
-                    <td className="px-5 py-4 text-charcoal/60">{fmtDate(o.deliveryDate)}</td>
-                    <td className="px-5 py-4">{formatPrice(o.totalPrice, params.locale)}</td>
-                    <td className="px-5 py-4">
-                      <span
-                        className={`rounded-full px-3 py-1 text-xs font-medium ${
-                          STATUS_COLOR[o.status] ?? ''
-                        }`}
-                      >
-                        {tAdmin(`status${o.status}`)}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
+                {orders.map((o) => {
+                  const pay = PAYMENT_META[o.paymentStatus] ?? PAYMENT_META.UNPAID;
+                  return (
+                    <tr key={o.id} className="border-t border-charcoal/8">
+                      <td className="px-5 py-4">
+                        <Link
+                          href={`/track?order=${o.orderNumber}`}
+                          className="font-mono text-gold-dark underline-offset-2 hover:underline"
+                        >
+                          {o.orderNumber}
+                        </Link>
+                      </td>
+                      <td className="px-5 py-4 text-charcoal/60">{fmtDate(o.deliveryDate)}</td>
+                      <td className="px-5 py-4">{formatPrice(o.totalPrice, params.locale)}</td>
+                      <td className="px-5 py-4">
+                        <span
+                          className={`rounded-full px-3 py-1 text-xs font-medium ${pay.cls}`}
+                        >
+                          {params.locale === 'tr' ? pay.tr : pay.en}
+                        </span>
+                      </td>
+                      <td className="px-5 py-4">
+                        <span
+                          className={`rounded-full px-3 py-1 text-xs font-medium ${
+                            STATUS_COLOR[o.status] ?? ''
+                          }`}
+                        >
+                          {tAdmin(`status${o.status}`)}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

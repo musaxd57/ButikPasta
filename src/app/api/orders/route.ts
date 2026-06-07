@@ -87,7 +87,12 @@ export async function POST(req: Request) {
       locale: data.locale,
     });
 
-    return NextResponse.json({ orderNumber: order.orderNumber });
+    // Return the server-authoritative total so the checkout charge can't be
+    // tampered with on the client.
+    return NextResponse.json({
+      orderNumber: order.orderNumber,
+      totalPrice: order.totalPrice,
+    });
   } catch (e) {
     console.error('[orders] POST error', e);
     return NextResponse.json({ error: 'server' }, { status: 500 });
