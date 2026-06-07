@@ -11,6 +11,7 @@ const AMOUNTS = [1000, 2500, 5000];
 
 export default function GiftCardClient() {
   const t = useTranslations('giftcard');
+  const tCommon = useTranslations('common');
   const locale = useLocale();
   const { toast } = useToast();
   const [amount, setAmount] = useState(2500);
@@ -28,28 +29,36 @@ export default function GiftCardClient() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!Number.isFinite(finalAmount) || finalAmount < 250) {
+      toast(t('invalidAmount'), 'error');
+      return;
+    }
     setLoading(true);
     try {
       const composed = `[Gift Card] ${formatPrice(
         finalAmount,
         locale,
-      )} → ${form.recipient} (${form.recipientEmail})\nFrom: ${form.from}\nMessage: ${form.message}`;
+      )} → ${form.recipient} (${form.recipientEmail})\nFrom: ${form.from} (${form.email})\nMessage: ${form.message}`;
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: form.from || 'Gift Card',
-          email: form.email || form.recipientEmail,
+          email: form.email,
           subject: 'Gift Card',
           message: composed,
         }),
       });
+      if (res.status === 429) {
+        toast(tCommon('rateLimited'), 'error');
+        return;
+      }
       if (!res.ok) throw new Error();
       toast(t('success'), 'success');
       setForm({ recipient: '', recipientEmail: '', from: '', message: '', email: '' });
       setCustom('');
     } catch {
-      toast('Error', 'error');
+      toast(t('error'), 'error');
     } finally {
       setLoading(false);
     }
@@ -106,6 +115,8 @@ export default function GiftCardClient() {
             ))}
             <input
               type="number"
+              min={250}
+              step={50}
               placeholder={t('custom')}
               value={custom}
               onChange={(e) => setCustom(e.target.value)}
@@ -136,14 +147,26 @@ export default function GiftCardClient() {
           </div>
         </div>
 
-        <div>
-          <label className="label-lux">{t('from')}</label>
-          <input
-            required
-            value={form.from}
-            onChange={(e) => setForm({ ...form, from: e.target.value })}
-            className="input-lux"
-          />
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label className="label-lux">{t('from')}</label>
+            <input
+              required
+              value={form.from}
+              onChange={(e) => setForm({ ...form, from: e.target.value })}
+              className="input-lux"
+            />
+          </div>
+          <div>
+            <label className="label-lux">{t('fromEmail')}</label>
+            <input
+              required
+              type="email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="input-lux"
+            />
+          </div>
         </div>
 
         <div>

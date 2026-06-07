@@ -7,7 +7,7 @@ import { Link } from '@/i18n/routing';
 import { MENU, MenuCategory } from '@/lib/content/menu';
 import { pick } from '@/lib/i18nContent';
 import { formatPrice } from '@/lib/pricing';
-import { cn } from '@/lib/utils';
+import { cn, whatsappHref } from '@/lib/utils';
 import FavoriteButton from '@/components/ui/FavoriteButton';
 
 const CATEGORIES: (MenuCategory | 'all')[] = [
@@ -90,12 +90,16 @@ export default function MenuClient() {
                     </span>
                   ))}
                 </div>
-                <Link
-                  href="/order"
+                <a
+                  href={whatsappHref(
+                    `${t('orderMessage')}: ${pick(item.name, locale)} — ${formatPrice(item.price, locale)}`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-4 inline-block text-xs uppercase tracking-[0.18em] text-gold transition-colors hover:text-gold-dark"
                 >
                   {t('order')} →
-                </Link>
+                </a>
               </div>
             </motion.div>
           ))}

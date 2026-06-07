@@ -53,3 +53,10 @@ export const DELIVERY_SLOTS = [
   '16:00 - 18:00',
   '18:00 - 20:00',
 ];
+
+// Builds a WhatsApp deep link with a prefilled message. Catalog items (cupcakes,
+// menu) use this to start a real order conversation, since they have no cart.
+export function whatsappHref(message: string): string {
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '905555555555';
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+}

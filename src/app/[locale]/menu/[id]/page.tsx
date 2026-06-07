@@ -12,6 +12,7 @@ import CtaBand from '@/components/marketing/CtaBand';
 import { MENU } from '@/lib/content/menu';
 import { pick } from '@/lib/i18nContent';
 import { formatPrice } from '@/lib/pricing';
+import { whatsappHref } from '@/lib/utils';
 import { routing } from '@/i18n/routing';
 
 export function generateStaticParams() {
@@ -86,9 +87,16 @@ function Detail({ id }: { id: string }) {
                 {formatPrice(item.price, locale)}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Button href="/order" variant="gold">
+                <a
+                  href={whatsappHref(
+                    `${t('orderMessage')}: ${pick(item.name, locale)} — ${formatPrice(item.price, locale)}`,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-gold"
+                >
                   {t('order')}
-                </Button>
+                </a>
                 <Button href="/configure" variant="outline">
                   {t('customCta')}
                 </Button>

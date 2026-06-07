@@ -78,6 +78,7 @@
     "perBox": "box",
     "pieces": "pcs",
     "order": "Order",
+    "orderMessage": "Hi, I'd like to order this item",
     "ctaTitle": "Planning a big event?",
     "ctaLead": "Get in touch for dessert tables and bulk orders.",
     "ctaButton": "Contact Us"
@@ -106,6 +107,7 @@
     "seasonal": "Seasonal",
     "classic": "Classic",
     "order": "Order",
+    "orderMessage": "Hi, I'd like to order this cake",
     "customNote": "Want a fully bespoke design?",
     "customCta": "Open the 3D Configurator"
   },
@@ -185,10 +187,13 @@
     "custom": "Custom Amount",
     "recipient": "Recipient Name",
     "recipientEmail": "Recipient Email",
-    "from": "From",
+    "from": "Sender Name",
+    "fromEmail": "Sender Email",
     "messageLabel": "Your Message",
     "buy": "Buy Gift Card",
     "note": "Gift cards are valid for 12 months.",
+    "invalidAmount": "Please enter a valid amount (minimum ₺250).",
+    "error": "Something went wrong, please try again.",
     "success": "Your gift card request has been received! We'll contact you for payment."
   },
   "common": {
