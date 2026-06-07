@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, Loader2, MessageCircle } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { useConfigurator } from '@/store/configurator';
+import { usePricing } from '@/store/pricing';
 import { calculatePrice, formatPrice } from '@/lib/pricing';
 import { orderSchema } from '@/lib/validation';
 import { DELIVERY_SLOTS, minDeliveryDate } from '@/lib/utils';
@@ -28,6 +29,7 @@ export default function OrderClient() {
   const locale = useLocale();
   const { toast } = useToast();
   const { config, reset } = useConfigurator();
+  const pricing = usePricing((s) => s.pricing);
   const [mounted, setMounted] = useState(false);
   const [orderNumber, setOrderNumber] = useState<string | null>(null);
   const [couponInput, setCouponInput] = useState('');
@@ -39,6 +41,7 @@ export default function OrderClient() {
 
   useEffect(() => {
     setMounted(true);
+    usePricing.getState().fetchPricing();
     // Handle the redirect back from Stripe Checkout.
     const params = new URLSearchParams(window.location.search);
     if (params.get('success') === '1') {
@@ -53,7 +56,7 @@ export default function OrderClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const price = calculatePrice(config);
+  const price = calculatePrice(config, pricing);
   const minDate = minDeliveryDate().toISOString().split('T')[0];
 
   const {

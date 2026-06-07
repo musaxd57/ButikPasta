@@ -21,13 +21,7 @@ import {
   MessageSquare,
   Ticket,
 } from 'lucide-react';
-import { formatPrice } from '@/lib/pricing';
-import {
-  BASE_PRICE,
-  DECORATION_PRICE,
-  FLAVOR_PRICE,
-  FROSTING_PRICE,
-} from '@/lib/pricing';
+import { formatPrice, DEFAULT_PRICING, type PricingTable } from '@/lib/pricing';
 import { cn, downloadCsv } from '@/lib/utils';
 import { useToast } from '@/components/ui/Toast';
 import AdminGallery from './AdminGallery';
@@ -406,37 +400,156 @@ function OrdersTable({
   );
 }
 
+function PriceRow({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: number;
+  onChange: (v: number) => void;
+}) {
+  return (
+    <div className="flex items-center justify-between rounded-xl border border-ivory/10 bg-charcoal px-4 py-3 text-sm">
+      <span className="capitalize text-ivory/70">{label}</span>
+      <div className="flex items-center gap-1.5">
+        <span className="text-ivory/40">₺</span>
+        <input
+          type="number"
+          min={0}
+          value={value}
+          onChange={(e) => onChange(Math.max(0, Number(e.target.value)))}
+          className="w-24 rounded-lg border border-ivory/15 bg-charcoal-dark px-3 py-1.5 text-right text-gold focus:border-gold focus:outline-none"
+        />
+      </div>
+    </div>
+  );
+}
+
+// Live, DB-backed pricing editor. Loads the current table, lets the admin edit
+// every modifier, and persists it — affecting both the configurator estimate
+// and the authoritative order total computed on the server.
 function MenuMgmt({ t }: { t: (k: string) => string }) {
-  const rows = [
-    { label: 'Base price', value: BASE_PRICE },
-    ...Object.entries(FLAVOR_PRICE).map(([k, v]) => ({
-      label: `Flavor · ${k}`,
-      value: v,
-    })),
-    ...Object.entries(FROSTING_PRICE).map(([k, v]) => ({
-      label: `Frosting · ${k}`,
-      value: v,
-    })),
-    ...Object.entries(DECORATION_PRICE).map(([k, v]) => ({
-      label: `Decoration · ${k}`,
-      value: v,
-    })),
+  const { toast } = useToast();
+  const [table, setTable] = useState<PricingTable | null>(null);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    fetch('/api/admin/pricing')
+      .then((r) => r.json())
+      .then((d) => setTable(d.pricing ?? DEFAULT_PRICING))
+      .catch(() => setTable(DEFAULT_PRICING));
+  }, []);
+
+  if (!table) {
+    return (
+      <div className="flex h-48 items-center justify-center">
+        <Loader2 className="animate-spin text-gold" size={24} />
+      </div>
+    );
+  }
+
+  const setScalar = (key: keyof PricingTable, v: number) =>
+    setTable((prev) => (prev ? { ...prev, [key]: v } : prev));
+
+  const setGroup = (
+    group: 'size' | 'flavor' | 'frosting' | 'decoration',
+    key: string,
+    v: number,
+  ) =>
+    setTable((prev) =>
+      prev ? { ...prev, [group]: { ...prev[group], [key]: v } } : prev,
+    );
+
+  const save = async () => {
+    setSaving(true);
+    try {
+      const res = await fetch('/api/admin/pricing', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pricing: table }),
+      });
+      toast(res.ok ? t('pricingSaved') : t('pricingError'), res.ok ? 'success' : 'error');
+    } catch {
+      toast(t('pricingError'), 'error');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const groups: {
+    title: string;
+    group: 'size' | 'flavor' | 'frosting' | 'decoration';
+  }[] = [
+    { title: t('groupSize'), group: 'size' },
+    { title: t('groupFlavor'), group: 'flavor' },
+    { title: t('groupFrosting'), group: 'frosting' },
+    { title: t('groupDecoration'), group: 'decoration' },
   ];
+
   return (
     <div>
-      <h2 className="mb-6 font-serif text-3xl">{t('menuMgmt')}</h2>
-      <div className="max-w-lg space-y-2">
-        {rows.map((r) => (
-          <div
-            key={r.label}
-            className="flex items-center justify-between rounded-xl border border-ivory/10 bg-charcoal px-4 py-3 text-sm"
-          >
-            <span className="capitalize text-ivory/70">{r.label}</span>
-            <input
-              type="number"
-              defaultValue={r.value}
-              className="w-24 rounded-lg border border-ivory/15 bg-charcoal-dark px-3 py-1.5 text-right text-gold focus:border-gold focus:outline-none"
+      <div className="mb-6 flex items-center justify-between">
+        <h2 className="font-serif text-3xl">{t('menuMgmt')}</h2>
+        <button
+          onClick={save}
+          disabled={saving}
+          className="flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-charcoal transition hover:bg-gold-light disabled:opacity-60"
+        >
+          {saving ? <Loader2 size={14} className="animate-spin" /> : null}
+          {t('save')}
+        </button>
+      </div>
+
+      <div className="grid gap-8 lg:grid-cols-2">
+        <div>
+          <p className="mb-2 text-xs uppercase tracking-wider text-ivory/40">
+            {t('groupGeneral')}
+          </p>
+          <div className="space-y-2">
+            <PriceRow
+              label={t('priceBase')}
+              value={table.base}
+              onChange={(v) => setScalar('base', v)}
             />
+            <PriceRow
+              label={t('priceTierSurcharge')}
+              value={table.tierSurcharge}
+              onChange={(v) => setScalar('tierSurcharge', v)}
+            />
+            <PriceRow
+              label={t('priceSprinkles')}
+              value={table.sprinkles}
+              onChange={(v) => setScalar('sprinkles', v)}
+            />
+            <PriceRow
+              label={t('priceCandle')}
+              value={table.candlePerUnit}
+              onChange={(v) => setScalar('candlePerUnit', v)}
+            />
+            <PriceRow
+              label={t('priceMessage')}
+              value={table.message}
+              onChange={(v) => setScalar('message', v)}
+            />
+          </div>
+        </div>
+
+        {groups.map(({ title, group }) => (
+          <div key={group}>
+            <p className="mb-2 text-xs uppercase tracking-wider text-ivory/40">
+              {title}
+            </p>
+            <div className="space-y-2">
+              {Object.entries(table[group]).map(([key, value]) => (
+                <PriceRow
+                  key={key}
+                  label={key}
+                  value={value as number}
+                  onChange={(v) => setGroup(group, key, v)}
+                />
+              ))}
+            </div>
           </div>
         ))}
       </div>

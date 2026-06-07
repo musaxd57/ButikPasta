@@ -4,12 +4,9 @@ import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
 import { useConfigurator } from '@/store/configurator';
+import { usePricing } from '@/store/pricing';
 import { PRESETS } from '@/lib/data';
 import {
-  DECORATION_PRICE,
-  FLAVOR_PRICE,
-  FROSTING_PRICE,
-  SIZE_PRICE,
   calculatePrice,
   estimateServings,
   formatPrice,
@@ -96,6 +93,7 @@ export default function Steps() {
   const tRoot = useTranslations();
   const locale = useLocale();
   const { config, step, ...actions } = useConfigurator();
+  const pricing = usePricing((s) => s.pricing);
 
   const minDate = minDeliveryDate().toISOString().split('T')[0];
 
@@ -177,7 +175,7 @@ export default function Steps() {
                       key={s}
                       ratio="aspect-[4/3]"
                       label={tSize(s)}
-                      price={SIZE_PRICE[s]}
+                      price={pricing.size[s]}
                       selected={tier.size === s}
                       onClick={() => actions.setTier(i, { size: s })}
                       visual={<SizeSilhouette size={s} selected={tier.size === s} />}
@@ -206,7 +204,7 @@ export default function Steps() {
                       large
                       background={FLAVOR_VISUAL[f]}
                       label={tFlavor(f)}
-                      price={FLAVOR_PRICE[f]}
+                      price={pricing.flavor[f]}
                       selected={tier.flavor === f}
                       onClick={() => actions.setTier(i, { flavor: f })}
                     />
@@ -228,7 +226,7 @@ export default function Steps() {
                 large
                 background={FROSTING_VISUAL[f]}
                 label={tFrosting(f)}
-                price={FROSTING_PRICE[f]}
+                price={pricing.frosting[f]}
                 selected={config.frosting === f}
                 onClick={() => actions.setFrosting(f)}
               />
@@ -269,7 +267,7 @@ export default function Steps() {
                 key={d}
                 ratio="aspect-square"
                 label={tDeco(d)}
-                price={DECORATION_PRICE[d]}
+                price={pricing.decoration[d]}
                 selected={config.decorations.includes(d)}
                 onClick={() => actions.toggleDecoration(d)}
                 visual={<DecorationVisual deco={d} />}
@@ -445,7 +443,7 @@ export default function Steps() {
       );
 
     case 8: { // Review summary
-      const price = calculatePrice(config);
+      const price = calculatePrice(config, pricing);
       const rows: { label: string; value: string }[] = [
         {
           label: t('steps.tiers'),
