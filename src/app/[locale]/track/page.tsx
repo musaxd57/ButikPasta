@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { useTranslations } from 'next-intl';
 import PageHero from '@/components/layout/PageHero';
@@ -28,7 +29,9 @@ function TrackBody() {
         crumbs={[{ label: tNav('home'), href: '/' }, { label: tNav('track') }]}
       />
       <Section tone="ivory">
-        <TrackClient />
+        <Suspense fallback={null}>
+          <TrackClient />
+        </Suspense>
       </Section>
     </>
   );

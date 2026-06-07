@@ -64,6 +64,7 @@
     "date": "Date",
     "amount": "Amount",
     "status": "Status",
+    "payment": "Payment",
     "browseShop": "Start Shopping"
   },
   "cupcakes": {

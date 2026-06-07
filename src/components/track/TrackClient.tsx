@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Check, Loader2, Search } from 'lucide-react';
@@ -9,9 +10,25 @@ import { cn } from '@/lib/utils';
 
 const STEPS = ['PENDING', 'IN_PROGRESS', 'READY', 'DELIVERED'] as const;
 
+const PAYMENT_LABEL: Record<string, { tr: string; en: string; cls: string }> = {
+  UNPAID: { tr: 'Ödenmedi', en: 'Unpaid', cls: 'bg-rose/10 text-rose' },
+  DEPOSIT_PAID: {
+    tr: 'Kapora Alındı',
+    en: 'Deposit Paid',
+    cls: 'bg-amber-500/15 text-amber-600',
+  },
+  PAID: { tr: 'Ödendi', en: 'Paid', cls: 'bg-emerald-500/15 text-emerald-600' },
+  REFUNDED: {
+    tr: 'İade Edildi',
+    en: 'Refunded',
+    cls: 'bg-charcoal/10 text-charcoal/60',
+  },
+};
+
 interface OrderStatus {
   orderNumber: string;
   status: string;
+  paymentStatus?: string;
   deliveryDate: string;
   deliverySlot: string;
   totalPrice: number;
@@ -20,20 +37,21 @@ interface OrderStatus {
 export default function TrackClient() {
   const t = useTranslations('track');
   const locale = useLocale();
+  const searchParams = useSearchParams();
   const [value, setValue] = useState('');
   const [loading, setLoading] = useState(false);
   const [order, setOrder] = useState<OrderStatus | null>(null);
   const [notFound, setNotFound] = useState(false);
 
-  const search = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!value.trim()) return;
+  const runSearch = useCallback(async (raw: string) => {
+    const q = raw.trim();
+    if (!q) return;
     setLoading(true);
     setNotFound(false);
     setOrder(null);
     try {
       const res = await fetch(
-        `/api/track?orderNumber=${encodeURIComponent(value.trim())}`,
+        `/api/track?orderNumber=${encodeURIComponent(q)}`,
       );
       if (!res.ok) {
         setNotFound(true);
@@ -47,6 +65,20 @@ export default function TrackClient() {
     } finally {
       setLoading(false);
     }
+  }, []);
+
+  // Auto-search when arriving with ?order=NUMBER (e.g. from the account page).
+  useEffect(() => {
+    const prefill = searchParams.get('order');
+    if (prefill) {
+      setValue(prefill.toUpperCase());
+      runSearch(prefill);
+    }
+  }, [searchParams, runSearch]);
+
+  const search = (e: React.FormEvent) => {
+    e.preventDefault();
+    runSearch(value);
   };
 
   const currentIndex = order
@@ -103,6 +135,18 @@ export default function TrackClient() {
               <p className="font-serif text-lg">
                 {formatPrice(order.totalPrice, locale)}
               </p>
+              {order.paymentStatus && PAYMENT_LABEL[order.paymentStatus] && (
+                <span
+                  className={cn(
+                    'mt-1 inline-block rounded-full px-2.5 py-0.5 text-[0.65rem] font-medium',
+                    PAYMENT_LABEL[order.paymentStatus].cls,
+                  )}
+                >
+                  {locale === 'tr'
+                    ? PAYMENT_LABEL[order.paymentStatus].tr
+                    : PAYMENT_LABEL[order.paymentStatus].en}
+                </span>
+              )}
             </div>
           </div>
 
