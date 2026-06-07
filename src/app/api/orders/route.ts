@@ -8,6 +8,9 @@ import { sendOrderConfirmation } from '@/lib/email';
 import { evaluateCoupon } from '@/lib/coupons';
 import { getCustomerId } from '@/lib/customerAuth';
 import { enforceRateLimit } from '@/lib/rateLimit';
+import { calculatePrice } from '@/lib/pricing';
+import { loadPricing } from '@/lib/pricingStore';
+import { DEFAULT_CONFIG, type CakeConfig } from '@/types/cake';
 
 // Create a new order from the configurator/checkout flow.
 export async function POST(req: Request) {
@@ -27,17 +30,29 @@ export async function POST(req: Request) {
     const data = parsed.data;
     const orderNumber = generateOrderNumber();
 
+    // Recompute the price on the server from the submitted cake config using the
+    // current (DB-backed) pricing table. Never trust the client's totalPrice —
+    // this is the authoritative amount the customer is charged.
+    let serverTotal = data.totalPrice;
+    try {
+      const config = { ...DEFAULT_CONFIG, ...(JSON.parse(data.cakeConfig) as CakeConfig) };
+      const pricing = await loadPricing();
+      serverTotal = calculatePrice(config, pricing).total;
+    } catch {
+      // Malformed config → fall back to the client total (still coupon-checked).
+    }
+
     // Re-evaluate any coupon server-side so the discount can't be tampered with.
     let discount = 0;
     let appliedCode: string | null = null;
     if (data.couponCode) {
-      const result = await evaluateCoupon(data.couponCode, data.totalPrice);
+      const result = await evaluateCoupon(data.couponCode, serverTotal);
       if (result.valid && result.discount) {
         discount = result.discount;
         appliedCode = result.code ?? null;
       }
     }
-    const finalTotal = Math.max(0, data.totalPrice - discount);
+    const finalTotal = Math.max(0, serverTotal - discount);
     const customerId = getCustomerId();
 
     const order = await prisma.order.create({

@@ -1,11 +1,13 @@
 'use client';
 
+import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import { ChevronLeft, ChevronRight, Loader2, RotateCcw, Users } from 'lucide-react';
 import { useRouter } from '@/i18n/routing';
 import { useConfigurator } from '@/store/configurator';
+import { usePricing } from '@/store/pricing';
 import { calculatePrice, estimateServings, formatPrice } from '@/lib/pricing';
 import Steps from './Steps';
 
@@ -36,7 +38,9 @@ export default function Configurator() {
   const locale = useLocale();
   const router = useRouter();
   const { config, step, setStep, reset } = useConfigurator();
-  const price = calculatePrice(config);
+  const pricing = usePricing((s) => s.pricing);
+  useEffect(() => usePricing.getState().fetchPricing(), []);
+  const price = calculatePrice(config, pricing);
   const servings = estimateServings(config);
   const total = STEP_KEYS.length;
 
