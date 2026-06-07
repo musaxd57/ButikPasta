@@ -14,6 +14,7 @@ interface Comment {
 
 export default function Comments({ slug }: { slug: string }) {
   const t = useTranslations('journal');
+  const tCommon = useTranslations('common');
   const locale = useLocale();
   const { toast } = useToast();
   const [comments, setComments] = useState<Comment[]>([]);
@@ -38,6 +39,10 @@ export default function Comments({ slug }: { slug: string }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, postSlug: slug }),
       });
+      if (res.status === 429) {
+        toast(tCommon('rateLimited'), 'error');
+        return;
+      }
       if (!res.ok) throw new Error();
       toast(t('commentSuccess'), 'success');
       setForm({ author: '', email: '', body: '' });

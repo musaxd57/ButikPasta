@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Loader2, Send } from 'lucide-react';
 import { useToast } from '@/components/ui/Toast';
 
 export default function ContactForm() {
   const t = useTranslations('contact');
-  const locale = useLocale();
+  const tCommon = useTranslations('common');
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
@@ -30,6 +30,10 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
+      if (res.status === 429) {
+        toast(tCommon('rateLimited'), 'error');
+        return;
+      }
       if (!res.ok) throw new Error();
       toast(t('success'), 'success');
       setForm({ name: '', email: '', phone: '', subject: '', message: '' });

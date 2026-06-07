@@ -210,7 +210,8 @@
     "all": "Tümü",
     "submit": "Gönder",
     "sending": "Gönderiliyor...",
-    "required": "Zorunlu alan"
+    "required": "Zorunlu alan",
+    "rateLimited": "Çok fazla deneme yaptınız. Lütfen biraz bekleyip tekrar deneyin."
   },
   "home": {
     "heroTagline": "Her Pasta, Bir Hikaye",
